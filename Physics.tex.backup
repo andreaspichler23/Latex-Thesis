@@ -1,0 +1,283 @@
+\chapter{Physics of the VIP2 experiment}
+\label{chap:Physics}
+
+discovery of the pep?; spin, pep and the spin statistics connection - 2nd quantization - symm/antisymm wfkt; exchange interaction; symmetrization postulate??; group theory + young diagrams; theories of violation of spin Statistics, mg superselection rule, electrons in a conductor - formation of electric current - decoherence of electrons ? - interaction of an electron with an atom - cascading process; current on/off -> vip2 mesurement principle; and why it is better than other experiments (steady state interactions) 
+
+\section{Physics Basics}
+\label{sec:PhysicsBasics}
+
+\subsection{The Pauli Exclusion Principle}
+\label{sec:pep}
+
+To explain the spectra of alkali atoms, recorded with a magnetic field (Zeemann effect), Wolfgang Pauli postulated a $4^{th}$ quantum number for electrons in the early 1920s. This one was in addition to the quantum numbers already know to that time, which are nowadays called principal quantum number \textit{n}, angular momentum quantum number \textit{l} and magnetic quantum number \textit{$m_{l}$}. He named this quantum number a ``two-valuedness not describable classically'' \cite{Pauli1946}. This $4^{th}$ quantum number was later called the electron's spin. Another problem he was working on at that time was the series of integer number 2, 8, 18, 32, etc., which was determining the lengths of the lines in what we call the periodic table of elements. It was furthermore known to him that the number of electronic energy levels in an alkali atom were the same as the number of electrons in the closed shell of the rare gas with the same principal quantum number. He used this information to formulate the Pauli Exclusion Principle: The number of electrons in closed subgroups can be reduced to one, if the division of the groups (by giving them values of the four quantum numbers) is carried so far that every degeneracy is removed. An entirely non-degenerate level is closed, if it is occupied by a single electron \cite{Pauli1946}. This is equivalent to saying that every state corresponding to a set of quantum numbers \textit{n}, \textit{l}, \textit{$m_{l}$} and \textit{$m_{s}$} can only be occupied by one electron. Wolfgang Pauli won the Nobel Prize in physics for the formulation of the Pauli Exclusion principle in 1945. It was first formulated for electrons, but later on extended to all fermions.
+
+\subsection{Quantum Mechanical Angular Momenta}
+\label{sec:AngMom}
+
+%orbital angluar mom + spin: 2 diff types , spin angular momenta can take half integer values; spin has magnitude: all particles of same type- same, kg m2s-1, dimensionless spin quantum number, spin can not be made higher or lower (contrast to ang mom), algabra and formulas
+angular momentum + magnetic moment -classically; lz, l2 operator,eigenvalues, degeneracy; commutation relations -> also with hamiltonian -> conservation
+
+From a classical point of view an angular momentum is defined as: $\vec{L} = \vec{r} \times \vec{p}$. In this formula $\vec{L}$ is the angular momentum, $\vec{r}$ is the vector to the particle from the origin and $\vec{p}$ is the momentum of the particle. The magnetic moment of a particle with charge q moving in a circle with radius \textit{r} is defined as $\vec{\mu} = I \times \vec{A}$. Here $\vec{\mu}$ is the magnetic moment, $\vec{A} = r^{2}\pi * \vec{e_{A}}$ is the area that the particle's movement is encircling and \textit{I} is the current. The current the particle generates can be written as:
+\begin{equation}
+ I = \frac{q}{T} = \frac{q}{\frac{2r\pi}{v}} = \frac{qv}{2r\pi}
+\end{equation} 
+Here, \textit{v} is the particle's velocity and \textit{T} is the time it needs for one full circle. After dropping the vector arrows due to orthogonality, the magnetic moment can be written as:
+\begin{equation}
+ \mu = IA = \frac{qv}{2r\pi}r^{2}\pi = \frac{qvr}{2} = \frac{q}{2m} rvm = \frac{q}{2m}L
+ \label{eq:magnMoment}
+\end{equation} 
+Where $\frac{q}{2m} = \frac{\mu}{L}$ is called the gyromagnetic ratio. Formula \ref{eq:magnMoment} is for electrons often rewritten in the form
+\begin{equation}
+ \mu_{e} = g\mu_{B}\frac{L}{\hbar} \hspace{2em} \mu_{B} = \frac{e\hbar}{2m_{e}} \hspace{2em} \hbar = 1.054571800(13)\times10^{-34} [\frac{m^{2}kg}{rad\times s}]
+ %\hbar = 10^{−34} \frac{m^{2}kg}{s}
+ \label{eq:mue}
+\end{equation} 
+where $\mu_{e}$ is the magnetic moment of the electron, $m_{e}$ is the electron mass and $\mu_{B}$ is the Bohr magneton. The Bohr magneton is the expected ratio between the magnetic moment $\mu_{e}$ and the dimensionless value $\frac{L}{\hbar}$. The \textit{g-factor} parametrizes deviations from the expected value \textit{g} = 1, which could arise, if for example the charge density distribution is different from the mass density distribution.
+
+In analogy to classical mechanics, the angular momentum can be written in quantum mechanics as a cross product of the position operator \textit{$\widehat{x}$} and the momentum operator \textit{$\widehat{p}$}: $\widehat{L} = \widehat{x} \times \widehat{p}$. In position basis this can be written as
+\begin{equation}
+ \widehat{L} = \widehat{x} \times \widehat{p} = \frac{\hbar}{\imath}(\vec{x}\times \vec{\nabla}) \hspace{2em} \vec{\nabla}= \left (
+  \begin{tabular}{c}
+  $\frac{\partial}{\partial x}$\vspace{0.2em}\\
+  $\frac{\partial}{\partial y}$\vspace{0.2em}\\
+  $\frac{\partial}{\partial z}$\vspace{0.2em}
+  \end{tabular}
+\right )
+\end{equation} 
+In index notation, this operator can also be written as follows: $\widehat{L_{i}}=\epsilon_{ijk} x_{j}\widehat{p_{k}}$ with $\epsilon_{ijk}$ being the antisymmetric Levi-Civita tensor. The indices $i,j,k$ correspond to the 3 spatial dimensions. $\widehat{L_{i}}$ and $\widehat{L_{j}}$ do not commute as 
+\begin{equation}  
+\label{eq:LCommutator1}
+ [\widehat{L_{i}},\widehat{L_{j}}]=\imath\hbar\epsilon_{ijk}\widehat{L_{k}} \hspace{4em}  [\widehat{X},\widehat{Y}] = \widehat{X}\widehat{Y} - \widehat{Y}\widehat{X}                                                                                                                                                                                                \end{equation} 
+Here $[\widehat{X},\widehat{Y}]$ denotes the commutator of $\widehat{X}$ and $\widehat{Y}$. For readability, the hats of operators will be omitted from now on. The entries $L_{i}$ of the angular momentum operator commute with the rotation invariant form $L^{2} = L_{x}^2+L_{y}^2+L_{z}^2$. This is the operator of the squared norm of the angular momentum. $L_{i}$ and $L^{2}$ are compatible variables and can be measured simultaneously. This also means that
+\begin{equation}
+\label{eq:LCommutator2}
+ [L_{i},L^{2}]=0
+\end{equation} 
+For any given system, the following relations for the eigenvalues of these operators hold:
+\begin{equation}
+\label{eq:ml}
+ L_{i}\ket{\phi}=m_{l}\hbar\ket{\phi} \hspace{2em} m_{l}\in{...-2,-1,0,1,2,...}
+\end{equation} 
+\begin{equation}
+\label{eq:l}
+ L^{2}\ket{\phi}=\hbar^{2}l(l+1)\ket{\phi} \hspace{2em} l\in{0,1,2,...} \hspace{2em}
+\end{equation} 
+with \textbar\textit{$m_{l}$}\textbar $\leq$ \textit{l}. Considering now particles without spin and and rotation symmetric Hamiltonian of the form $H=\frac{p^{2}}{2m}+V(r)$ (like the atom), the angular momentum is conserved and commutes with the Hamiltonian
+\begin{equation}
+\label{eq:commutatorL3}
+ [H,L_{i}]=[H,L^{2}]=[L_{i},L^{2}]=0
+\end{equation} 
+Therefore $L_{i}$ and $L^{2}$ are conserved quantities. For systems without spin, $H$, $L^{2}$ and $L_{i}$ form a complete set of commuting observables with the corresponding quantum numbers $n$ (principal quantum number), $l$ (angular momentum quantum number) and $m_{l}$ (magnetic quantum number). Introducing the rotation invariant Coulomb potential for V(r)
+\begin{equation}
+ V(r)=-\frac{1}{4\pi\epsilon_{0}}\frac{q}{r}
+\end{equation} 
+one finds that angular momentum quantum number $l$ always needs to be smaller than the principal quantum number $n$ ($l<n$). Only considering pure Coulomb interaction, the eigenstates with principal quantum number $n$ belonging to the eigenvalue $E_{n}$ are $n^{2}$-fold degenerate.
+ 
+\subsection{The Spin}
+\label{sec:Spin}
+
+orbital angluar mom + spin: 2 diff types , spin angular momenta can take half integer values; spin has magnitude: all particles of same type- same, kg m2s-1, dimensionless spin quantum number, spin can not be made higher or lower (contrast to ang mom), algabra and formulas; J=L+S commutation with H; pauli matrices
+
+The spin is an intrinsic form of angular momentum carried by elementary particles. It has a definitive and non-modifiable magnitude for each particle type. This is a difference to the section \ref{sec:AngMom}, where the angular momenta, described by the quantum number $l$, could change in magnitude. Wolfgang Pauli was the first to propose the concept of spin in 1925. Analogous to the relation between angular momentum and magnetic moment \ref{eq:mue}, the relation between spin and angular momentum can be written as
+\begin{equation}
+ \mu_{s} = g\mu_{B}\frac{S}{\hbar} \hspace{2em} \mu_{B} = \frac{e\hbar}{2m}
+\end{equation} 
+where $\mu_{s}$ is the magnetic moment of a particle due to its spin and $S$ is the magnitude of this spin. Unlike for angular momenta described in \ref{sec:AngMom}, the value for $g$ $\neq$ 1. From the Dirac equation, a value of $g$ = 2 can be obtained. Corrections for example from Quantum Electrodynamics further alter this value on the \%-level. 
+
+Analogous to equation \ref{eq:LCommutator1} and \ref{eq:LCommutator2}, commutation relations can be found for the spin:
+\begin{equation}
+ [S_{i},S_{j}]=\imath\hbar\epsilon_{ijk}S_{k}
+\end{equation} 
+\begin{equation}
+ [S_{i},S^{2}]=0
+\end{equation} 
+Here $S_{i}$ are the spin components in one spatial direction and $S^{2}$ is the squared norm of the spin. Furthermore, analogous to equations \ref{eq:ml} and \ref{eq:l} following relations hold for the spin:
+\begin{equation}
+ S^{2}\ket{\phi}=\hbar^{2}s(s+1)\ket{\phi} \hspace{2em} s\in{0,\frac{1}{2},1,...} 
+\end{equation} 
+\begin{equation}
+ S_{i}\ket{\phi}=m_{s}\hbar\ket{\phi} \hspace{2em} \mid m_{s} \mid \leq \textit{s}
+\end{equation} 
+Here $s$ is the spin quantum number and $m_{s}$ is the spin projection quantum number. The big difference between $s$ and its analogon $l$ from the previous chapter is that $s$ can also take half-integer values. Another difference is, that $s$, unlike $l$ can not be changed and is intrinsic for each particle type. Particles with half-integer spin quantum number are called \textit{fermions}, particles with integer spin are called \textit{bosons}. In particular, leptons such as electrons have $s$ = $\frac{1}{2}$ and therefore $m_{s}$ can take the values $\pm$ $\frac{1}{2}$. For a system containing particles with spin, $n$, $l$, $m_{l}$ and $m_{s}$ form a complete set of commuting observables. The total angular momentum ($\vec{J}$) can be defined as the sum of the orbital angular momentum and spin $\vec{J}$ = $\vec{L}$ + $\vec{S}$. Analogous expressions to equations \ref{eq:LCommutator1} - \ref{eq:commutatorL3} hold for the total angular momentum $\vec{J}$ in systems containing particles with spin.
+
+Considering a system containing a particle with $s$ = $\frac{1}{2}$. The basis in which $S^{2}$ and $S_{z}$ are diagonal consists of two states $\ket{s,m_{s}}$ = $\ket{\frac{1}{2},\pm \frac{1}{2}}$. These states can be identified with the basis vectors $ e_{1} = \begin{pmatrix}1 \\ 0\end{pmatrix}$ and $ e_{2} = \begin{pmatrix}0 \\ 1\end{pmatrix}$ and are often referred to as ``spin-up'' and ``spin-down'' relative to a defined z-direction. The action of operators on these states is as follows:
+%
+\begin{equation}
+ S^{2}\ket{\frac{1}{2},\pm \frac{1}{2}} = \hbar^{2}\frac{1}{2}(\frac{1}{2}+1) \ket{\frac{1}{2},\pm \frac{1}{2}}
+\end{equation} 
+%
+\begin{equation}
+ S_{z}\ket{\frac{1}{2}, \frac{1}{2}} = \hbar \frac{1}{2} \ket{\frac{1}{2}, \frac{1}{2}}
+\end{equation} 
+%
+\begin{equation}
+ S_{z}\ket{\frac{1}{2}, -\frac{1}{2}} = -\hbar \frac{1}{2} \ket{\frac{1}{2}, -\frac{1}{2}}
+\end{equation} 
+%
+\begin{equation}
+\label{eq:ladder1}
+ S_{+}\ket{\frac{1}{2}, \frac{1}{2}} = 0 \hspace{2em} S_{-}\ket{\frac{1}{2}, \frac{1}{2}} = \hbar \ket{\frac{1}{2}, -\frac{1}{2}}
+\end{equation} 
+%
+\begin{equation}
+\label{eq:ladder2}
+ S_{+}\ket{\frac{1}{2}, -\frac{1}{2}} = \hbar \ket{\frac{1}{2}, \frac{1}{2}} \hspace{2em} S_{-}\ket{\frac{1}{2}, -\frac{1}{2}} = 0
+\end{equation} 
+%
+The \textit{ladder operators} ($S_{\pm}$) were used in equations \ref{eq:ladder1} and \ref{eq:ladder2}. A ladder operator increases ($S_{+}$) or decreases ($S_{-}$) the azimuthal quantum number of a state and for an angular momentum $\vec{J}$ with quantum numbers $j$ and $m_{j}$ defined as
+%
+\begin{equation}
+ J_{\pm} \ket{j, m_{j}} = \hbar \sqrt{(j\mp m_{j}) (j \pm m_{j} +1) } \ket{j,m_{j}\pm 1}
+\end{equation} 
+%
+In the mentioned basis, the operators $S_{x}$, $S_{y}$ and $S_{z}$ can be written as
+\begin{equation}
+ S_{x}=\frac{\hbar}{2} \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}, \hspace{2em} S_{y}=\frac{\hbar}{2} \begin{pmatrix}0 & -\imath \\ \imath & 0\end{pmatrix}, \hspace{2em}%
+ S_{z}=\frac{\hbar}{2} \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}
+\end{equation} 
+These are the so called \textit{Pauli matrices}.
+
+\subsection{Indistinguishability, Symmetrization Postulate and Superselection Rule}
+
+indistinguishability of identical particles -> [P,A] = [P,H] =0 invariance of observables under permutations * -> invariance of the hamiltonian -> possible wfkt -> symmetrization postulate (arguments against) -> -> divisin into fermions and bosons -> simple argument for PEP; bosonic and fermionic statistics (occupation number)
+
+The following section loosely based on \cite{Sperandio2008}. First, let us define the action of the permutation operator $P_{i,j}$ on a given state $\phi$ = $\phi(1,2,..,i,...,j,...N)$, where the variables 1,2,... denote the spatial and the spin degrees of freedom. The permutation operator is defined as
+\begin{equation}
+ P_{i,j}\phi(1,2,..,i,...,j,...N) = \phi(1,2,..,j,...,i,...N)
+\end{equation} 
+The indistinguishability of identical particles implies that states that differ only by a permutation of identical particles can not be distinguished by any measurement. In quantum mechanics, a measurement is expressed as the expectation value of a hermitian \footnote{A hermitian or self-adjoint operator is an operator for which the relation $A^{\dag} = A$ holds. The hermitian conjugation $^{\dag}$ corresponds to transposition combined with complex conjugation. A hermitian operator has real eigenvalues and eigenvectors for different eigenvalues are orthogonal.} operator \textit{A}. This statement can be expressed for a state $\phi$ as the following equation:
+\begin{equation}
+ \braket{\phi|A|\phi} = \braket{\phi|P^{\dag}AP|\phi}
+\end{equation} 
+From this equation follows that the permutation operator commutes with every observable, as it holds for every state $\phi$ and it follows that $P^{\dag}AP$ = \textit{A}. Therefore \textit{PA} = \textit{AP} which implies commutation of the 2 operators. Specifically, the energy of a quantum mechanical system also must not depend on the permutation of identical particles. From above consderations it follows that:
+\begin{equation}
+ [P,H] = 0
+\end{equation} 
+where \textit{H} is the Hamiltonian. 
+
+An infitesimal time evolution of a state is given by the Schrödinger equation
+\begin{equation}
+ \partial_{t}\ket{\phi(t)} = \frac{1}{\imath\hbar} H \ket{\phi(t)} \Rightarrow \ket{\phi(t+\delta t)} = (1 + \frac{\delta t}{ \imath\hbar} H + O(\delta t^{2}))\ket{\phi(t)}
+\end{equation} 
+For a time-independent Hamiltonian \textit{H}, \textit{n}$\rightarrow \infty$ infinitesimal time steps between a start time $t_{0}$ and time $t$ give the time evolution operator $U(t-t_{0})$:
+\begin{equation}
+\label{eq:timeEvOp}
+ \ket{\phi(t)} = U(t-t_{0})\ket{\phi(t_{0})} \hspace{2em} U(t-t_{0}) = e^{-\frac{\imath}{\hbar}(t-t_{0})H}
+\end{equation} 
+As the permutation operator commutes with the Hamiltonian, it also commutes with the time evolution operator $U$,
+\begin{equation}
+ [P,U] = 0
+\end{equation} 
+because of equation \ref{eq:timeEvOp}. Therefore, the permutation symmetry of a state is conserved. This is called the \textit{Messiah-Greenberg (MG) superselection rule}. It is important to note that above considerations are only viable for systems where the number of particles is conserved and that the symmetry of a system is not necessarily preserved in systems with a non-constant particle number (see for example \cite{Messiah1964}). 
+
+Let us consider now a system of 2 particles. The state $\phi(1,2)$ is a solution of the Schrödinger equation
+\begin{equation}
+ H \ket{\phi(1,2)} = E \ket{\phi(1,2)}
+\end{equation} 
+As the Hamiltonian commutes with the permutation operator, $P_{12} \ket{\phi(1,2)} = \ket{\phi(2,1)}$ is also a solution to this equation with the same Hamiltonian $H$ and thes same eigenvalue $E$. All linear combinations of these 2 functions are also solutions of the equation. The linear combinations $\ket{\Phi} = \ket{\phi(1,2)} \pm \ket{\phi(2,1)}$ represent solutions corresponding to positive and negative symmetry with respect to particle exchange. 
+
+The situation is a bit more complex for a system with 3 particles. In case the state $\ket{\phi(1,2,3)}$ solves the Schrödinger equation, the linear combination:
+\begin{equation}
+ \ket{\phi(1,2,3)} + \ket{\phi(1,3,2)} - \ket{\phi(3,2,1)}
+\end{equation} 
+also solves the Schrödinger equation. For an exchange of particles 1 and 2, this state becomes
+\begin{equation}
+ \ket{\phi(2,1,3)} + \ket{\phi(2,3,1)} - \ket{\phi(3,1,2)}
+\end{equation} 
+The state is not an eigenstate of the permutation operator $P_{12}$. Therefore not all solutions of the Schrödinger equation need to be eigenfunctions of the permutation operator. A special case are the linear combinations with negative:
+\begin{equation}
+ \ket{\phi(1,2,3)} - \ket{\phi(1,3,2)} - \ket{\phi(2,1,3)} + \ket{\phi(2,3,1)} + \ket{\phi(3,1,2)} - \ket{\phi(3,2,1)}
+\end{equation} 
+and positve:
+\begin{equation}
+ \ket{\phi(1,2,3)} + \ket{\phi(1,3,2)} + \ket{\phi(2,1,3)} + \ket{\phi(2,3,1)} + \ket{\phi(3,1,2)} + \ket{\phi(3,2,1)}
+\end{equation} 
+symmetry with respect to particle exchange. These linear combinations are called completely (anti-)symmetric. This means that an application of the permutation operator for any pair of particles gives a negative or positive sign for the state $P\ket{\Phi}=\pm\ket{\Phi}$.
+
+For a general system of $N$ particles, the symmetry of different linear combinations of wave functions are described by \textit{Young diagrams} (see for example \cite{Kaplan2013}). A Young diagram represents an irreducible representation of the permutation group \footnote{The permutation group $S_{N}$ is a group whose elements are the permutations of a set with $N$ elements.}. An example for such diagrams is shown in figure \ref{fig:YoungDiag}
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.6\textwidth]{./Figures/YoungDiagram.png}
+ % YoungDiagram.png: 1085x347 pixel, 211dpi, 13.06x4.18 cm, bb=0 0 370 118
+ \caption{Young diagrams of the $S_{3}$ permutation group for antisymmetric (left), mixed (middle) and symmetric (right) permutation symmetry.}
+ \label{fig:YoungDiag}
+\end{figure}
+Each box of a Young diagram symbolizes a particle and the spatial relation of 2 boxes symbolizes the permutation symmetry of the state with respect to exchange of the particles in the boxes. 2 boxes arranged vertically stand for antisymmetric exchange symmetry and 2 boxes aligned horizontally mean symmetric exchange symmetry. From the description of this kind follows that all states described by a Young diagram are eigenstates of the permutation operator. In figure \ref{fig:YoungDiag} different exchange symmetries for systems with 3 particles are shown. It is important to note that there is not only the completely (anti-)symmetric exchange symmetry (left/right side), but also the state with a positive symmetry for the exchange of one pair of particles and negative symmetry for another pair. This state is called a mixed-symmetry state.
+
+The \textit{symmetrization postulate} states that from the 3 different permutation symmetries in figure \ref{fig:YoungDiag}, only the left and the right ones are realised in nature \cite{Messiah1964}. Due to their form they are called the one-dimensional representation of the permutation group. The usual proof of this postulate is like this:
+
+The indistinguishability of identical particles results in the fact that a permutation of 2 particles should only multiply the wave function only by an insiginificant phase factor $e^{\imath\alpha}$ with $\alpha$ being a real constant.
+\begin{equation}
+ P_{12}\ket{\phi(1,2)} = \ket{\phi(2,1)} = e^{\imath\alpha}\ket{\phi(1,2)}
+\end{equation} 
+One more application of the permutation operator gives
+\begin{equation}
+\label{eq:phaseFactor}
+ P_{12}P_{12}\ket{\phi(1,2)} =  \ket{\phi(1,2)} = e^{\imath\alpha}e^{\imath\alpha}\ket{\phi(1,2)} = e^{2\imath\alpha}\ket{\phi(1,2)}
+\end{equation} 
+or
+\begin{equation}
+\label{eq:phaseFactor2}
+ e^{2\imath\alpha} = 1 \Rightarrow e^{\imath\alpha} = \pm 1
+\end{equation} 
+As it is shown in \cite{Kaplan2013}, this proof is incorrect. One argument against this proof is that the indistinguishability of identical particles only requires the squared norm of the wave function to be invariant under permutations:
+\begin{equation}
+ P_{12}\textbar\ket{\phi(1,2)}\textbar^{2} = \textbar\ket{\phi(1,2)}\textbar^{2}
+\end{equation} 
+For a function to satisfy this relation it is sufficient that it changes under permutations as:
+\begin{equation}
+ P_{12}\ket{\phi(1,2)} = e^{\imath\alpha(1,2)}\ket{\phi(1,2)}
+\end{equation} 
+where 1 and 2 are as in the above formulas the space and the spin coordinates of the two particles. So in general the phase factor can be a function of the permutation and of the coordinates. That means that in general, equations \ref{eq:phaseFactor} and \ref{eq:phaseFactor2} do not hold. Consequently the symmetrization postulate states the fact that only the one-dimensional representations of the permutation group meaning the fully (anti-) symmetric states have yet been observed in nature and the solution of the Schrödinger equation can belong to any representation of the permutation group, not only the one-dimensional ones.
+
+\subsection{Fermions, Bosons and the Spin-Statistics Connection}
+
+As mentioned in section \ref{sec:Spin}, different particles have different intrinsic spin, which can not be altered. As was shown in 1940 by Wolfgan Pauli \cite{Pauli1940}, the spin of a particle determines which of the 2 possible representations of the permutation group it belongs to. 
+
+Particles with integer spin (s = 0,1,2, ...) have symmetric wavefunctions with respect to particle exchange. These partciles are called \textit{bosons} (after indian physicist Satyendra Nath Bose). Their corresponding Young diagram is of the type on the right side of figure \ref{fig:YoungDiag}. Elementary bosonic particles are for example the force carrier partiles of strong, weak and electromagnetic interaction: the gluon, the W and Z bosons and the photon. Another example for an elementary boson is the Higgs particle. Composite bosons can be made up out of particle with half integer or with integer spin. Example for this kind of particles are mesons, which are made up out of 2 quarks with s = $\frac{1}{2}$. 
+
+The occupation number of bosons follows the Bose-Einstein statistics. The expected number of particles in an energy state is in this case:
+\begin{equation}
+ N(E) = \frac{1}{e^{\frac{E-\mu}{kT}}-1}
+\end{equation} 
+where $E$ is th energy of the state, $\mu$ is the chemical potential, $k$ is the Boltzmann constant and $T$ is the absolute temperature. A consequence of this statistics is that more than one bosonic particles can occupy the same quantum state. 
+
+Particles with half-integer spin (s = $\frac{1}{2},\frac{3}{2},...$) have antisymmetric wavefunctions with respect to particle exchange. This means changing the position of 2 particles mutliplies the wave function with a minus sign. These partciles are called \textit{fermions} (after the italian physicist Enrico Fermi). Their corresponding Young diagram is of the type on the left side of figure \ref{fig:YoungDiag}. Fermions can be elementary particles like quarks, electrons, neutrons or positrons, but also composite particles like atoms. 
+
+The occupation number of fermions follows the Fermi-Dirac statistics. The expected number of particles in an energy state is in this case:
+\begin{equation}
+ N(E) = \frac{1}{e^{\frac{E-\mu}{kT}}+1}
+\end{equation} 
+As the exponential function is always positive, the occupation number is always smaller than 1. This means that every energy state can only be occupied by 1 fermion. This is known as the \textit{Pauli Exclusion Principle (PEP)} (see also section \ref{sec:pep}). It can also be seen that particles with purely fermionic exchange symmetry can not be in the same state from the following considerations: consider a system of 2 fermionic particles with 2 possible states. The unnormalized antiysmmetric wavefunction is:
+\begin{equation}
+ \ket{\Phi_{a}} = \ket{\phi(1,2)} - \ket{\phi(2,1)} 
+\end{equation} 
+The wavefunction for the 2 fermionic particles being in the same state is (in this case in state 1):
+\begin{equation}
+ \ket{\Phi_{a}} = \ket{\phi(1,1)} - \ket{\phi(1,1)} = 0
+\end{equation} 
+So the antisymmetric wavefunction of 2 particles being in the same state is equal to 0. Therefore 2 fermionic particles can not be in the same state.
+
+The relation described above between a particle's spin and its statistics is called the \textit{Spin-Statistics Connection}. 
+
+In the literature many proofs for the Spin-Statistic conenction exist (e.g. \cite{Pauli1940}, \cite{Schwinger1958}). A clear set of assumptions for this proof was presented by Lüders and Zumino in \cite{Luders1958}. The authors present 5 postulates plus gauge invariance as a foundation of their proof. These 5 postulates are:
+\begin{itemize}
+ \item Invariance with respect to the proper inhomogenous Lorentz group (which contains translations, but no reflections)
+ \item Locality - 2 operators of the same field seperated by a spacelike interval either commute or anticommute
+ \item The vacuum is the state of the lowest energy
+ \item The metric of the Hilbert space is positive definite
+ \item The vacuum is not identically annihilated by a field
+\end{itemize}
+It is worth noting that the mentioned proof also holds for interacting fields. Another interesting point is that the Spin-Statistics connection does not hold for 2 spatial dimensions. The concept of \textit{anyons}, a class of particles which does not follow bosonic or fermionic statistics, was presented in \cite{Stern2008} in this context.
+
+\section{Theories of Violation of Spin-Statistcs}
+
+IK model, parons, intermediate stat, quons
+
+
+
+\section{Tests of the Pauli Exclusion Principle}
+
+Elliott -> division of experiments; other tests than VIP2
+
+\section{The VIP2 exerpimental method}
