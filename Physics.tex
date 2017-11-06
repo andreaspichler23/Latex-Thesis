@@ -138,6 +138,7 @@ In the mentioned basis, the operators $S_{x}$, $S_{y}$ and $S_{z}$ can be writte
 These are the so called \textit{Pauli matrices}.
 
 \subsection{Indistinguishability, Symmetrization Postulate and Superselection Rule}
+\label{sec:IndSymPostSS}
 
 indistinguishability of identical particles -> [P,A] = [P,H] =0 invariance of observables under permutations * -> invariance of the hamiltonian -> possible wfkt -> symmetrization postulate (arguments against) -> -> divisin into fermions and bosons -> simple argument for PEP; bosonic and fermionic statistics (occupation number)
 
@@ -240,7 +241,11 @@ The occupation number of bosons follows the Bose-Einstein statistics. The expect
 \begin{equation}
  N(E) = \frac{1}{e^{\frac{E-\mu}{kT}}-1}
 \end{equation} 
-where $E$ is th energy of the state, $\mu$ is the chemical potential, $k$ is the Boltzmann constant and $T$ is the absolute temperature. A consequence of this statistics is that more than one bosonic particles can occupy the same quantum state. 
+where $E$ is th energy of the state, $\mu$ is the chemical potential, $k$ is the Boltzmann constant and $T$ is the absolute temperature. A consequence of this statistics is that more than one bosonic particles can occupy the same quantum state. The commutation relations of creation ($a^{\dag}$) an annihilation ($a$) operators for bosonic particles in states $X$ and $Y$ are:
+\begin{equation}
+\label{eq:bosComm}
+ [a_{X},a_{Y}] = 0 \hspace{2em} [a^{\dag}_{X},a^{\dag}_{Y}] = 0 \hspace{2em} [a_{X},a^{\dag}_{Y}] = \delta_{X,Y}
+\end{equation} 
 
 Particles with half-integer spin (s = $\frac{1}{2},\frac{3}{2},...$) have antisymmetric wavefunctions with respect to particle exchange. This means changing the position of 2 particles mutliplies the wave function with a minus sign. These partciles are called \textit{fermions} (after the italian physicist Enrico Fermi). Their corresponding Young diagram is of the type on the left side of figure \ref{fig:YoungDiag}. Fermions can be elementary particles like quarks, electrons, neutrons or positrons, but also composite particles like atoms. 
 
@@ -258,7 +263,16 @@ The wavefunction for the 2 fermionic particles being in the same state is (in th
 \end{equation} 
 So the antisymmetric wavefunction of 2 particles being in the same state is equal to 0. Therefore 2 fermionic particles can not be in the same state.
 
-The relation described above between a particle's spin and its statistics is called the \textit{Spin-Statistics Connection}. 
+The relation described above between a particle's spin and its statistics is called the \textit{Spin-Statistics Connection}. The anticommutation relations of creation ($a^{\dag}$) an annihilation ($a$) operators for fermionic particles in states $X$ and $Y$ are:
+\begin{equation}
+\label{eq:fermComm}
+ \{a_{X},a_{Y}\} = 0 \hspace{2em} \{a^{\dag}_{X},a^{\dag}_{Y}\} = 0 \hspace{2em} \{a_{X},a^{\dag}_{Y}\} = \delta_{X,Y}
+\end{equation} 
+From \ref{eq:fermComm} it can be seen that adding or removing 2 particles from a state results in 0 (as for example $\{a_{X},a_{Y}\} = a_{X}a_{Y} + a_{Y}a_{X} = 0$). Consequently not more than 1 particle can be in the same state for fermions. The action of these operators for frmionic particles on the unoccupied vacuum state $\ket{0}$ and the state occupied by 1 particle $\ket{1}$ can be written as
+\begin{equation}
+\label{eq:fermCreatAnnihOp}
+ a \ket{0} = 0 \hspace{2em} a \ket{1} = \ket{0} \hspace{2em} a^{\dag} \ket{0} = \ket{1} \hspace{2em} a^{\dag} \ket{1} = 0
+\end{equation} 
 
 In the literature many proofs for the Spin-Statistic conenction exist (e.g. \cite{Pauli1940}, \cite{Schwinger1958}). A clear set of assumptions for this proof was presented by Lüders and Zumino in \cite{Luders1958}. The authors present 5 postulates plus gauge invariance as a foundation of their proof. These 5 postulates are:
 \begin{itemize}
@@ -272,17 +286,133 @@ It is worth noting that the mentioned proof also holds for interacting fields. A
 
 \section{Theories of Violation of Spin-Statistcs}
 
-IK model, parons, intermediate stat, quons
-
 There have been many attemps to find a theory of quantum mechanics which is consistent with a violation of Spin-Statistics. Here some important ones are reviewed.
 
 \subsection{Parastatistics}
 
-The first proper quantum statistical gerneralization of fermi and bose statistics was done by Green \cite{Green1953}, \cite{Greenberg2000}. 
+The first proper quantum statistical gerneralization of fermi and bose statistics was done by Green \cite{Green1953}, \cite{Greenberg2000}. He noticed that the commutator of the occupation number operator of the state $X$: $N_{X} = a^{\dag}_{X} a_{X} $ with the annihilation and creation operators is the same for fermions and bosons:
+\begin{equation}
+ [N_{X},a^{\dag}_{Y}] = \delta_{X,Y} \hspace{0.2em} a^{\dag}_{Y}
+\end{equation} 
+As a result, the number operator can be written as:
+\begin{equation}
+ N_{X} = \frac{1}{2}[a^{\dag}_{X},a_{X}]_{\pm} + const
+\end{equation} 
+The $\pm$ sign denotes the (anti-)commutator for the (bosonic) fermionic case. The expression for the transition operator $N_{X,Y}$ which annihilates a particle in state $Y$ and creates a particle in state $X$ leads to the trilinear commutation relation \footnote{A trilinear form is a function of 3 arguments, in which every argument enters only to first order.} for parabose and parafermi statistics:
+\begin{equation}
+\label{eq:triComm}
+ [[a^{\dag}_{X},a_{Y}]_{\pm},a_{Z}^{\dag}] = 2 \hspace{0.2em} \delta_{Y,Z} \hspace{0.2em} a_{X}^{\dag}
+\end{equation} 
+These relations have an infinite set of solutions corresponding to each integer $p$. The integer $p$ is the order of the parastatistics and gives the number of particles that can be in an antisymmetric state in the case of parabosons and the number of particles that can be in a symmetric state in case of parafermions. The case $p$ = 1 corresponds to normal fermionic or bosonic statistics. It was shown that the squares of all norms are positive for states satisfying Green's trilinear commutation relation. Nevertheless, the violations introduced by these statistics is large and no precision experiments are needed to rule them out.
+
+\subsection{The Ignatiev and Kuzmin Model and Parons}
+
+In 1987, A. Ignatiev and V. Kuzmin constructed a model of one oscillator with 3 possible states: a vacuum state with no occupancy, a one particle state and with a small amplitude parametrized by a  $\beta$ a state occupied by 2 particles \cite{Ignatiev1987}. The creation and annihilation operators connect these 3 states (analogous to \ref{eq:fermCreatAnnihOp}) as:
+\begin{equation}
+ a \ket{0} = 0 \hspace{2em} a \ket{1} = \ket{0} \hspace{2em}  a \ket{2} = \beta \ket{1}
+\end{equation} 
+\begin{equation}
+ a^{\dag} \ket{0} = \ket{1} \hspace{2em}  a^{\dag} \ket{1} = \beta \ket{2} \hspace{2em}  a^{\dag} \ket{2} = 0
+\end{equation} 
+They were able to give trilinear commutation relations for their oscillator. It is worth noting that the authors calculated the oscillations violating the PEP are suppressed by a factor proportional to $\beta^{2}$ compared to oscillations that do not violate the PEP and vanish for $\beta$ = 0. Following these ideas, Mohapatra and Greenberg (\cite{Greenberg2000}) descibred this model as a modfied version of the order-two Green ansatz. They introduced a parameter $\beta$ giving a deformation of Green's trilinear commutators (see \ref{eq:triComm}). For $\beta$ \textrightarrow \ 1 the relations reduce to those of the p = 2 parafermi field. For $\beta$ \textrightarrow \ 0 on the other hand double occupancy is completely suppressed and fermi theory is obtained. Particles described by this theory were called \textit{parons}. A state of 2 paronic electrons has the probability to be in a double occupany state of \betatwo. It was shown by A. Govorkov in \cite{Govorkov1989} that every alteration of Green's commutation relation (like the one discussed here) necessarily has states with negative squared norms. Thus the model of Igantiev and Kuzmin cannot be extended to become a true field theory.
+
+\subsection{Quons}
+
+The idea of a class of particles called \textit{quons} was described by O. W. Greenberg \cite{Greenberg1991}.  The commutator algebra of quons can be obtained as the convex sum of the fermi and bose commutator algebras
+\begin{equation}
+\label{eq:qmutator1}
+ \frac{1+q}{2}[a_{X},a_{Y}^{\dag}]+\frac{1-q}{2}\{a_{X},a_{Y}^{\dag}\} = \delta_{X,Y}
+\end{equation} 
+or 
+\begin{equation}
+\label{eq:qmutator2}
+ a_{X}a_{Y}^{\dag} - q a_{Y}^{\dag} a_{X} = \delta_{X,Y}
+\end{equation} 
+In equations \ref{eq:qmutator1} and \ref{eq:qmutator2} the parameter $q$ was introduced, which interpolates between a fermionic ($q$ = -1) and a bosonic ($q$ = 1) commutation relation. For the quonic states to have positive squared norms, this parameter needs to be within -1$\leq q \leq$ 1. For $q$ deviating from $\pm$ 1, the multidimensional representations of the permutation group, which correspond to Young diagrams with more than one row/column, smoothly become more heavily weighted and have a non-zero probability of being realised. That means for a state with 2 particles, for which only completely symmetric and antisymmetric wavefunctions are possible, a density matrix \footnote{A density matrix desribes a statistical ensemble of several quantum states. This is in contrast to a quantum mechanical mixture of a pure state, described by a state vector.} can be given to represent the mixture of the possible states in the form
+\begin{equation}
+ \rho = \frac{1+q}{2}\ket{\phi_{s}}\bra{\phi_{s}} + \frac{1-q}{2}\ket{\phi_{a}}\bra{\phi_{a}}
+\end{equation} 
+For fermionic quons, the factor $q$ would be close to and slightly larger than -1. For bosonic quons, the factor $q$ would be close to and slightly smaller than 1. When the theory of quonic fermions is related to paronic fermions, where the probability of a state with double occupancy is \betatwo, it follows that
+\begin{equation}
+ \frac{\beta^{2}}{2} = \frac{1+q_{F}}{2} \Rightarrow q_{F} = \beta^{2} - 1
+\end{equation} 
+Quonic particles clearly violate the Spin-Statistics connection. It is worth noting nevertheless, that several properties of relativistic theories do hold, like the CPT theorem for example. But as the Spin-Statistics connection does hold for relativistic theories with the usual properties, some property has to fail. This is the property of locality. It turns out that in this framework, observables seperated by spacelike seperation \footnote{Points with spacelike separation are not connected by a lightcone and are therefore not causally connected.}, do not commute.
 
 
 \section{Tests of the Pauli Exclusion Principle}
 
+why test -> l okun, greenberg, jackson, 
 Elliott -> division of experiments; other tests than VIP2
 
-\section{The VIP2 exerpimental method}
+\subsection{Remarks on testing the Pauli Exclusion Principle}
+
+The question might be asked as to why one should test the PEP and thereby the Spin-Statistcs connection, if it can not be violated in a relativistic theory with the usual properties. O. W. Greenberg gives in \cite{Greenberg2000} several ``external motivations'' which could lead to a possible violation of Spin-Statistics, namely:
+\begin{itemize}
+ \item violation of CPT
+ \item violation of locality
+ \item violation of Lorentz invariance
+ \item extra space dimensions
+ \item discrete space and/or time
+ \item noncommutative spacetime
+\end{itemize}
+As these items are subjected to active research, it seems plausible also to experimentally test the Spin-Statistics connection. Unfortunately, the level of a possible violation, if it is occuring, is unknown. Also there is no reason, why a possible violation should be as small as experiments find it to be. Another important point when testing the PEP is that one does not search for fermions which are ``a bit'' different. If this kind of slightly different fermions would exist, the lowest order pair production cross section would double \cite{Greenberg2000}. This is clearly ruled out by experiments. Because of the indistinguishability of identical particles, all fermions should have the same possibility for an admixture of a symmetric state. This is reflected in the use of the density matrix for the description of states in the case of quons.
+
+\subsection{Experiments for testing the Pauli Exclusion Principle}
+
+According to S. R. Elliott, the various experiments testing the Pauli Exclusion Principle can be grouped into 3 classes \cite{Elliott2012}, with respect to the kind of fermionic interaction they are investigating. 3 different types of interactions were given:
+\begin{itemize}
+ \item Type 1: interactions between a system of fermions and a fermion that has not yet interacted with any other fermion
+ \item Type 2: interactions between a system of fermions and a fermion that has not yet interacted with this given system
+ \item Type 3: interactions between a system of fermions and a fermion within this system
+\end{itemize}
+These distinctions between different interactions are necessary due to the MG superselection rule (see also section \ref{sec:IndSymPostSS}). This rule forbids changes of the permutation symmetry of a quantum state in a system where the number of particles is constant. The important difference among these classes is that in a type 3 interaction, the superselection rule forbids a change in permutation symmetry as the investigated fermion already has a defined permutation symmetry with the surrounding system and the number of particles in the system does not change. Subsequently the differnet types of experiments will be discussed and examples will be given:
+
+\subsubsection{Type 1 experiments:}
+
+The typical experiment of this type uses recently created fermions and lets them interact with the system under investigation. In 1948 Goldhaber and Scharff-Goldhaber \cite{Goldhaber1948} produced electrons with a $\beta$ source and let them capture on Pb atoms. The authors idea was that if the electrons from the $\beta$ source are not subject to the PEP in the electron shell of the Pb atoms, they could cascade to the ground state and thereby emit photons which would be detected. The lack of these photons was used to set an upper limit on the probability for the violation of the PEP. The fundamental point is that the electrons from the $\beta$ source has not yet interacted with any system and is therefore necessarily new to the electronic system of the Pb atoms. As they are new to this system, they can form new quantum states with the Pb atoms. Forming states with a symmetric admixture is then not forbidden by the MG superselection rule. This is in particular also true, if the electronic state of the atom has previously been in a completely antisymmetric state. Other sources of recently produced fermions can also be pair-production processes and nuclear reactions.
+
+\subsubsection{Type 2 experiments:}
+
+In this kind of experiments, fermions are brought to a system to interact with it. These fermions have not recently been created for type 2 experiments. But the fermions do not have previously interacted with the system. The typical experiment is the one conducted by Ramberg and Snow \cite{RAMBERG1990}. In this experiment, electrons were introduced to a Cu conductor via a current. These current electrons have no previous interaction with the atoms in the conductor. Therefore the same arguments apply as for type 1 experiments and the formation of a state with an admixture of symmetric exchange symmetry between the atoms of the conductor and a conduction band electron is not forbidden by the MG superselection rule. 
+
+In case of a symmetric admixture in quantum state formed between the atoms in the conductor and the current electrons, the current electron could cascade to the ground state. Therby emitting photons. The lack of detected photons was again used to set an upper limit on the probability for the violation of the PEP. An interesting point is the precise origin of the electrons in the conduction band. In an optimal setup, they are coming from a battery. This would guarantee the newness of the electrons. The drawback is that a high current is hard to maintain in this way. If the power of the current source comes from an AC grid the electrons in the conduction band of the conductor will comprise electrons from the conductor itself and the circuitry connecting it to the power supply.
+
+An interesting idea was put forward by E. Corinaldesi \cite{Corinaldesi1967}, who suggested that the PEP is not a kinematic principle but rather a time-dependent effect of interactions and that newly formed system may undergo PEP violating transititions, whose rate decreases in time. This suggestion could be tested with a type 2 experiment. In \cite{Shimony2006} it was suggested that this hypothesis can be tested by crossing an electron and a Ne$^{+}$ ion beam and to monitor potential photons from PEP violating transitions.
+
+\subsubsection{Type 3 experiments:}
+
+A type 3 experiment searches for a PEP violating transition in a stable fermionic system where the number of particles is constant. Notably the considered systems need to change their permutation symmetry in order to undergo these transitions. Therefore type 3 experiments violate the MG superselection rule and their outcome can not be compared to type 1 and type 2 experiments. 
+
+Nevertheless, many experiments of this kind have been conducted. Pioneers in this kind of experiment were Reines and Sobel \cite{Reines1974}. They were looking for transitions of L-shell electrons to the already occupied K-shell in iodine atoms. The DAMA/LIBRA experiment conducted an analysis of their data regarding the same process \cite{Bernabei2009}. Nuclear processes were also investigated regarding PEP-violating transitions, for example in \cite{Bellini2010} by the Borexino collaboration. The experimenters were looking for non-Paulian transitions of nucleons from the 1p to the 1s nuclear shell. 
+
+\subsubsection{Anomalous Structures}
+
+Another type of experiment is to look for anomalous nuclear and atomic structures. In \cite{Nolte1991} an experiment is reported where nuclear states with 3 nucleons in the 1s ground state are searched for. Non-Paulian atomic states of Be are explored in \cite{Javorsek2000}. 
+
+Some limits on the probability of a violation of the PEP are summed up in table \ref{tab:limits}.
+
+\begin{center}
+\label{tab:limits}
+\begin{tabular}{ |c|c|c|c| } 
+ \hline
+ Process & Type &  \betatwo limit & Reference \\ 
+ \hline
+ \hline
+ anomalous atomic transition & 1 & 3 $\times 10^{-2}$ & \cite{Goldhaber1948} \\
+ \hline
+ anomalous atomic transition & 2 & 4.7 $\times 10^{-29}$ & \cite{Curceanu2011} \\
+ \hline
+ anomalous atomic transitions & 3 & 6.5 $\times 10^{-46}$ & \cite{Bernabei2009} \\
+ \hline
+ anomalous nuclear transitions & 3 & 2.2 $\times 10^{-57}$ & \cite{Bellini2010} \\
+ \hline
+\end{tabular}
+\end{center}
+
+The most stringent limit prior to the VIP2 experiment in a system circumventing the MG superselection rule (type 1 + 2 experiments) is set by the VIP experiment \cite{Curceanu2011}. The experimental method of the VIP and VIP2 experiments will now be described.
+
+\section{The VIP2 experimental method}
+
+copper - element of group 11 like silver and gold - e- configuration
+source of electrons = current -> ez way to get electrons many; electrons in a conductor, fermi sphere, interactions; cascading process
+

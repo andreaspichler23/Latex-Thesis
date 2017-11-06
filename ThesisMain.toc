@@ -8,12 +8,20 @@
 \contentsline {subsection}{\numberline {2.1.4}Indistinguishability, Symmetrization Postulate and Superselection Rule}{8}{subsection.2.1.4}
 \contentsline {subsection}{\numberline {2.1.5}Fermions, Bosons and the Spin-Statistics Connection}{11}{subsection.2.1.5}
 \contentsline {section}{\numberline {2.2}Theories of Violation of Spin-Statistcs}{13}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Parastatistics}{13}{subsection.2.2.1}
-\contentsline {section}{\numberline {2.3}Tests of the Pauli Exclusion Principle}{13}{section.2.3}
-\contentsline {section}{\numberline {2.4}The VIP2 exerpimental method}{14}{section.2.4}
-\contentsline {chapter}{\numberline {3}The Measurement Setup}{15}{chapter.3}
-\contentsline {chapter}{\numberline {4}Simulations}{17}{chapter.4}
-\contentsline {chapter}{\numberline {5}Test Measurements}{19}{chapter.5}
-\contentsline {chapter}{\numberline {6}Data Analysis}{21}{chapter.6}
-\contentsline {chapter}{\numberline {7}Conclusion}{23}{chapter.7}
-\contentsline {chapter}{\nonumberline Bibliography}{i}{chapter*.3}
+\contentsline {subsection}{\numberline {2.2.1}Parastatistics}{14}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}The Ignatiev and Kuzmin Model and Parons}{14}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Quons}{15}{subsection.2.2.3}
+\contentsline {section}{\numberline {2.3}Tests of the Pauli Exclusion Principle}{16}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Remarks on testing the Pauli Exclusion Principle}{16}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Experiments for testing the Pauli Exclusion Principle}{17}{subsection.2.3.2}
+\contentsline {subsubsection}{\nonumberline Type 1 experiments:}{18}{section*.3}
+\contentsline {subsubsection}{\nonumberline Type 2 experiments:}{18}{section*.4}
+\contentsline {subsubsection}{\nonumberline Type 3 experiments:}{19}{section*.5}
+\contentsline {subsubsection}{\nonumberline Anomalous Structures}{19}{section*.6}
+\contentsline {section}{\numberline {2.4}The VIP2 experimental method}{20}{section.2.4}
+\contentsline {chapter}{\numberline {3}The Measurement Setup}{21}{chapter.3}
+\contentsline {chapter}{\numberline {4}Simulations}{23}{chapter.4}
+\contentsline {chapter}{\numberline {5}Test Measurements}{25}{chapter.5}
+\contentsline {chapter}{\numberline {6}Data Taking and Analysis}{27}{chapter.6}
+\contentsline {chapter}{\numberline {7}Conclusion}{29}{chapter.7}
+\contentsline {chapter}{\nonumberline Bibliography}{i}{chapter*.7}

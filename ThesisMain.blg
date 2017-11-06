@@ -5,45 +5,45 @@ The style file: unsrt.bst
 Database file #1: BibliographyThesis.bib.bib
 Warning--empty institution in Pietreanu2014
 Warning--empty school in Sperandio2008
-You've used 14 entries,
+You've used 26 entries,
             1791 wiz_defined-function locations,
-            548 strings with 5692 characters,
-and the built_in function-call counts, 3274 in all, are:
-= -- 299
-> -- 140
+            641 strings with 10029 characters,
+and the built_in function-call counts, 7695 in all, are:
+= -- 548
+> -- 641
 < -- 0
-+ -- 54
-- -- 40
-* -- 262
-:= -- 538
-add.period$ -- 41
-call.type$ -- 14
-change.case$ -- 14
++ -- 226
+- -- 200
+* -- 752
+:= -- 1368
+add.period$ -- 77
+call.type$ -- 26
+change.case$ -- 26
 chr.to.int$ -- 0
-cite$ -- 16
-duplicate$ -- 117
-empty$ -- 313
-format.name$ -- 40
-if$ -- 685
+cite$ -- 28
+duplicate$ -- 224
+empty$ -- 582
+format.name$ -- 200
+if$ -- 1530
 int.to.chr$ -- 0
-int.to.str$ -- 14
-missing$ -- 11
-newline$ -- 72
-num.names$ -- 14
-pop$ -- 24
+int.to.str$ -- 26
+missing$ -- 23
+newline$ -- 132
+num.names$ -- 26
+pop$ -- 36
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 44
+skip$ -- 84
 stack$ -- 0
-substring$ -- 303
-swap$ -- 13
+substring$ -- 535
+swap$ -- 25
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 36
-width$ -- 16
-write$ -- 151
+while$ -- 66
+width$ -- 28
+write$ -- 283
 (There were 2 warnings)

@@ -88,10 +88,10 @@ Mode=LaTeX
 
 [item:BibliographyThesis.bib]
 archive=true
-column=5
+column=21
 encoding=UTF-8
 highlight=BibTeX
-line=20
+line=15
 mode=BibTeX
 open=true
 order=0
@@ -148,10 +148,10 @@ order=2
 
 [item:Physics.tex]
 archive=true
-column=447
+column=68
 encoding=UTF-8
 highlight=LaTeX
-line=194
+line=415
 mode=LaTeX
 open=true
 order=3
@@ -168,10 +168,10 @@ order=6
 
 [item:Simulations.tex]
 archive=true
-column=0
+column=118
 encoding=UTF-8
 highlight=LaTeX
-line=0
+line=3
 mode=LaTeX
 open=true
 order=7
@@ -207,8 +207,8 @@ open=false
 order=-1
 
 [view-settings,view=0,item:BibliographyThesis.bib]
-CursorColumn=5
-CursorLine=20
+CursorColumn=21
+CursorLine=15
 JumpList=
 ViMarks=.,0,0,[,0,0,],-1,-1
 
@@ -237,10 +237,10 @@ JumpList=
 ViMarks=.,9,418,[,9,417,],9,418
 
 [view-settings,view=0,item:Physics.tex]
-CursorColumn=447
-CursorLine=194
+CursorColumn=68
+CursorLine=415
 JumpList=
-ViMarks=.,204,245,[,204,234,],204,245
+ViMarks=.,415,67,[,415,0,],415,67
 
 [view-settings,view=0,item:Setup.tex]
 CursorColumn=278
@@ -249,8 +249,8 @@ JumpList=
 ViMarks=.,3,351,[,3,345,],3,351
 
 [view-settings,view=0,item:Simulations.tex]
-CursorColumn=0
-CursorLine=0
+CursorColumn=118
+CursorLine=3
 JumpList=
 ViMarks=
 
