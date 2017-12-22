@@ -1,0 +1,37 @@
+.... from file *f in memory:
+
+TFile *g = TFile::Open("/home/andreas/vip2/thesis/Latex/Figures/root/Histograms.root","UPDATE")
+
+TH1F *hen = (TH1F*)f->Get("ht1")
+
+//to check the list: f->GetList()->ls()
+f->GetList()->Write()
+
+
+
+..... from a TTree:
+
+get the histo to memory with sthg like:
+ts->Draw("SDDedeop>>hSddEdepCosm(250,50,3000)","SDDedeop>50") ... dont close the drawing of the histogram!!
+
+for th2f: h->SetDirectory(0) necessary??? -> nope dont think so, but it might help
+problem solve: also write the histogram to the file itself; then "Get" it and proceed like above -> this should help always
+
+TFile *g = TFile::Open("/home/andreas/vip2/thesis/Latex/Figures/root/Histograms.root","UPDATE")
+
+hSddEdepCosm->Draw() ... for testing
+
+hSddEdepCosm->Write() ... Write("",TObject::kOverwrite) for overwriting
+
+
+
+.... deleting histograms:
+
+TFile *g = new TFile("Histograms.root","update")
+g->Delete("hGammaEnDep;2")
+
+
+error:
+Error R__unzip_header: error in header (when you want to open it eg in Tbrowser)
+
+save histogram in a completely new file and hadd this file to the root file where you want to save it
