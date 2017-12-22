@@ -1,4 +1,240 @@
 \chapter{The Measurement Setup}
 \label{chap:Setup}
 
-description of the setup: sdd working principle etc, scintillator working principle etc, sipm working principle etc, working principle of the cryogenics used; desrciption of sdd and sipm preamplifiers?; x ray tube; actual setup configuration; description of the daq: modules used (adc, qdc, tdc), timing, trigger, gates; Slow Control hardware/software!
+description of the setup: sdd working principle etc, copper target, scintillator working principle etc, sipm working principle etc, working principle of the cryogenics used; desrciption of sdd and sipm preamplifiers?; x ray tube + fe source; actual setup configuration; description of the daq: modules used (adc, qdc, tdc), timing, trigger, gates; Slow Control hardware/software!
+
+As was mentioned in chapter \ref{chap:Physics}, the core functionality of the VIP2 experiment is to measure energy spectra in the energy region where the PEP violating K$\alpha$ transition is expected. For this purpose Silicon Drift Detectors were used. They offer an energy resolution which is good enough for our purpose of separating the energy peak coming from photons from allowed transitions from those coming from PEP-forbidden transitions, which are separated by 300 eV. Furthermore they offer a time resolution < 1 $\mu$s. This allows the use of an active shielding system, which consists of 32 plastic scintillator bars arranged around the copper target and the SDDs. They are read out by Silicon Photomultipliers. The working temperature of the SDDs was around 100 K. Their temperature was kept constant by a system composed of a helium compressor liquefying argon, which in turn cooled the detectors. A data acquisition and a slow monitor system were in place to collect data and monitor crucial parameters of the experiment. A schematic drawing of the experiment is shown in figure \ref{fig:expScheme}. All these components will now be described in detail.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{./Figures/RS_experiment_scheme_201711.png}
+ % RS_experiment_scheme_201711.png: 1567x952 pixel, 211dpi, 18.86x11.46 cm, bb=0 0 535 325
+ \caption{Schematic drawing of the VIP2 experiment.}
+ \label{fig:expScheme}
+\end{figure}
+
+
+\section{Silicon Drift Detectors and copper target}
+\label{sec:SDDs}
+
+used for..., working principle, mounting in the setup, energy resolution - fano + constant noise?; put the physics of photon absorption to the spectrum fit
+
+Silicon Drift Detectors (SDDs) are used in the VIP2 experiment as X-ray detectors. They are mounted as close as 5 mm away from the Cu target in the setup, to reach maximum solid angle coverage. 
+
+The Cu target consists of 2 strips with a length of 7.1 cm, a width of 2 cm and a thickness of 50 $\mu$m. The strips are connected to a current supply via Cu connectors. In between the 2 strips runs a water cooling line to keep them at a constant temperature even with a high current flowing through them. One SDD array with 3 individual cells is mounted on each side of the target strips.
+
+\subsection{Working principle}
+
+The working principle of Silicon Drift Detectors is based on sideward depletion, which was first introduced in \cite{Gatti1984}. A schematic drawing of an SDD used for the VIP2 experiment is shown in figure \ref{fig:SDD_WorkingPrinciple}.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{./Figures/SDD_workingPrinciple.png}
+ % SDD_workingPrinciple.png: 1061x598 pixel, 72dpi, 37.43x21.10 cm, bb=0 0 1061 598
+ \caption{Scheme of a Silicon Drift Detecor \cite{Lechner}.}
+ \label{fig:SDD_WorkingPrinciple}
+\end{figure}
+On a cylindrical n-type \footnote{n-type semiconductors are doped with elements that are pentavalent, like phosphorus. This results in an excess of electrons. p-type semiconductors are doped with trivalent elements like boron, which results in an excess of holes.} silicon wafer circular p$^{+}$-type silicon contacts are implanted on one flat surface. These contacts are used to apply an increasing reverse bias in order to fully deplete the wafer. The radiation entrance windows is on the opposite side of the concentric contacts and consists of a homogeneous shallow junction, which gives homogeneous sensitivity over the whole surface. When ionizing radiation hits the silicon wafer, electron-hole pairs are generated. The free electrons fall to the lowest point of the potential produced by the concentric electrodes. This lowest point is the anode consisting of a ring close to the middle of the wafer. The amount of electrons generated in the wafer and collected by the anode is proportional to the energy of the radiation. By measuring the amount of charge collected this energy can be calculated. The small size of the anode ensures a small anode capacitance, which is almost independent of the size of the detector \cite{Cargnelli2005} and only proportional to the anode's size. As some sources of noise are proportional to the capacitance ????, this reduces the noise and allows shorter shaping times \footnote{Long shaping times can be used in order to cancel out noise.} which in turn allows high count rates. As a first stage of amplification, a field effect transistor (FET) \footnote{A field effect transistor controls the conductivity between the source (S) and the drain (D) via an electric field between the body and the gate (G) of the device.} is integrated in the chip and connected to the anode by a metal strip. Thereby the capacitance between detector and amplifier is minimised and electric pickup noise is mostly avoided. The anode is discharged continuously. This avoids regular dead times of the detector by a repeating reset mechanism.
+
+\subsection{SDD specifications for the VIP2 experiment}
+
+sources of noise -> expected energy and time resolution as a function of temperature 
+
+
+The manufacturer of the employed detectors (PNSensors) produced a manual, from which which the information in this section is mainly taken \cite{Lechner}. The SDDs employed in the VIP2 experiment are 2 arrays with 3 detector cells each. Each cell has an active area of 1 cm$^{2}$ shaped like a ``rounded square'' with a diameter of 10.3 mm and a corner radius of 2 mm. The maximum drift path length for electrons originating in a corner is 6.4 mm. The cells have a thickness of 450 $\mu$m, which ensures a absorption of $\sim$ 99 \% of 8 keV (Cu K$\alpha$ line) X-rays. The 3 cells in an array share a common outermost strip (Rx), a common bulk contact (outer substrate - Os) and common guard ring systems on both sides of the chips. Each cell has a readout structure in its center and individual back contact (Bc) and separation mesh (back frame, Bf) contacts. The bonding and the way the voltages were adjustable were modified slightly for the VIP2 experiment. The important contacts and the way the respective voltages are adjustable (all SDDs common, all SDDs in an array, each individual SDD cell) are shown in table \ref{tab:sddContacts}. Plots of the front and the back side of the arrays are shown in \ref{fig:sdd_front} and \ref{fig:sdd_back}.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{./Figures/SDD_Frontside.png}
+ % SDD_Frontside.png: 1154x470 pixel, 72dpi, 40.71x16.58 cm, bb=0 0 1154 470
+ \caption{Front side of the SDD array of the VIP2 experiment \cite{Lechner}.}
+ \label{fig:sdd_front}
+\end{figure}
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{./Figures/SDD_backside.png}
+ % SDD_backside.png: 1162x469 pixel, 72dpi, 40.99x16.55 cm, bb=0 0 1162 469
+ \caption{Back side of the SDD array of the VIP2 experiment \cite{Lechner}.}
+ \label{fig:sdd_back}
+\end{figure}
+There is a total number of 74 concentric electrodes, where the innermost 23 are circular and the ones more on the outside are linear in vertical and horizontal direction with rounded edges. The first and the last ring are biased externally, the others are supplied via a resistive voltage divider.
+\begin{table}[h]
+ \centering
+  \begin{tabular}{|c|c|c|c|}
+  \hline
+  Contact Name & Abbreviation & Bonding & Nominal Value \cite{Lechner}\\
+  \hline
+  \hline
+  Outermost strip & Rx & Common & -240 V\\
+  \hline
+  Innermost strip & R1 & Common & -15 V\\
+  \hline
+  Outer substrate & Os & Common & GND\\
+  \hline
+  Inner substrate & Is & Common & GND \\
+  \hline
+  Entrance Window & Bc & Cell & -120 V \\
+  \hline
+  Separation Mesh & Bf & Array & -140 V \\
+  \hline
+  \end{tabular}
+    \caption{Some important contacts of the Silicon Drift Detectors used for the VIP2 experiment.}
+  \label{tab:sddContacts}
+\end{table}
+
+\subsection{Silicon Drift Detectors performance characteristics}
+
+The energy and time resolution as well as scale linearity are crucial factors in the performance of the SDDs. The possibility of a high event rate would be another point to consider, but as this is not an issue for the VIP2 experiment with count rates of $\sim$2 Hz, this point will not be discussed. 
+
+The detector linearity is the ratio between produced electron-hole pairs and energy as a function of energy. In case the whole energy of the incident radiation is deposited in the detector and no losses during the charge transport, the number of electrons arriving at the anode only depends on the energy. Consequently the detector response should be perfectly linear with energy.
+
+An advantage of semiconductor detectors with respect to gaseous detectors is the lower energy needed to create an electron-hole pair. At 77 K, this energy is 3.81 eV \cite{Leo1993}, which is independent of the type and energy of the incident radiation. The amount of charge carriers produced by the same radiation will therefore be one order of magnitude higher than in gaseous detectors. Therefore, semiconductors provide a greatly enhanced energy resolution. On the other side, the energy resolution is limited by noise. One part is the so-called fano noise. It results from a non-constant amount of electron-hole pairs produced for different events with the same energy. The fano factor is defined as:
+\begin{equation}
+ F = \frac{\sigma^{2}}{\mu}
+\end{equation} 
+Here $\sigma^{2}$ is the variance of the number of produced electron-hole pairs and $\mu$ is the average of the number of electron-hole pairs. It is not dependent on energy and for Silicon the value is estimated to be F = 0.12 \cite{Leo1993}. Another source of noise is the leakage current, which is a small fluctuating current flowing through semiconductor junctions in case of an applied voltage. The fluctuation in the current appears as noise in the detector. One source of leakage current are thermally created electron-hole pairs originating from recombination and trapping centers in the depletion region. These centers result from impurities in the crystal. This part of the noise can be suppressed by lowering the temperature. Another source of leakage current are surface currents.
+
+In order to reach the best possible energy resolution, an Fe-55 source \footnote{An Fe nucleus with 26 protons and 29 neutrons decays via electron capture to Mn-55 with a half-life of 2.737 years. This results in the emission of a photon or an Auger electron.} is installed in the VIP2 setup. The photons from the source hit the SDDs directly and also induce K$\alpha$ transitions in a titanium foil located between the source and the detector. These 2 photon sources enable continuous calibration of the energy scale and thereby minimize peak drift effects and optimize the energy resolution.
+
+The time resolution of the SDDs is determined by the drift time of the electrons from their origin to the anode. In \cite{Lechner} the maximum drift time at 150 K for the type of detector used in the VIP2 experiment is estimated to be 600 ns. Due to the temperature dependence of the electron mobility (e.g. increased phonon scattering), the time resolution generally gets worse with rising temperature.
+
+
+
+\section{Active Shielding}
+
+how ight propagates -> reflectivity -> wrapping; physics of interaction with different radiations maybe in simulations
+
+The active shielding system has the purpose of rejecting SDD events caused by external radiation. This means that whenever a signal in the SDDs is in coincidence with a signal from the scintillators, it can be rejected. The active shielding consists of 32 scintillators read out by 2 Silicon Photomultipliers (SiPMs) each, which are assembled around the copper target and the SDDs. A render of the setup including the active shielding system enclosing the target is shown in figure \ref{fig:active_shielding}.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.7\textwidth]{./Figures/active_shielding.png}
+ % active_shielding.png: 2512x1790 pixel, 300dpi, 21.27x15.16 cm, bb=0 0 603 430
+ \caption{Active shielding system of the VIP2 experiment consisting of 32 scintillators.}
+ \label{fig:active_shielding}
+\end{figure}
+
+\subsection{Scintillators}
+
+Scintillators are materials that emit photons after they are excited by ionizing radiation. The scintillators used in the VIP2 experiment are plastic scintillator bars of the type EJ-200 produced by Eljen Technologies. Their dimensions are 38 mm x 40 mm x 250 mm. The base polymer is polyvinyl toluene \cite{EljenTechnology}. 
+%Anthracene is suspended in the polymer matrix to absorbe the UV radiation emitted by the matrix and reemits it at visible wavelengths. This is done to increase the abosprtion length. 
+When ionizing radiation passes through the scintillator, electrons in the valence band in so-called molecular orbits are excited \cite{Leo1993}. Subsequently the excited states loose their energy via the emission of a photon. A flour is suspended in the polymer matrix to absorb the UV radiation and re-emit it at visible wavelengths. The wavelength of maximum emission is then 425 nm (blue light) and the pulse width is 2.5 ns (FWHM) \cite{EljenTechnology}. The scintillation material has a refractive index of 1.58, meaning that total internal reflection can occur for photons with a flat impact on the surface. Nevertheless light can also escape the scintillator if the impact angle is too steep. To increase the light collection on the SiPMs, the scintillators were wrapped in reflective aluminum foil to reflect stray photon back into the scintillator, while leaving a small air gap in between the foil and the scintillator. To minimize the influence of photons from the environment hitting the SiPMs, a layer of sticky black tape was wrapped around the aluminum foil. 
+
+\subsection{Silicon Photomultipliers}
+
+A Silicon Photomulitplier consist of an array of semiconductor pn junctions with a high reverse bias. For the VIP2 experiment, we use the 3 x 3 mm$^{2}$ ASD-SiPM3S-P50 SiPMs manufactured by AdvanSiD. On one end of each scintillator bar, 2 SiPMs are attached with optical glue ??? and connected in series. In that way, as opposed to reading both SiPMs individually, the signal to noise ratio and the time resolution can be improved ???. One SiPM consists of 3600 sequentially connected Silicon avalanche photodiodes (APD) with an area of 50 x 50 $\mu$m each. All of them are operated in Geiger mode (an analogy to the Geiger counter), meaning that the reverse bias voltage is higher than the breakdown voltage \footnote{The breakdown voltage of a diode is the mininimum reverse bias voltage to make the diode conductive.}. In this mode, the generation of one charge carrier causes an avalanche of charge carriers due to impact ionization. The first charge carrier can be produced by an incident photon undergoing the photoeffect. In the case of the VIP2 experiment, this photon comes from the scintillator. The energy of the optical photons from the scintillator (425 nm $\sim$ 2.9 eV) is enough to generate an electron-hole pair. The spectral response range for the SiPMs used for VIP2 is 350 nm - 900 nm \cite{AdvanSiD2012}, overlapping with the photon spectrum of the scintillator. One APD by itself is a digital device, as it can only decide if a photon hit it or not. Reading all APDs in a SiPM at the same time gives then an analog signal.
+
+The time resolution of a system of scintillator read out by SiPMs is typically on the order of a few ns. This means that it is neglibile compared to the time resolution of the SDDs, which is of the order of a few 100 ns.
+
+\section{Cooling system}
+
+he compress: compresses (9.8 bar -> 22 bar) and cools (warms up due to compression) (to room temp or so) the he gas; also filters out oil mist in the gas in an adsorber and an oil separator
+-> + PID control
+
+The Silicon Drift Detectors used for the VIP2 experiment have a working temperature of around 150 K \cite{Lechner}. To reach this temperature, a system of a helium compressor coupled to a pulse-tube refrigerator is used with helium gas as a working medium. The cooling power produced by this system is used to liquefy Argon, which then flows past the SDDs. Thereby it evaporates and cools the detectors down. 
+
+As a helium compressor a CNA-21A helium compressor from SHI - (Sumitomo Heavy Industries -) cryogenics was used. This compressor gets $\sim$9.8 bar helium gas at room temperature from the cold head. This gas is then compressed to $\sim$ 22 bar and cooled back down to room temperature after it was heated due to the compression. The compressor is air-cooled meaning the helium gas flows through a heat exchanger after compression which is cooled by blowing air with a fan through it. The high pressure helium gas at room temperature is then supplied to a pulse tube refrigerator of the Gifford-McMahon type. The working principle of this type of refrigerator is shown in figure \ref{fig:ptr}.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.5\textwidth]{./Figures/Ptr_GM_Type.png}
+ % Ptr_GM_Type.png: 856x237 pixel, 72dpi, 30.20x8.36 cm, bb=0 0 856 237
+ \caption{Schematic drawing of a pulse tube refrigerator of the Gifford-McMahon type \cite{DeWaele2000}.}
+ \label{fig:ptr}
+\end{figure}
+The high pressure helium gas is connected to the RP-2620A coldhead which is also manufactured by SHI - cryogenics. The cold head has a valve on its side close to the helium compressor. This valve connects the refrigerator to the high and the low pressure side of the compressor in an alternating way. Coming from the high pressure side of the compressor, the gas first hits a regenerator, at a high temperature ($\sim$ room temperature) $T_{H}$. After the regenerator, there is a heat contact $X_{L}$ to the medium to be cooled at the lower temperature $T_{L}$. Thereafter follows the pulse tube where the gas is thermally isolated (adiabatic) and therefore the temperature of the gas depends on its pressure. After the pulse tube a thermal contact to the surroundings is installed. The whole gas volume is coupled to a gas reservoir via a flow resistive valve. The heat exchangers, the regenerator and the pulse tube are suspended in vacuum of $\sim 10^{-5}$ - $10^{-6}$ mbar. 
+
+When the high pressure helium gas flows through the regenerator, it is cooled down to $T_{L}$ and the regenerator is warmed up to $T_{H}$. The gas enters the pulse tube at $T_{L}$. Then the pressure is switched to the low pressure of around 10 bar in our case, and the gas flows out of the tube. But due to the lower pressure, the temperature in the tube is now lower than $T_{L}$. The gas now flows through the thermal contact $X_{L}$. It cools the contact and thereby effectively cools the argon gas $X_{L}$ it is in thermal contact with. The helium gas then flows through the regenerator at exactly $T_{L}$, cooling it to this temperature. The opposite effect occurs at the temperature $T_{H}$ at $X_{3}$, where heat is dissipated to the environment. The coefficient of performance (ratio between cooling power and compressor power) for an ideal pulse tube refrigerator is $\frac{T_{L}}{T_{H}}$, which is lower than the one of a Carnot process $\frac{T_{L}}{T_{H} - T_{L}}$ due to losses in the valve \cite{DeWaele2000}.
+
+The cooling power of the pulse tube refrigerator at $X_{L}$ is used to cool down an aluminum target through which the argon gas flows. The argon condensates and flows down a pipe which runs past the SDDs, cooling them to their working temperature. Thereby the argon evaporates. Afterwards it is cooled again by the pulse tube refrigerator. A picture of the SDDs with the argon cooling line and a readout board is shown in figure \ref{fig:sddcooling}.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.6\textwidth]{./Figures/SDD_cooling.png}
+ % SDD_cooling.png: 2000x1147 pixel, 47dpi, 107.18x61.47 cm, bb=0 0 3038 1742
+ \caption{The SDDs with the argon cooling line and the readout board.}
+ \label{fig:sddcooling}
+\end{figure}
+
+The cooling of the pulse tube refrigerator is counteracted by a heating wire controlled by a LakeShore 331 temperature controller. This is done in order to be able to control the temperature of the argon by adapting the heating power. Changes in argon temperature can in this way be compensated with the PID (Proportional Integral Differential) control of the LakeShore 331 on a very short timescale. The vacuum necessary to maintain the necessary cryogenic temperatures is maintained by 2 turbo pumps connected to a common prepump. 
+
+
+\section{Data acquisition and slow control systems}
+
+\subsection{Signal readout and data acquisition}
+vme readout; simplified logic without timing = trigger; 
+preamp board?; shaping time and gain of SDDs?; thresholds of sipms - maybe only that we can set them - how big they are -> out into chapter test measurements; 
+
+After a first stage of amplification in the preamplifier board in the vacuum chamber, the signals of the 6 SDDs go into a programmable CAEN 568B spectroscopy amplifier. The fast ``FOUT'' signal goes to a discriminator for making a trigger. An OR of all 6 discriminated SDD signals is going to a CAEN V1190B TDC (Time to Digital Converter). The programmable ``OUT'' output of the amplifier is used for spectroscopic signal analysis. The spectroscopic signal is fed into a CAEN V785 peak sensing ADC (Analog to Digital Converter) for digitalizing the signal.
+
+The signal from the 2 SiPMs from each of the 32 scintillators is amplified in a preamplifier board in the vacuum chamber. The analog signal is split thereafter, with one part going to a programmable discriminator to make a timing signal and the other going to a CAEN V792 QDC (Charge to Digital Converter). Referring to figure \ref{fig:active_shielding}, the 32 scintillators can be grouped into one ``outer'' one ``inner'' layer, and more specifically into 8 sub-layers with the indication of their position relative to the target (e.g. ``top outer'' layer indicates the 8 scintillators above the target, which are closer to the setup box). A signal of one of these layers is an OR of all the discriminated SiPM signals in this layer. The signal of each of these 8 sub-layers and an AND of the outer and inner layer is sent to the TDC.
+
+The digital signal from the discriminators is used for making a trigger for the TDC, ADC and QDC modules. The trigger logic is shown in figure \ref{fig:trigger_logic}. It consists of the OR of all 6 SDDs making an OR with the inner AND outer scintillator layer.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.6\textwidth]{./Figures/trigger_logic.png}
+ % trigger_logic.png: 2046x554 pixel, 300dpi, 17.32x4.69 cm, bb=0 0 491 133
+ \caption{Trigger definition of the VIP2 experiment.}
+ \label{fig:trigger_logic}
+\end{figure}
+The AND of the inner and outer scintillator layer triggers on cosmic radiation or any radiation which produces a detectable signal with high probability in every scintillator it passes through. The OR of the SDD signals includes every SDD event above a certain energy threshold. Also in the case of SDD only trigger (no scintillator AND), the signals (or lack thereof) of all 8 scintillator layers is recorded in the TDC.
+
+The data from ADC, QDC and TDC are read out via a CAEN V2718 VME - PCI bridge to a CAEN A2818 PCI controller. A LabView program is communicating with this controller to record and store the data in binary form. 
+
+
+\subsection{Slow control}
+\label{sec:slowControl}
+all the values read out/ controlled by slow, and how they are read; also with plugbars
+
+The slow control is a system to monitor and control important parameters of the experiment. A schematic drawing of its layout is shown in figure \ref{fig:slow_control}. 
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{./Figures/SlowControl_layout.png}
+ % SlowControl_layout.png: 756x300 pixel, 90dpi, 21.34x8.47 cm, bb=0 0 605 240
+ \caption{A schematic layout of the slow control system of the VIP2 experiment.}
+ \label{fig:slow_control}
+\end{figure}
+The central point of the system a PC running a Visual C++ program which communicates with the different sensors and devices via a GPIB and a USB interface and stores the parameter values. The PC can be accessed remotely to control parameters and transfer the stored data. The USB interface is on the one hand connected to a LakeShore 331 temperature controller which regulates the heating of a wire which counteracts the cooling of the cold head and thereby regulates the argon temperature. On the other hand it is connected to an Agilent 5761A current supply which provides the current through the copper target. The GPIB interface is connected to a National Instruments (NI) PXI 1031 chassis with a NI PXI 4351 board. This is then connected via GPIB to a NI TBX-68T screwblock which receives analog signals from several sources, which correspond to pressure and temperature at different points in the setup. Temperature information comes from Pt-100 resistance thermometers and pressure readings come from a cold cathode \footnote{A cold cathode generates electrons via the discharge of a high voltage. The electrons ionize the gas and the number of produced ions is proportional to the gas pressure.} for low pressure and piezoresistive sensors \footnote{The piezoresistive effect causes the resistance of a material to change under mechanical strain.} for high pressure. A list of all parameters that can be measured and controlled with the slow control system can be found in table \ref{tab:slow_control}.
+
+\begin{table}[h]
+ \centering
+  \begin{tabular}{|D|D|c|c|}
+  \hline
+  Value to measure / control & Measured / Controlled by & Primary readout device & Adjustable  \\
+  \hline  
+  \hline
+  Room temperature & Pt-100 & NI PXI 4351 & No \\
+  \hline
+  Copper bar external temperature & Pt-100 & NI PXI 4351 & No \\
+  \hline
+  Copper bar internal temperature & Pt-100 & NI PXI 4351 & No \\
+  \hline
+  Water cooling pad temperature & Pt-100 & NI PXI 4351 & No \\
+  \hline
+  PCB board 1 temperature & Pt-100 & NI PXI 4351 & No \\
+  \hline
+  PCB board 2 temperature & Pt-100 & NI PXI 4351 & No \\
+  \hline
+  SDD 1 temperature & Pt-100 & NI PXI 4351 & No \\
+  \hline
+  SDD 2 temperature & Pt-100 & NI PXI 4351 & No \\
+  \hline
+  Argon upper line temperature & Pt-100 & NI PXI 4351 & No \\
+  \hline
+  Argon lower line temperature & Pt-100 & NI PXI 4351 & No \\
+  \hline
+  Argon target temperature & Pt-100 & NI PXI 4351 & No \\
+  \hline
+  Argon gas temperature & Pt-100 & NI PXI 4351 & No \\
+  \hline
+  Vacuum pressure & Balzers IKR 050 cold cathode & Balzers TPR-010 & No \\
+  \hline
+  Argon gas pressure & Keller PAA-21-10 & GIA 1000 NS & No \\
+  \hline
+  Heater output power & LakeShore 331 & LakeShore 331 & No \\
+  \hline
+  Heater PID settings & LakeShore 331 & LakeShore 331 & Yes \\
+  \hline
+  Argon gas set temperature & LakeShore 331 & LakeShore 331 & Yes \\
+  \hline
+  Current through copper & Agilent 5761A & Agilent 5761A & Yes \\
+  \hline
+  \end{tabular}
+    \caption{Summary of parameters measured and controlled by the slow control system.}
+  \label{tab:slow_control}
+\end{table}
+All the values listed in this table are stored periodically. An emergency system was in place which periodically checks the values recorded by the slow control. In case specific values exceed certain thresholds, crucial systems like the turbomolecular pumps and the SDDs could be turned off automatically. This was done by the communication with an Energenie EG-PM2-LAN plug which allows the automatic power shutdown of these devices which were attached to it.

@@ -10,20 +10,25 @@ Erik Ramberg and George~A Snow.
 \newblock {Experimental limit on a small violation of the Pauli principle}.
 \newblock {\em Physics Letters B}, 238(2):438--441, 1990.
 
-\bibitem{Curceanu2011a}
-C.~Curceanu, J.~Marton, S.~Bartalucci, S.~Bertolucci, M.~Bragadireanu,
-  M.~Cargnelli, S.~{Di Matteo}, J.~P. Egger, C.~Guaraldo, M.~Iliescu,
-  T.~Ishiwatari, E.~Laubenstein, E.~Milotti, D.~Pietreanu, T.~Ponta, A.~Romero
-  Vidal, D.~L. Sirghi, F.~Sirghi, L.~Sperandio, O.~Vazquez Doce, E.~Widmann,
-  and J.~Zmeskal.
-\newblock {New Experimental Limit on the Pauli Exclusion Principle Violation by
-  Electrons---The VIP Experiment}.
-\newblock {\em Foundations of Physics}, 41(3):282--287, 2011.
+\bibitem{Curceanu2012}
+C~Curceanu, S~Bartalucci, A~Bassi, S~Bertolucci, M~Bragadireanu, M~Cargnelli,
+  A~Clozza, S~Di Matteo, S~Donadi, J-P Egger, C~Guaraldo, M~Iliescu,
+  T~Ishiwatari, M~Laubenstein, J~Marton, E~Milotti, D~Pietreanu, M~Poli Lener,
+  T~Ponta, A~Rizzo, A~Romero Vidal, A~Scordo, D~L Sirghi, F~Sirghi,
+  L~Sperandio, O~Vazquez Doce, E~Widmann, and J~Zmeskal.
+\newblock {Experimental tests of Quantum Mechanics: from Pauli Exclusion
+  Principle Violation to spontaneous collapse models}.
+\newblock {\em Journal of Physics: Conference Series}, 361:012006, 2012.
 
-\bibitem{Pietreanu2014}
-Dorel Pietreanu and Laura Sperandio.
-\newblock {VIP Data Analysis Report}.
-\newblock Technical report, 2014.
+\bibitem{Curceanu2011}
+C.~Curceanu, S.~Bartalucci, S.~Bertolucci, M.~Bragadireanu, M.~Cargnelli,
+  S.~{Di Matteo}, J.~P. Egger, C.~Guaraldo, M.~Iliescu, T.~Ishiwatari,
+  M.~Laubenstein, J.~Marton, E.~Milotti, D.~Pietreanu, T.~Ponta, A.~Rizzo,
+  A.~{Romero Vidal}, A.~Scordo, D.~L. Sirghi, F.~Sirghi, L.~Sperandio,
+  O.~{Vazquez Doce}, E.~Widmann, and J.~Zmeskal.
+\newblock {Experimental tests of quantum mechanics: Pauli Exclusion Principle
+  Violation (the VIP experiment) and future perspectives}.
+\newblock {\em Journal of Physics: Conference Series}, 306(1):012036, 2011.
 
 \bibitem{Pauli1946}
 W.~Pauli.
@@ -159,14 +164,140 @@ D~Javorsek, M~Bourgeois, D~Elmore, E~Fischbach, D~Hillegonds, J~Marder,
   accelerator mass spectrometry}.
 \newblock {\em Physical review letters}, 85(13):2701--4, 2000.
 
-\bibitem{Curceanu2011}
-C.~Curceanu, S.~Bartalucci, S.~Bertolucci, M.~Bragadireanu, M.~Cargnelli,
-  S.~{Di Matteo}, J.~P. Egger, C.~Guaraldo, M.~Iliescu, T.~Ishiwatari,
-  M.~Laubenstein, J.~Marton, E.~Milotti, D.~Pietreanu, T.~Ponta, A.~Rizzo,
-  A.~{Romero Vidal}, A.~Scordo, D.~L. Sirghi, F.~Sirghi, L.~Sperandio,
-  O.~{Vazquez Doce}, E.~Widmann, and J.~Zmeskal.
-\newblock {Experimental tests of quantum mechanics: Pauli Exclusion Principle
-  Violation (the VIP experiment) and future perspectives}.
-\newblock {\em Journal of Physics: Conference Series}, 306(1):012036, 2011.
+\bibitem{Hilscher2009}
+G.~Hilscher.
+\newblock {\em {Festk{\"{o}}rperphysik 1}}.
+\newblock 2009.
+
+\bibitem{DiMatteo2005}
+S~Di Matteo and L~Sperandio.
+\newblock {VIP Technical Note IR - 4}.
+\newblock Technical report, 2005.
+
+\bibitem{Mallow1978}
+J.~V. Mallow, J.~P. Desclaux, and A.~J. Freeman.
+\newblock {Dirac-Fock method for muonic atoms: Transition energies, wave
+  functions, and charge densities}.
+\newblock {\em Physical Review A}, 17(6):1804--1809, 1978.
+
+\bibitem{Curceanu2013}
+C.~Curceanu.
+\newblock {EVALUATION OF THE X-RAY TRANSITION ENERGIES FOR THE
+  PAULI-PRINCIPLE-VIOLATING ATOMIC TRANSITIONS IN SEVERAL ELEMENTS BY USING THE
+  DIRAC-FOCK METHOD}.
+\newblock 2013.
+
+\bibitem{Gatti1984}
+Emilio Gatti and Pavel Rehak.
+\newblock {Semiconductor drift chamber - An application of a novel charge
+  transport scheme}.
+\newblock {\em Nuclear Instruments and Methods In Physics Research},
+  225(3):608--614, sep 1984.
+
+\bibitem{Lechner}
+P~Lechner and H~Soltau.
+\newblock {Silicon Drift Detectors for SIDDHARTA - Mounting, Bonding and
+  Testing}.
+\newblock Technical report.
+
+\bibitem{Cargnelli2005}
+M~Cargnelli, M~Bragadireanu, M~Catitti, C~Fiorini, T~Frizzi, H~Fuhrmann,
+  F~Ghio, B~Girolami, C~Guaraldo, M~Iliescu, T~Ishiwatari, K~Itahashi,
+  M~Iwasaki, P~Kienle, T~Koike, P~Lechner, P~Levi Sandri, V~Lucherini,
+  A~Longoni, J~Marton, T~Ponta, D~L Sirghi, F~Sirghi, H~Soltau, L~Struder,
+  E~Widmann, and J~Zmeskal.
+\newblock {Silicon drift detectors for hadronic atom research - SIDDHARTA}.
+\newblock {\em Proceedings, International Conference on Exotic Atoms and
+  Related Topics (EXA 2005)}, pages 1--8, 2005.
+
+\bibitem{Leo1993}
+W.~Leo.
+\newblock {\em {Techniques for Nuclear and Particle Physics Experiments}}.
+\newblock 2 edition, 1993.
+
+\bibitem{EljenTechnology}
+{Eljen Technology}.
+\newblock http://www.eljentechnology.com/.
+
+\bibitem{AdvanSiD2012}
+AdvanSiD.
+\newblock {AdvanSiD ASD-SiPM3S-P}.
+\newblock Technical report, 2012.
+
+\bibitem{DeWaele2000}
+A.~T.A.M. {De Waele}.
+\newblock {Pulse-tube refrigerators: principle, recent developments, and
+  prospects}.
+\newblock {\em Physica B: Condensed Matter}, 280(1-4):479--482, 2000.
+
+\bibitem{Agostinelli2003}
+S.~Agostinelli, J.~Allison, K.~Amako, J.~Apostolakis, H.~Araujo, P.~Arce,
+  M.~Asai, D.~Axen, S.~Banerjee, G.~Barrand, F.~Behner, L.~Bellagamba,
+  J.~Boudreau, L.~Broglia, A.~Brunengo, H.~Burkhardt, S.~Chauvie, J.~Chuma,
+  R.~Chytracek, G.~Cooperman, G.~Cosmo, P.~Degtyarenko, A.~Dell'Acqua,
+  G.~Depaola, D.~Dietrich, R.~Enami, A.~Feliciello, C.~Ferguson, H.~Fesefeldt,
+  G.~Folger, F.~Foppiano, A.~Forti, S.~Garelli, S.~Giani, R.~Giannitrapani,
+  D.~Gibin, J.~J. {Gomez Cadenas}, I.~Gonzalez, G.~{Gracia Abril},
+  G.~Greeniaus, W.~Greiner, V.~Grichine, A.~Grossheim, S.~Guatelli,
+  P.~Gumplinger, R.~Hamatsu, K.~Hashimoto, H.~Hasui, A.~Heikkinen, A.~Howard,
+  V.~Ivanchenko, A.~Johnson, F.~W. Jones, J.~Kallenbach, N.~Kanaya,
+  M.~Kawabata, Y.~Kawabata, M.~Kawaguti, S.~Kelner, P.~Kent, A.~Kimura,
+  T.~Kodama, R.~Kokoulin, M.~Kossov, H.~Kurashige, E.~Lamanna, T.~Lampen,
+  V.~Lara, V.~Lefebure, F.~Lei, M.~Liendl, W.~Lockman, F.~Longo, S.~Magni,
+  M.~Maire, E.~Medernach, K.~Minamimoto, P.~{Mora de Freitas}, Y.~Morita,
+  K.~Murakami, M.~Nagamatu, R.~Nartallo, P.~Nieminen, T.~Nishimura, K.~Ohtsubo,
+  M.~Okamura, S.~O'Neale, Y.~Oohata, K.~Paech, J.~Perl, A.~Pfeiffer, M.~G. Pia,
+  F.~Ranjard, A.~Rybin, S.~Sadilov, E.~di~Salvo, G.~Santin, T.~Sasaki,
+  N.~Savvas, Y.~Sawada, S.~Scherer, S.~Sei, V.~Sirotenko, D.~Smith, N.~Starkov,
+  H.~Stoecker, J.~Sulkimo, M.~Takahata, S.~Tanaka, E.~Tcherniaev, E.~{Safai
+  Tehrani}, M.~Tropeano, P.~Truscott, H.~Uno, L.~Urban, P.~Urban, M.~Verderi,
+  A.~Walkden, W.~Wander, H.~Weber, J.~P. Wellisch, T.~Wenaus, D.~C. Williams,
+  D.~Wright, T.~Yamada, H.~Yoshida, and D.~Zschiesche.
+\newblock {GEANT4 - A simulation toolkit}.
+\newblock {\em Nuclear Instruments and Methods in Physics Research, Section A:
+  Accelerators, Spectrometers, Detectors and Associated Equipment},
+  506(3):250--303, 2003.
+
+\bibitem{Gaisser2000}
+T.~K. Gaisser and T.~Stanev.
+\newblock {Cosmic Rays}.
+\newblock {\em The European Physical Journal C}, 15(1-4):150--156, 2000.
+
+\bibitem{Bellini2013}
+G.~Bellini, J.~Benziger, D.~Bick, G.~Bonfini, D.~Bravo, M.~Buizza Avanzini,
+  B.~Caccianiga, L.~Cadonati, F.~Calaprice, C.~Carraro, P.~Cavalcante,
+  A.~Chavarria, A.~Chepurnov, D.~D'Angelo, S.~Davini, A.~Derbin, A.~Etenko,
+  F.~von Feilitzsch, K.~Fomenko, D.~Franco, C.~Galbiati, S.~Gazzana, C.~Ghiano,
+  M.~Giammarchi, M.~Goeger-Neff, A.~Goretti, L.~Grandi, E.~Guardincerri,
+  C.~Hagner, S.~Hardy, Aldo Ianni, Andrea Ianni, D.~Korablev, G.~Korga,
+  Y.~Koshio, D.~Kryn, M.~Laubenstein, T.~Lewke, E.~Litvinovich, B.~Loer,
+  F.~Lombardi, P.~Lombardi, L.~Ludhova, I.~Machulin, S.~Manecki, W.~Maneschg,
+  G.~Manuzio, Q.~Meindl, E.~Meroni, L.~Miramonti, M.~Misiaszek, D.~Montanari,
+  P.~Mosteiro, V.~Muratova, L.~Oberauer, M.~Obolensky, F.~Ortica, K.~Otis,
+  M.~Pallavicini, L.~Papp, L.~Perasso, S.~Perasso, A.~Pocar, R.~S. Raghavan,
+  G.~Ranucci, A.~Razeto, A.~Re, A.~Romani, A.~Sabelnikov, R.~Saldanha,
+  C.~Salvo, S.~Sch{\"{o}}nert, H.~Simgen, M.~Skorokhvatov, O.~Smirnov,
+  A.~Sotnikov, S.~Sukhotin, Y.~Suvorov, R.~Tartaglia, G.~Testera, D.~Vignaud,
+  R.~B. Vogelaar, J.~Winter, M.~Wojcik, A.~Wright, M.~Wurm, J.~Xu,
+  O.~Zaimidoroga, S.~Zavatarelli, and G.~Zuzel.
+\newblock {Cosmic-muon flux and annual modulation in Borexino at 3800 m
+  water-equivalent depth}.
+\newblock {\em Journal of Cosmology and Astroparticle Physics}, 08:049, 2013.
+
+\bibitem{Haffke2011}
+M.~Haffke, L.~Baudis, T.~Bruch, A.~D. Ferella, T.~Marrod{\'{a}}n Undagoitia,
+  M.~Schumann, Y.~F. Te, and A.~{Van Der Schaaf}.
+\newblock {Background measurements in the Gran Sasso Underground Laboratory}.
+\newblock {\em Nuclear Instruments and Methods in Physics Research, Section A:
+  Accelerators, Spectrometers, Detectors and Associated Equipment},
+  643(1):36--41, 2011.
+
+\bibitem{Bucci2009}
+C.~Bucci, S.~Capelli, M.~Carrettoni, M.~Clemenza, O.~Cremonesi, L.~Gironi,
+  P.~Gorla, C.~Maiano, A.~Nucciotti, L.~Pattavina, M.~Pavan, M.~Pedretti,
+  S.~Pirro, E.~Previtali, and M.~Sisti.
+\newblock {Background study and Monte Carlo simulations for large-mass
+  bolometers}.
+\newblock {\em European Physical Journal A}, 41(2):155--168, 2009.
 
 \end{thebibliography}

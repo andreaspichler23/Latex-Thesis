@@ -1,0 +1,81 @@
+\chapter{Simulations}
+\label{chap:Simulation}
+
+geant4 simulations of: the background rejection ratio for cosmics and for gammas; the energy deposition of MiPs in scintillators; the efficiency determination for detecting photons coming from PEP violating transitions
+
+For the purpose of evaluating and verifying several experimental parameters, the complete setup has been modeled in the Geant4 framework \cite{Agostinelli2003}. The utilized version of the framework is     Geant4.10.2 . All components of the setup were considered in the simulations including the SDDs with metal frames, the copper target and the copper current supply cables, the scintillators and the calibration foils as well as the aluminum vacuum box. The PENELOPE (PENetration and Energy LOss of Positrons and Electrons) model was chosen over the LIVERMORE model for electromagnetic processes. As atomic de-excitation processes were important, flourescence, auger electron emission and PIXE (Particle induced X-ray emission) were turned on. The simulations were conducted by the collborator Shi Hexi. A render of the setup is shown in figure \ref{fig:mc_setup}.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.6\textwidth]{./Figures/top_tilted_view2.pdf}
+ % top_tilted_view2.pdf: 0x0 pixel, 300dpi, 0.00x0.00 cm, bb=
+ \caption{View of the the VIP2 setup in a Geant4 MC simulation.}
+ \label{fig:mc_setup}
+\end{figure}
+
+\section{Detection Efficiency}
+
+One objective of the simulation was to determine the efficiency of the setup. The efficiency is in our case defined as the probability for an X-ray coming from a PEP violating transition (i.e. a photon with an energy of ~7.7 keV) originating in one of the two target strips to be detected in a SDD. Two factors contribute to the efficiency. On the one hand the solid angle coverage of the copper target by the SDDs limits the efficiency. Taking into account the fact that the aluminum pad for water cooling between the two copper foils absorbs $\sim$100 \% of these photons, the solid angle can be estimated to be $\sim$ 10 \% (from the ratio between the area of the target and the area of the SDDs). On the other hand some photons are lost by interactions with the 50 $\mu$m Cu target. Here photoabsorption has the by far largest contribution to this loss. This contribution can be estimated with the attenuation of photons going through half of the target (25 $\mu$m) which is about 25 \%. This gives an estimation for the whole efficiency of about 2.5 \%.
+
+To determine the efficiency with a simulation, $10^6$ photons with 7.7 keV were simulated with their starting positions randomized in the copper target and their starting directions randomized over 4$\pi$ solid angle. The result of the simulation is shown in figure \ref{fig:eff_simulation}.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.6\textwidth]{./Figures/geantino_one_side_10K.pdf}
+ % geantino_one_side_10K.pdf: 528x382 pixel, 72dpi, 18.63x13.48 cm, bb=0 0 528 382
+ \caption{Starting (brown) and end (purple) points of photons originating from the Cu target and hitting the SDDs.}
+ \label{fig:eff_simulation}
+\end{figure}
+In the figure all original vertices in one copper target strip (starting points - brown) of photons which deposit all their energy in the SDDs are shown. The last vertices (end point of the track - purple) where the photons lose their energy in the SDDs is also shown. Only photons are counted which deposit all their energy of 7.7 keV in the SDDs. It is evident from the figure, that most photons which are detected by the SDDs originate in the part of the 7.1 cm long target closer (``beneath'' in the figure) to the SDDs. This can be explained with the larger solid angle under which these photons see the detector. Only one side of the simulation result is shown in the figure, as the setup is symmetric and the other side gives the same result. From the $10^6$ photons starting from the target, 18,200 were detected by the SDDs. This results in efficiency of 1.82 \%, which is close to the estimation of 2.5 \% and therefore a plausible result.
+
+\section{Cosmic Ray Background}
+
+Cosmic radiation seen at the surface of earth primarily consists of muons \cite{Gaisser2000}. The origin of this radiation is so-called primary cosmic radiation consisting of nuclei which are part of  stellar power generation such as hydrogen and helium nuclei. These particles hit earth's atmosphere mainly generating mesons, which then decay into the cosmic radiation seen at the surface of the earth (e.g. muons). The rate of muons integrated over the whole solid angle is $\sim$ 1 cm$^{-2}$ min$^{-1}$ \cite{Gaisser2000}. For the simulation, $10^{7}$ muons were generated in an area of 50 cm $\times$ 35 cm which had a distance of 20 cm to the target. The particles had 270 GeV energy and their directions were randomized in the lower half-sphere. With the above mentioned rate this correponds to the background of $\sim$ 4 days. This part of the background only plays a role in the measurments above ground, as it is reduced at the underground laboratory LNGS by several orders of magnitude. The goal of these simulations was to estimate the probability of the rejection of muons by scintillator veto and to estimate the signal rate from this source in the scintillators and SDDs.
+
+The energy deposit in each scintillator summed up over all scintillators is shown in figure \ref{fig:muEnDepScin}. A pronounced peak at $\sim$ 8 MeV deposited energy is visible. With a thickness of a scintillator of 4 cm, this corresponds to an energy loss of 2 $\frac{MeV}{cm}$. 
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.6\textwidth]{./Figures/root/Plots/muonEnDep.pdf}
+ % muonEnDep.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{Energy deposit of 270 GeV muons in plastic scintillators.}
+ \label{fig:muEnDepScin}
+\end{figure}
+Furthermore, the trigger rate of the scintillators can be estimated from the rate of 1 cm$^{-2}$ min$^{-1}$ to be $\sim$ 1.7 s$^{-1}$ per scintillator. The energy deposit in the SDDs is shown in figure \ref{fig:muEnDepSDD}.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.6\textwidth]{./Figures/root/Plots/sddEnFromCos.pdf}
+ % sddEnFromCos.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{Energy deposit of 270 GeV muons in Silicon Drift Detectors.}
+ \label{fig:muEnDepSDD}
+\end{figure}
+The peak in deposited energy is in this case at around 300 keV. In all 6 SDDs combined there were 7896 hits, wich means 1316 hits per SDD. This equates to a rate of 0.004 Hz or 1 hit about every 4 minutes and 20 seconds. The energy range of the SDDs is divided into a range of 1 keV - 30 keV and the energy > 30 keV, as everything above this value is in the overflow bin of the ADC. Therefore it makes sense to calculate the rates for these 2 energy ranges. There are 338 hits in the lower energy range, meaning 14 hits per day in each SDD. In the higher energy range there are 7558 hits, meaning about 1 hit every 4 minutes and 40 seconds.
+
+From the 7896 SDD events, 7859 events had an energy deposit of more than 100 keV in the inner and the outer scintillator layer. A signal in boths layers is the condition for a rejection and the threshold of 100 keV will be justified in chapter \ref{chap:TestMeasurements}. This means, the background from cosmic rays can be rejected to $\sim$ 99.5 \%. A low energy spectrum of the SDDs with and without scintillator veto is shown in figure \ref{fig:scintVeto}.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.6\textwidth]{./Figures/root/Plots/cosmicRej.pdf}
+ % cosmicRej.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{Complete low energy spectrum of the SDDs induced by muons (red) and the part that is also seen by the scintillators (blue).}
+ \label{fig:scintVeto}
+\end{figure}
+
+The underground laboratory LNGS lies at 3800 m water equivalent depth, where the cosmic muon flux is reduced to 3.41 $\times$ 10$^{-4}$ m$^{-2}$ s$^{-1}$ \cite{Bellini2013}. Compared to 1.67 $\times$ 10$^{2}$ m$^{-2}$ $s^{-1}$ given in \cite{Gaisser2000} for the surface of the earth, this is a reduction by a factor of 2 $\times$ 10$^{-6}$. The values for the event rates due to cosmic muons calculated in the previous section scale accordingly. The expected trigger rate for each scintillator is then $\sim$ 3.4 $\times$ 10$^{-6}$ Hz or $\sim$ 1 event every 3 days and $\sim$ 2 events per day for all scintillators. The expected event rate for each SDD is then $\sim$ 1 event every 4 years or $\sim$ 1 event every 230 days for all 6 SDDs.
+
+
+\section{Gamma Ray Background}
+
+The background consisting of $\gamma$-rays is the dominant background in the underground laboratory LNGS, as cosmic radiation is reduced by almost 6 orders of magnitude. The origin of the $\gamma$ radiation are long-lived $\gamma$-emitting primordial iostopes. They are part of the rocks of the Gran Sasso mountains and the concrete used to stabilize the cavity. The dominant isotopes of this kind are $^{238}$U, $^{232}$Th and $^{40}$K \cite{Haffke2011} and their decay products. For the simulation 2.5 $\times$ 10$^{9}$ $\gamma$ photons were generated on a surface of 0.945 m$^{2}$, which completely enclosed the setup. The particles energy distribution follows the one reported in \cite{Haffke2011} in the dominant energy range from 40 - 500 keV, which was modeled by a Landau distribution with a mode at 120 keV and a sigma of 50 keV. The particles directions were randomized in the half sphere towards the setup. In \cite{Haffke2011} an integral flux of 0.33 $\gamma$ cm$^{-2}$ s$^{-1}$ = 2.85 $\times$ 10$^{8}$ $\gamma$ m$^{-2}$ day$^{-1}$ was reported, whereas in \cite{Bucci2009} a flux of 6.3 $\times$ 10$^{8}$ $\gamma$ m$^{-2}$ day$^{-1}$ was given. For now the data from \cite{Haffke2011} will be used and later the result of this assumption will be compared with the measured data. In this case the simulated 2.5 $\times$ 10$^{9}$ particles correspond to a data taking time of 9.28 days.
+
+The interaction of the photons with the scintillators almost exclusively takes place via inelastic Compton scattering, meaning the photons do not deposit the complete energy. The deposited energy can be as high as 500 keV. In the 9.28 days of the simulated data, there were 184,380 events with an energy deposit in the inner and outer scintillator layer larger than 100 keV. As the trigger condition is a signal in inner and outer layer, the trigger rate from these events is 0.23 Hz or $\sim$ 1 event every 4 seconds in all scintillators. The energy spectrum in the range from 1 keV - 30 keV deposited in the SDDs is shown in figure \ref{fig:sddEnDepGamma}.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.6\textwidth]{./Figures/root/Plots/sddEnFromGamma.pdf}
+ % sddEnFromGamma.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{Monte Carlo simulation of the energy spectrum induced by $\gamma$ rays and detected by SDDs. Cu and Zr lines are visible at $\sim$ 8 keV and $\sim$ 16 keV respectively.}
+ \label{fig:sddEnDepGamma}
+\end{figure}
+In the figure the Cu K$\alpha$ and K$\beta$ lines are visible at 8 - 9 keV as well as the Zr K$\alpha$ and K$\beta$ lines at 16 - 18 keV. The Cu lines come from photons from the Cu target and the Zr lines come from photons from the Zr calibration foil. This foil is mounted in the setup for the possibility to conduct an energy calibration of the detectors with an X-ray tube. In the 9.28 days of simulated data, there were 57,617 events in all SDDs with an energy deposit > 1 keV, corresponding to a rate of 0.07 Hz or $\sim$ 1 event every 14 seconds in all SDDs. From these events, 30,581 are in the range between 1 keV - 30 keV, corresponding to a rate of $\sim$ 0.04 Hz. Comparing these rates to the ones induced by cosmic muons at LNGS, it is obvious that $\gamma$ radiation is the dominant source of background.
+
+
+
+
+
+

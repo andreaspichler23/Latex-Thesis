@@ -3,47 +3,53 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: ThesisMain.aux
 The style file: unsrt.bst
 Database file #1: BibliographyThesis.bib.bib
-Warning--empty institution in Pietreanu2014
 Warning--empty school in Sperandio2008
-You've used 26 entries,
+Warning--empty publisher in Hilscher2009
+Warning--empty institution in DiMatteo2005
+Warning--empty journal in Curceanu2013
+Warning--empty institution in Lechner
+Warning--empty year in Lechner
+Warning--empty publisher in Leo1993
+Warning--empty institution in AdvanSiD2012
+You've used 41 entries,
             1791 wiz_defined-function locations,
-            641 strings with 10029 characters,
-and the built_in function-call counts, 7695 in all, are:
-= -- 548
-> -- 641
-< -- 0
-+ -- 226
-- -- 200
-* -- 752
-:= -- 1368
-add.period$ -- 77
-call.type$ -- 26
-change.case$ -- 26
+            731 strings with 16419 characters,
+and the built_in function-call counts, 14012 in all, are:
+= -- 815
+> -- 1529
+< -- 1
++ -- 529
+- -- 488
+* -- 1464
+:= -- 2617
+add.period$ -- 121
+call.type$ -- 41
+change.case$ -- 42
 chr.to.int$ -- 0
-cite$ -- 28
-duplicate$ -- 224
-empty$ -- 582
-format.name$ -- 200
-if$ -- 1530
+cite$ -- 49
+duplicate$ -- 355
+empty$ -- 884
+format.name$ -- 488
+if$ -- 2692
 int.to.chr$ -- 0
-int.to.str$ -- 26
-missing$ -- 23
-newline$ -- 132
-num.names$ -- 26
-pop$ -- 36
+int.to.str$ -- 41
+missing$ -- 37
+newline$ -- 206
+num.names$ -- 41
+pop$ -- 79
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 84
+skip$ -- 136
 stack$ -- 0
-substring$ -- 535
-swap$ -- 25
-text.length$ -- 0
+substring$ -- 728
+swap$ -- 42
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 2
-while$ -- 66
-width$ -- 28
-write$ -- 283
-(There were 2 warnings)
+warning$ -- 8
+while$ -- 98
+width$ -- 43
+write$ -- 436
+(There were 8 warnings)

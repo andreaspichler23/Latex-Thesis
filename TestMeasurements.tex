@@ -1,4 +1,115 @@
 \chapter{Test Measurements}
 \label{chap:TestMeasurements}
 
-scintillator + sipm detection ratio for cosmics (smi) and for 500 mev electrons (lnf test beam); background rejection at smi (tdc+qdc correlation) -> test of the functionality of the daq; sdd time resolution tests, sdd energy resolution determination (-> thereby also testing the cryogenics); tests with high current and water cooling; 
+scintillator + sipm detection ratio for cosmics (smi) and for 500 mev electrons (lnf test beam); background rejection at smi (tdc+qdc correlation) -> test of the functionality of the daq; sdd time resolution tests, sdd energy resolution determination (-> thereby also testing the cryogenics); tests with high current and water cooling; determination of the energy deposit threshold for the scintillators
+
+time resolution sipms: tr->Draw((tdc[14]-tdc[1])-(tdc[14]-tdc[7]) h(800,-400,400),tdc[1]>0 and tdc[7])
+
+\section{Test Measurements at LNF}
+
+First measurements with the scintillators read out by SiPM were done at the Beam Test Factory (BTF) at Laboratori Nazionali di Frascati (LNF). This facility is connected to the linear accelerator of the DA$\Phi$NE collider and provides a 500 MeV electron or positron beam. The test setup is shown in figure \ref{fig:btf_setup},
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{./Figures/BTF_setup.png}
+ % BTF_setup.png: 1534x270 pixel, 211dpi, 18.47x3.25 cm, bb=0 0 523 92
+ \caption{The setup for testing the plastic scintillators with SiPM readout at the Beam Test Facility.}
+ \label{fig:btf_setup}
+\end{figure}
+The scintillators were the ones later on used in the VIP2 experiment, namely plastic scintillator bars of 25 cm $\times$ 4 cm $\times$ 3.8 cm. The trigger is defined as signal in the calorimeter AND a signal in the entrance detector, for which another scintillator was used. In case both of these detectors have a signal, both scintillators also need to have a signal because the triggering particle necessarily passes through them. The detection efficiency for any of the two scintillators is defined as the fraction of total triggers, for which each scintillator produces a signal over threshold. Furthermore 3 different beam positions relative to the SiPM readout have been set, as shown in figure \ref{fig:btf_setup2}.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.4\textwidth]{./Figures/BTF-setup2.png}
+ % BTF-setup2.png: 1437x766 pixel, 72dpi, 50.69x27.02 cm, bb=0 0 1437 766
+ \caption{3 different beam positions for the tests of the scintillators at the Beam Test Factory.}
+ \label{fig:btf_setup2}
+\end{figure}
+The detection efficiency was larger than 98 \% for all the beam hit position but no clear dependence on the hit position could be found. For each measurement the analog data from the SiPMs was converted to a digital signal in a QDC. The distribution of this signal in each case followed a Landau distribution. The most probable value of this distribution was dependent on the beam hit position and it was decreasing with increasing distance between the hit position in the readout. This means the scintillation light losses over the length of the scintillator have a measurable effect. Due to the 16 cm difference in beam hit position, the signal was decreased further away from the SiPM readout to 93 \% and 87 \% for the 2 scintillators respectively. The signals from the SiPMs were converted into time stamps by a TDC. By comparing these time stamps to a reference time stamp from the trigger, a time resolution of 2.6 ns (FWHM) could be estimated.
+
+\section{Test Measurements at SMI}
+
+After first tests at LNF, the setup box as well as the scintillators and 2 SDD arrays which originally belonged to the SIDDHARTA experiment were transported to the Stefan Meyer Institute in Vienna in summer 2014. Tests were done with the SDDs in a smaller setup, but due to problems with Wi-Fi signals, which were probably picked up due to the similarity of Wi-Fi wavelength ($\sim$ 12 cm) and setup geometry, these tests were abandoned. Further tests were conducted with an adpated readout board in the final setup box, which was larger and therefore less likely to pick up Wi-Fi signals. The scintillators were wrapped in aluminum foil and black tape and 2 SiPMs were attached to a surface with optical glue and read out in series. The functionality of each system of scintillator read out by 2 SiPms was tested by connecting it the signals to an oscilloscope and checking the signals. The slow control was set up including the current supply, the temperature controller and the Pt-100 temperature sensors with their positions described in \ref{sec:slowControl}. The PID values of the LakeShore331 temperature controller were adjusted to ensure stable operation. The data acquisition system was set up and connected to the signals from the SDDs and the scintillators. The gain and shaping time of each SDD channel was was adjusted in the CEAN 568B spectroscopy amplifier. After all these parts were tested individually, they were assembled and long term tests were conducted which will be desribed subsequently.
+
+\subsection{Water Cooling of Cu Target}
+
+One of the first tests done in order to ensure adequate cooling of the Cu target also in the case of a high current. The cooling of the target is done by water flowing through the cooling pad between the 2 copper target foils. The temperature was measured on each foil with a Pt-100 temperature sensor. 2 different measurements were done, with a high current once with and once without water cooling. The outcome is shown in figure \ref{fig:waterCooling}.
+
+\begin{figure}[h]
+ \centering
+ \begin{subfigure}{.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/targetTempNoCooling.pdf}
+ % targetTempNoCooling.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ %\caption{The temperature of the 2 Cu target foils without water cooling for a current of 40 A (10:30) and 80 A (11:15).}
+ %\label{fig:waterCooling1}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}{.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/targetTempWithCooling.pdf}
+ % targetTempNoCooling.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ %\caption{bla2}
+ %\label{fig:waterCooling2}
+ \end{subfigure}
+ \caption{The temperature of the 2 Cu target foils with a high current without water cooling (left) and with water cooling (right).}
+ \label{fig:waterCooling}
+\end{figure}
+The left figure shows the temperatures without the water cooling with a current of 40 A (starting at $\sim$ 10:30) and a current of 80 A (starting at $\sim$ 11:15). The temperature rises to $\sim$ 45 °C, well above room temperature. As a even higher current of 100 A is projected, it is not an option not to use water cooling. On the right picture the temperature of the Cu target with water cooling is shown. In this case the current was varied gradually from 80 A (starting at $\sim$ 13:00) to 180 A (starting at $\sim$ 16:00). In this case the temperature can be stabilized below room temperature even for a current as high as 180 A. Consequently similar temperatures of the target can be achieved for data taking with and without current.
+
+\subsection{SDD Energy Resolution}
+
+The following tests of the functionality of all parts are extracted from a data taking period from 23. October 2015 - 27. October 2017, corresponding to 4 days of data taking time. There was no current flowing through the copper target during this data taking period.
+
+To achieve the optimal energy resolution, the voltage values for the photon entrance window (Bc) and the separation mesh (Bf) (see chapter \ref{sec:SDDs}) were adjusted, before this data taking period, starting from the values used in the SIDDHARTA setup for these SDD cells. The values used are summed up in tables \ref{tab:sddVoltages1} and \ref{tab:sddVoltages2}.
+
+\begin{table}[h]
+ \centering
+\begin{tabular}{ |c|c|c|c| } 
+ \hline
+ Rx & R1 & Bf (SDDs: 1,2,3) & Bf (SDDs: 4,5,6)  \\ 
+ \hline
+ -250 V & -16 V & -137 V & -144 V  \\
+ \hline
+\end{tabular}
+\caption{Voltages for outer and inner SDD rings as well as for the separation meshs of the 2 SDD arrays.}
+\label{tab:sddVoltages1}
+\end{table}
+
+\begin{table}[h]
+ \centering
+\begin{tabular}{ |c|c|c|c|c|c| } 
+ \hline
+  Bc1 & Bc2 & Bc3 & Bc4 & Bc5 & Bc6 \\ 
+ \hline
+ -134 V & -121 V & -143 V & -133 V & -137 V & -144 V \\
+ \hline
+\end{tabular}
+\caption{Voltages for the photon entrance windows for SDDs 1-6.}
+\label{tab:sddVoltages2}
+\end{table}
+
+After optimzing the voltage settings, the energy resolution was determined from the data taken in the data taking period in October 2015. The results are shown in table \ref{tab:energyResSMI}.
+
+\begin{table}[h]
+ \centering
+\begin{tabular}{ |B|c|c|c|c|c|c| } 
+ \hline
+   & SDD 1 & SDD 2 & SDD 3 & SDD 4 & SDD 5 & SDD 6  \\ 
+ \hline
+ FWHM @ 6 keV & 148 eV & 150 eV & 147 eV & 147 eV & 156 eV & 158 eV   \\
+ \hline
+\end{tabular}
+\caption{Energy resolution (FWHM) of the SDDs @ 6 keV.}
+\label{tab:energyResSMI}
+\end{table}
+The typical statistical error of the Full Width Half Maximum (FWHM) energy resolution is 1-2 eV for this amount of data for one SDD. These energy resolutions are close to the design resolution of 150 eV (FWHM) at 6 keV given in \cite{Lechner}. Furthermore an approximate Fano factor of 0.137 with a statistical error of 0.007 was found. The summed up energy spectrum is shown in figure \ref{fig:sddEnSpecSmi}.
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.6\textwidth]{./Figures/root/Plots/sumEnSpecSmi.pdf}
+ % sumEnSpecSmi.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{Energy spectrum corresponding to 4 days of data taken at SMI.}
+ \label{fig:sddEnSpecSmi}
+\end{figure}
+
+The Mn K$\alpha$ and K$\beta$ lines (5.9 keV and 6.5 keV) from the Fe-55 source and the Ti K$\alpha$ and K$\beta$ lines (4.5 keV and 4.9 keV) from the Ti calibration foil are visible. The Mn and Ti K$\alpha$ lines are used to find the energy scale. Details to the calibration procedure will be given in chapter \ref{chap:DataAnalysis}. Furthermore the Silicon K$\alpha$ escape peak \footnote{An Si K$\alpha$ photon escapes the detector. Its energy is therefore not converted into electron/ hole pairs and is missing in the spectrum. } is visible 1.7 keV below its main peak at around 2.8 keV. The Cu K$\alpha$ line at 8 keV is caused by external radiation hitting the Cu parts and creating vacancies in the 1s shell which are subsequently filled by electrons from the 2s shell. As the thermal energy at room temperature ($\sim$ 25 meV) is orders of magnitude smaller than the gap between the 1s and the 2s shell ($\sim$ 8 keV), the creation of a vacancy in the 1s shell is reliant on an external energy source. All the expected peaks are therefore visible in the spectrum and the functionality of all 6 SDDs could be established.
+
