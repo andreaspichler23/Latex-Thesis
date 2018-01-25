@@ -3,6 +3,7 @@
 TFile *g = TFile::Open("/home/andreas/vip2/thesis/Latex/Figures/root/Histograms.root","UPDATE")
 
 TH1F *hen = (TH1F*)f->Get("ht1")
+// dont draw() and setrangeuser or similar now !!!
 
 //to check the list: f->GetList()->ls()
 f->GetList()->Write()
@@ -35,3 +36,21 @@ error:
 Error R__unzip_header: error in header (when you want to open it eg in Tbrowser)
 
 save histogram in a completely new file and hadd this file to the root file where you want to save it
+
+
+
+
+TGraph from a ttree: 
+
+TFile *f = new TFile("noCurrent.root","update")
+(TFile *) 0x15409a0
+root [1] tr->SetEstimate(tr->GetEntries())
+root [2] tr->Draw("slow[6]:ut","ut<1445950000")
+Info in <TCanvas::MakeDefCanvas>:  created default TCanvas with name c1
+(Long64_t) 3660855
+root [3] TGraph *gr1 = new TGraph(tr->GetSelectedRows(),tr->GetV2(),tr->GetV1())
+(TGraph *) 0x2d130b0
+root [4] gr1->Draw()
+root [5] gr1->Write("gSdd1Temp")
+
+
