@@ -1,4 +1,5 @@
 %\renewcommand{\thesection}{\arabic{section}} %should get rid of leading 0 in 
+\usepackage[toc,page]{appendix} % Für Appendices
 \usepackage[utf8]{inputenc} % Richtiges anzeigen von Umlauten und quasi allen anderen Schriftzeichen
 \usepackage[T1]{fontenc} % Wichtig für alles was mehr als ASCII verwendet
 \usepackage{csquotes} % Schöne Anführungsstriche mit \enquote{Text}
@@ -18,6 +19,10 @@
 \newcolumntype{B}{ >{\centering\arraybackslash} m{2cm} }
 \newcolumntype{C}{ >{\centering\arraybackslash} m{3cm} }
 \newcolumntype{D}{ >{\centering\arraybackslash} m{4cm} }
+\newcolumntype{E}{ >{\centering\arraybackslash} m{5cm} }
+\newcolumntype{F}{ >{\centering\arraybackslash} m{6cm} }
+\newcolumntype{G}{ >{\centering\arraybackslash} m{7cm} }
+\newcolumntype{H}{ >{\centering\arraybackslash} m{8cm} }
 
 \usepackage[version=3]{mhchem} % Für Chemische Formeln
 \usepackage{braket} % Für das quantenmechanische Bra-Ket
@@ -48,11 +53,19 @@
 
 \newcommand{\writeIn}[1]{\usepackage[#1]{babel}} % Definiert einen neuen Befehl um die Sprache des Dokuments zu setzen
 
-\usepackage[usenames,dvipsnames]{color} % Farben für den todo Befehl
-\newcommand{\todo}[1]{{\color{Cerulean}(TODO: #1)}} % Einfach \todo{Text} verwenden!
+%\usepackage[usenames,dvipsnames]{color} % Farben für den todo Befehl
+%\newcommand{\todo}[1]{{\color{Cerulean}(TODO: #1)}} % Einfach \todo{Text} verwenden!
 
 \newcommand{\blankpage}{ \newpage \thispagestyle{empty} \mbox{} \newpage }
 
 \setlength{\parindent}{0em} % sets the indent of a new paragraph in ``m''s of the current font
 \setlength{\parskip}{1em} % sets the separation of 2 paragraphs in ``m''s of the current font
 \newcommand{\betatwo}{$\frac{\beta^{2}}{2}$}
+\usepackage{xargs}
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny,textwidth=\linewidth/1.0]{todonotes}
+
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}

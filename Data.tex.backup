@@ -1,2 +1,319 @@
-\chapter{Data Analysis}
+\chapter{Data Taking at LNGS and Data Analysis}
 \label{chap:DataAnalysis}
+
+with data from lngs only, background comparison to smi; validation of the low rejection rate for gammas calculated first by simulations (200 kev energy threshold), problems with sipm noise, approximate cosmic rate at lngs -> 1 every 3 days approx reproduced; maybe stability of sdd temperature? -> with difference w/o current; slow control data: dependence of fwhm on: current, temperatures; crosstalk + data selection (where are high mul events coming from?); stability of rejection rate + background rate -> as rejection rate is not stable -> just show stable rate of counts in some energy region (-> mention the time with high rate); elements in spectrum?; 
+
+(synchronous) peak drift -> division of complete data set -> calibration of small files -> summation -> calibration, non-linearity!, desription of calibration function and calibration procedure;
+
+lngs data: 198 days 7 hours =  81 days 10.5 hours with current and 116 days 20 hours no current; 81 days 9.5 hours no current small
+
+calculation of counts in roi -> standard analysis, bayesian count based analysis, bayesian gaussian fit analysis; calculation of beta
+
+After the exhaustive tests at the Stefan Meyer Institute, the setup of the VIP2 experiment was transported to the Laboratori Nazionali del Gran Sasso (LNGS) of INFN in November 2015. The laboratory is located beneath the Gran Sasso mountains in the italian Abruzzo region. The Apennine mountains above the laboratory provide a natural shielding from cosmic radiation corresponding to 3800 m water equivalent depth \cite{Bellini2013}. The flux of comsic muons in the underground is reduced compared to the flux above ground by about 6 orders of magnitude (see also chapter \ref{chap:Simulation}). The dominant background radiation for the experiment therefore does not come from cosmic radiation, but from $\gamma$ radiation originating from radioactive isotopes like $^{238}$U, $^{232}$Th or $^{40}$K and their decay products. These isotopes are part of the rocks and the concrete used to stabilize the cavity. The background reduction due to the shielding of the mountains is crucial for improving the final limit on the probability for the violation of the Pauli Exclusion Principle the experiment is able to set, as this limit is proportional to the square root of the background. A comparison of the spectra taken at Stefan Meyer Institute and at LNGS is shown in figure \ref{fig:enSpecSmiLngs}.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{./Figures/root/Plots/enSpecCompLngsSmi.pdf}
+ % enSpecCompLngsSmi.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{The complete spectra from SMI (red) and LNGS (blue) both scaled to 1 day of data taking time.}
+ \label{fig:enSpecSmiLngs}
+\end{figure}
+The counts in the energy region of the forbidden transition at about 7.7 keV are reduced by a factor of 5. In the region below 7 keV, the counts do not change drastically as in this energy region most of the events are caused by X-rays from the Fe-55 source and the titanium calibration foil. These counts are similar, as the source rate is the same at SMI and LNGS (apart from a slight decrease in the rate of the source due to its half-life of 2.7 years). 
+
+After some tests in November and a break over the Christmas holidays, the first data without current was taken in February 2016. After a period of further tests and maintenance and a data taking break in summer 2016, the first data with current was taken in October 2016. Data taking continued with various breaks for maintenance until November 2017 when problems with the argon cooling forced a stop. Parts of the VIP2 setup were then brought back to SMI for fixing these problems and to exchange the SDDs for ones with a larger active area and easier cooling (see for example \cite{Pichler2017}). The maintenance and experiment upgrade is still ongoing at the time this thesis is written (January 2018). Until the end of July 2017, a total of 116 days and 20 hours of data without current and 81 days and 10 hours of data with a current of 100 A have been taken at LNGS. After a break during summer 2017 which was used for maintenance, around 25 more days of data without current were taken until November 2017. Switching the current on during this period was not possible due to the problems with argon cooling. These 25 days are not included in this work. 
+
+\section{Comparison of Data and Simulations}
+\label{sec:dataSimCompLngs}
+
+To check if the data corresponds to expectations, it is interesting to compare it to the simulations discussed in chapter \ref{chap:Simulation}. The measured counts above 7 keV together with the counts expected from simulations is shown in figure \ref{fig:simDataLngs}. The basis for the calculations was the $\gamma$ spectrum reported in \cite{Bucci2009} with 6.3 $\times$ 10$^{8}$ $\gamma$ m$^{-2}$
+day$^{-1}$. The good agreement between the measured data and the simulation based on this result favors it over the result reported in \cite{Haffke2011}, where about half the $\gamma$ flux was reported. 
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{./Figures/root/Plots/simDataCompWith.pdf}
+ % simDataCompWith.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{The simulated spectrum introduced by $\gamma$ radiation (red) scaled to the same data taking time (81 days 10 hours) as the data with current (blue).}
+ \label{fig:simDataLngs}
+\end{figure}
+This also shows that the by far largest contribution to the counts in the region of the Pauli-forbidden transition at 7.7 keV is the $\gamma$ radiation originating from the surrounding rocks in the underground laboratory. No other sources of background need to be considered in order to reconstruct the observed spectrum.
+
+The scintillator rejection rate of 1 \% predicted by simulations can also be compared to the measured data. The spectra taken with and without current are shown in figure \ref{fig:rejSpecLngs} together with the counts that can be rejected by scintillator veto.
+\begin{figure}[h]
+ \centering
+ \begin{subfigure}{.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/rejCompSpectrumLngsWithout.pdf}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}{.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/rejCompSpectrumLngsWith.pdf}
+ \end{subfigure}
+ \caption{The complete spectrum without current (left) and with current (right) in red taken at LNGS with the respective counts rejected by scintillator veto in blue.}
+ \label{fig:rejSpecLngs}
+\end{figure}
+The rejection ratio for the counts above 7 keV is 0.02 \% for the data with and without current. The 2 datasets were seperated for this analysis in order to check for noise effects that might be introduced by the 100 A current in the data with current. But these effects were not observed here. Looking at the simulation data, a rejection rate of 0.02 \% points to a minimum energy deposition of 200 keV in inner and outer scintillator layer to produce a veto signal. This value of 200 keV is double the value of 100 keV estimated for this threshold in chapter \ref{chap:TestMeasurements}. But as this needs to be viewed as an estimation than a calculation, 200 keV can be accepted as the threshold value, despite this descrepancy. The trigger logic of inner AND outer scintillator layer instead of triggering on any scintillator signal was kept in order to avoid triggers from SiPM dark counts. As the trigger condition was an AND of the 2 layers, both layers would need to have a dark count in order to produce a dark count trigger. As these correlated dark counts are much more unlikely than single dark counts, they can be suppressed in this way. 
+
+The rate of high energy charged particles hitting the setup can be estimated from the spectra of scintillator signals recorded by the QDC. Events with high energy deposited in one scintillator can be attributed to these particles, as their energy deposition is typically higher than the one from $\gamma$ radiation. This is difficult for 2 reasons: Firstly the count rate of high energy charged particles is very low, on the order of a few counts per week per scintillator. Secondly the seperation between events caused by $\gamma$ radiation and charged particles is not unambiguous. Nevertheless a rate of 1 event per scintillator every 3 days can be estimated from the data. This is in good agreement with the rate given in \cite{Bellini2013} of 3.41 $\times$ 10$^{-4}$ m$^{-2}$ s$^{-1}$.
+
+\section{Effects of 100 A Current}
+
+fwhm w/wo current at some energy
+
+It is interesting to look at effects of the 100 A current flowing through the Cu conductor on the measurements. One effect is the heat produced in the Cu conductor which then heats the SDDs, which are mounted about 0.5 cm away from the Cu strip. The temperature of the Cu strips is stabilized by a water cooling system and the temperature of the SDDs is kept constant by argon cooling (see also chapter \ref{chap:Setup}). These cooling systems counteract the warming up of the detectors when the current is turned on. The measured SDD temperatures are shown in figure \ref{fig:sddTempLngs}.
+\begin{figure}[h]
+ \centering
+ \begin{subfigure}{.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/sdd1TempLNGS.pdf}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}{.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/sdd2TempLNGS.pdf}
+ \end{subfigure}
+ \caption{Temperature measured on the metal frame of SDDs 1-3 (left) and on the metal frame of SDDs 4-6 (right). Data points with 100 A current are shown in red and data points without current are shown in blue. The x-axis spans a time from February 2016 until July 2017.}
+ \label{fig:sddTempLngs}
+\end{figure}
+The x-axis of this and similar upcoming plots spans a time from February 2016 until July 2017. Each data point corresponds to a measurement at a randomly selected time for about each day of data taking time. This is again also valid for all similar upcoming plots. From the figures it can be seen that the 100 A current (red data points) only raises the temperature of the metal frame of the SDDs by about 0.2 - 0.4 $^{\circ}$C compared to the measurements without current (blue data points). The temperature of the detectors themselves might be affected more than shown in the plots, but as there is no possibility to measure it directly it is impossible to be certain. Nevertheless it shows that the SDD environment can be stabilized at cryogenic temperature even with high currents. It is worth mentioning that the problems with suddenly rising temperature of the SDDs (see also chapter \ref{chap:TestMeasurements}) were overcome during the measurements at LNGS by filling more argon gas into the system. 
+
+Another interesting effect of the 100 A current is that it influences the energy resolution of the silicon detectors. A plot of the energy resolution at 6 keV for different times of measurement with and without current is shown in figure \ref{fig:sdd1Fwhm}. 
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{./Figures/root/Plots/sdd1FwhmLNGS.pdf}
+ % sdd1FwhmLNGS.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{Energy resolution at 6 keV for SDD 1 without current (blue) and with current (red).}
+ \label{fig:sdd1Fwhm}
+\end{figure}
+The resolution (FWHM) gets worse in times when the current is turned on by about 20 eV. This effect might be caused by the temperature rise in the SDDs mentioned above. The dependence of energy resolution on temperature was for example reported in \cite{Cargnelli2005}. The change in temperature of the detectors would have to be higher than the 0.4 $^{\circ}$C measured on their metal holder. The same effect of peak broadening due to a current was also reported in \cite{Elliott2012}, where it was attributed to electronic noise introduced by the current. The energy resolution at 6 keV measured at LNGS with and without current for the complete data taking time are shown in table \ref{tab:energyResLngs} for each single SDD and for the spectrum resulting from the summation of all single SDDs. 
+\begin{table}[h]
+ \centering
+\begin{tabular}{ |B|c|c|c|c|c|c|c| } 
+ \hline
+  current & SDD 1 & SDD 2 & SDD 3 & SDD 4 & SDD 5 & SDD 6 & Sum  \\ 
+ \hline
+  0 A &  159 eV &  151 eV &  151 eV &  149 eV &  157 eV &  163 eV & 155 eV \\
+ \hline
+ 100 A & 177 eV & 165 eV & 166 eV & 155 eV & 160 eV & 169 eV & 165 eV\\
+ \hline
+\end{tabular}
+\caption{Energy resolution (FWHM) of the SDDs at 6 keV. Typical statistical uncertainty for the amount of data going into this calculation is 0.5 eV.}
+\label{tab:energyResLngs}
+\end{table}
+The energy resolution changes by about 10 eV at 6 keV when turning on the current. The same effect of peak broadening due to the current also occurs at an energy of 8 keV where the Pauli-forbidden transition is expected. 
+
+\section{Spectral Lines in the Energy Spectrum}
+
+The low background at LNGS gives the opportunity to study possible spectral lines from elements occuring in the equipment surrounding the detectors. Conclusions from this analysis might be used to improve future MC simulations of the setup. The complete energy spectrum taken at LNGS corresponding to about 198 days of data is shown in figure \ref{fig:spectralAna}.
+\begin{figure}[h]
+ \centering
+ \begin{subfigure}{.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/altered/enSpecLngs1_alt.pdf}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}{.46\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/altered/enSpecLngs2_alt.pdf}
+ \end{subfigure}
+ \caption{Energy spectrum corresponding to 198 days of data taken at LNGS with candidates for spectral lines. The drop at 28 keV is artificial as above this energy, only 2 SDDs can be used, as the others are in overflow.}
+ \label{fig:spectralAna}
+\end{figure}
+The most prominent peaks are the Cu K$\alpha$ and Cu K$\beta$ peaks. The corresponding photons originate from the Cu conductor next to the SDDs. Another peak of certain origin is the Ni K$\alpha$ peak at 7.5 keV. Nickel is for example used in stainless steel, from which the tubes of the argon cooling system and other parts of the setup are made. The Zirconium spectral lines come from a 15 $\mu$m thick Zirconium foil mounted above the SDDs for initially planned calibration with an X-ray tube. The anode of this tube is made out of tungsten (W), from which the W L-lines might be coming from. Several other lines are drawn in the figure, which were suggested in \cite{Sperandio2008}. As the 2 sources of calibration are Ti K$\alpha$ and Mn K$\alpha$ at 4.5 keV and 5.9 keV respectively, the energy calibration has a higher uncertainty for higher energies. This effect might limit the possibility to accurately determine the spectral lines with higher energy.
+
+\section{Data Selection}
+
+The selection of correct events is important in the VIP2 experiment. First SDD events were disarded which occured in coincidence with an active veto signal. This was already discussed in chapter \ref{sec:dataSimCompLngs} for example. 
+
+Furthermore events were neglected which occured in a time of a higher than normal background rate. Excluding any possible source of background, which causes events in the energy region of the forbidden Cu K$\alpha$ transition, is important as it makes finding possible candidate events from this transition more difficult. 
+\begin{figure}[h]
+ \centering
+ \begin{subfigure}{.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/highBgRateLngs.pdf}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}{.46\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/bgRateLngs.pdf}
+ \end{subfigure}
+ \caption{The rate of events with an energy deposit larger than 7 keV for the complete dataset (left) and for the cleaned dataset (right). Each dot corresponds to 1 day of data.}
+ \label{fig:bgRateLngs}
+\end{figure}
+Figure \ref{fig:bgRateLngs} shows the rate of events with an energy deposit above 7 keV in any SDD. The rate of events with an energy lower than that is dominated by events caused by the Fe-55 source. The left picture shows the complete dataset. It shows a period of higher event rate by a factor of about 2 in the time around the 11. February 2016. The reason for this increase is not yet clear. These data were left out in the data analysis. The same event rate without these data is shown in the right picture of figure \ref{fig:bgRateLngs}. The rate is stable throughout the whole period, which was then used for the analysis. It is interesting to look at the rate of events with an energy smaller than 7 keV, which are caused by the Fe-55 source mainly.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{./Figures/root/Plots/sourceRateLngs.pdf}
+ % sourceRateLngs.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{The rate of counts caused by the Fe-55 source for the data with current (rate) and without current (blue). It is decreasing due to the half-life of Fe-55 of 2.7 years.}
+ \label{fig:sourceRateLngs}
+\end{figure}
+Due to its half-life, events from the source decrease by a factor of 0.68 in the course of the data taking of 1 year and 5 months.
+
+Events in the SDDs originating from a Pauli-forbidden transition are expected to hit only 1 SDD as only 1 photon is produced in the course of this process. Therefore all events with a multiplicity larger than 1 can be excluded when looking for those photons. The distribution of SDD hit multiplicity is shown in figure \ref{fig:sddMulLngs}.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.6\textwidth]{./Figures/root/Plots/sddMulLngs.pdf}
+ % sddMulLngs.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{Distribution of SDD hit multiplicity for the complete dataset taken at LNGS.}
+ \label{fig:sddMulLngs}
+\end{figure}
+The vast majority of events has an ADC multiplicity of 1, from which in turn the vast majority comes from the Fe-55 source. Additonally there are events caused by the environmental $\gamma$ radiation and possibly events from non-Paulian transitions in the spectrum with 100 A current. All these are the ones that are used for the analysis. Events with SDD multiplicity 2-5 are caused by high energy $\gamma$ radiation causing hits in several SDDs for example by generating multiple secondary photons. Another possibility of signals in 2 SDDs is a hit of any energy on the border of 1 SDD, where a part of the generated charge is transfered to the neighboring SDD. That events of this kind exist can be seen for example in figure \ref{fig:crossTalk}.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{./Figures/root/Plots/crossTalk.pdf}
+ % crossTalk.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{Energy correlation between 2 neighboring SDDs. The Ti and Mn lines are visible on lines with a constant sum of energy due to cross talk between adjoining detectors.}
+ \label{fig:crossTalk}
+\end{figure}
+Here the charge generated by a photon either directly from the Fe-55 source or the Ti foil is split and drifts to the anodes of 2 neighboring SDDs. The energy equivalent to the total deposited charge equals the energy of one of the calibration lines. Consequently these lines run diagonally through the figure. Low energy parts are cut from the figure to enhance visibility. The vast majority of events with SDD multiplicity 6 are caused by noise. This can be said with certainty as their rate is fluctuating with time. It is also dependent on parameters it should not be connected with, like the SiPM trigger rate.
+
+\section{Energy Calibration}
+\label{sec:eneCal}
+
+As the goal of the VIP2 experiment is to count events in the energy region of the Pauli-forbidden Cu K$\alpha$ transition, the determination of the energy of each SDD hit is of utmost importance. Assigning for example an energy of 7.7 keV to an event coming from a photon from a normal Cu K$\alpha$ transition at 8.05 keV changes the outcome of the experiment and has to be avoided. Furthermore the energy resolution should be kept as small as possible close to the intrinsic energy resolution of the detectors, in order to avoid events in the tail of the Cu K$\alpha$ line in the energy region of the Pauli-forbidden transition. A drift of the peak position is one of the effects that leads to a deterioration of the energy resolution and needs to be avoided. 
+
+An energy calibration of the detector is the conversion from the primary spectrum in ADC channels into energy in electronvolt. For this purpose the position of the Mn K$\alpha$ and Ti K$\alpha$ peak are determined in the primary spectrum. As the energies of these peaks are known, a linear relation between ADC channel and energy can be calculated. The ADC channel of every event is then scaled according to this linear relation into an energy. To determine the position of the peaks as precisely as possible, the complete spectrum is fit taking into account all features of a real detector. This fit function will now be discussed. In the fitting procedure, the relation for the energy resolution which is only dependent on fano and constant noise is assumed (see also chapter \ref{sec:SDDs}):
+\begin{equation}
+ \sigma(E) = \omega \ \sqrt{W^{2} + \frac{FE}{\omega}}
+ \label{eq:sigmaEnDep}
+\end{equation} 
+In equation \ref{eq:sigmaEnDep}, $\omega$ is the energy needed to create an electron hole pair in silicon, which is 3.81 eV at 77 K \cite{Leo1993}. \textit{W} denotes the contribution to noise indipendent from energy and \textit{F} is the Fano factor. 
+
+Photons from a monoenergetic source cause a complex spectrum in a real detector. For silicon detectors they were described for example in \cite{Campbell2001} and \cite{Okada}. The main feature is the \textit{gaussian peak}, corresponding to the case in which all electrons that are produced by the incident photon are collected at the anode. The width of this gaussian is determined by the intrinsic detector resolution and the natrual line width. The natural line shape is a Lorentzian with a width of typically a few eV FWHM \cite{Krause1979}. The intrinsic detector resolution gives rise to a gaussian line shape with a width of about 150 eV FWHM in our case. The real line shape is then a convolution of these 2 shapes, which would be a Voigt function. As the intrinsic detector resolution is by far larger than the natural line width, the latter contribution is small and the shape can be approximated by a gaussian function. On the low energy side of the main gaussian peak, there is a structure in the spectrum which is caused by incomplete charge collection. The effects contributing to these structures are summed up in \cite{Campbell2001}. Qualitatively they can be described by an exponential \textit{tail} energetically right below the main peak and a \textit{shelf} extending from the main peak to 0 energy. A \textit{truncated shelf} extending from the energy of the main peak to smaller energy has also been described, but it was not used here. Furthermore a photon from a Si K$\alpha$ transition has a high chance of escaping the detector. These photons can originate from the photoeffect of the primary photon. These events are then seen as a so-called \textit{escape peak} 1.74 keV (Si K$\alpha$ energy) below the main peak. \textit{Pile-Up} \change{Is that true?} effects do not play a role as the event rate is as low as about 1-3 Hz at LNGS. The mathematical structure of all the mentioned components is shown in equations \ref{eq:gaussPeak} - \ref{eq:shelf} and is similar to the one used in \cite{Okada}. The number \textit{i} denotes the number of the ADC channel.
+\begin{equation}
+ \textit{Gaussian peak (i)} = \frac{Gain}{\sigma} \times \exp(-\frac{(i-i_{0})^{2}}{2 \times \sigma^{2}})
+ \label{eq:gaussPeak}
+\end{equation} 
+\begin{equation}
+ \textit{Tail (i)} = Gain \times tR \times tN \times \exp(\frac{i-(i_{0}+tSh)}{\sigma_{tail}*tSl}) \times \textrm{erf}(\frac{1}{\sqrt{2}*tSl}+\frac{i-(i_{0}-tSh)}{\sqrt{2}*\sigma_{tail}})
+\end{equation} 
+\begin{equation}
+ \textit{Escape (i)} = Gain \times eR \times \frac{1}{\sigma_{E}} \times \exp(-\frac{(i-(i_{0}-SiK\alpha))^{2}}{2 \times \sigma_{escape}})
+\end{equation} 
+\begin{equation}
+ \textit{Shelf (i)} = Gain \times sR \times \frac{1}{2} \times \textrm{erf}(\frac{i-i_{0}}{\sqrt{2} \times \sigma})
+ \label{eq:shelf}
+\end{equation} 
+Here \textit{erf()} denotes the error function. A schematic drawing of the structure of a monoenergetic peak in the detected spectrum is shown in figure \ref{fig:sddFit}.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.6\textwidth]{./Figures/sdd-fitting-procedure.pdf}
+ % sdd-fitting-procedure.pdf: 802x575 pixel, 72dpi, 28.29x20.28 cm, bb=0 0 802 575
+ \caption{Detected spectrum from monoenergetic incident radiation with a structure described in the text \cite{Campbell2001}.}
+ \label{fig:sddFit}
+\end{figure}
+The parameters used in equations \ref{eq:gaussPeak} - \ref{eq:shelf} are described in detail in table \ref{tab:fitParam}.
+\begin{table}[h]
+ \centering
+\begin{tabular}{ |B|H|D| } 
+ \hline
+ Parameter Name & Parameter Description & Fit Parameter \\
+ \hline
+ \hline
+  Gain & Gain of the main gaussian peak & Yes \\
+ \hline
+ $\sigma$ & Detector energy resolution at the energy of the gaussian peak & calculated from fano and constant noise \\
+ \hline
+ $\sigma_{tail}$ & Detector energy resolution at the energy of the peak of the exponential tail & calculated from fano and constant noise \\
+ \hline
+ $\sigma_{escape}$ & Detector energy resolution at the energy of the escape peak & calculated from fano and constant noise \\
+ \hline
+ i$_{0}$ & ADC channel of the main peak & Yes \\
+ \hline
+ tR & Ratio of the exponential tail to the main peak & Yes \\
+ \hline
+ tN & Norm of the exponential tail & No \\
+ \hline 
+ tSh & Shift of the exponential tail to the low energy side & Yes \\
+ \hline
+ tSl & Slope of the exponential tail & Yes \\
+ \hline
+ eR & Ratio of escape peak to the main peak & Yes \\
+ \hline
+ SiK$\alpha$ & Energy of the Si K$\alpha$ transition (1.74 keV) & No \\
+ \hline
+ sR & Ratio of the shelf to the main peak & Yes \\ 
+ \hline
+\end{tabular}
+\caption{Parameters going into the fit of the signal produced by monoenergetic radiation.}
+\label{tab:fitParam}
+\end{table}
+The parameters are fit for the Mn K$\alpha_{1}$, K$\alpha_{2}$, K$\beta$ and for the Ti K$\alpha_{1}$, K$\alpha_{2}$, K$\beta$ lines. The gain ratio of the K$\alpha_{2}$ to K$\alpha_{1}$ lines is fixed to 0.51 for Mn and to 0.5 for Ti. The sum of all the functions is obviously fit to the data. The positions of the Mn K$\alpha_{1}$ and Ti K$\alpha_{1}$ is used to find the linear relation between ADC channels and energy. When the amount of data is high enough, the Cu K$\alpha_{1}$, K$\alpha_{2}$ and K$\beta$ lines are fit in a similar way. Other lines shown in figure \ref{fig:spectralAna} are not fit due to too low statistics. A typical fit with residuals is shown in figure \ref{fig:fitSdd4Smi}. The reduced $\chi^{2}$ of the shown fit is 1.3.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{./Figures/root/Plots/calibSpecSmi.pdf}
+ % calibSpecSmi.pdf: 595x842 pixel, 72dpi, 20.99x29.70 cm, bb=0 0 595 842
+ \caption{Fit of data taken at SMI (blue) with the complete fit funtion (red). Some of the constituents of the fit function are shown like Ti and Mn K$\alpha_{1}$ peaks (green), constant background (black, dashed), Ti K$\alpha_{1}$ exponential tail (cyan) and the shelf functions of Ti and Mn K$\alpha_{1}$ (blue, dashed). Residuals are shown below.}
+ \label{fig:fitSdd4Smi}
+\end{figure}
+From the fit the linear relation between energy and ADC channel can be derived. It is shown in figure \ref{fig:ev2ch}.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{./Figures/root/Plots/ev2Ch1.pdf}
+ % ev2Ch1.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{The relation between ADC channel and energy for 1 SDD derived from Ti K$\alpha_{1}$ and Mn K$\alpha_{1}$ as 2 sources of calibration. Ti K$\beta$, Mn K$\beta$ as well as Cu K$\alpha_{1}$ and  K$\beta$ lines are also shown.}
+ \label{fig:ev2ch}
+\end{figure}
+
+
+\section{Peak Stability and Data Splitting}
+
+The fitting procedure described in the chapter \ref{sec:eneCal} can be used to determine the stability of the peak positions for the Mn and Ti peaks. The data taken at LNGS was analysed in this way. The result for 1 SDD is shown in figure \ref{fig:sdd3PeakPos}, where each data point represents about 1 day of data. 
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{./Figures/root/Plots/sdd3MnPeakPos.pdf}
+ % sdd3MnPeakPosLNGS.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{The position of the Mn K$\alpha_{1}$ peak for 1 SDD during the data taking at LNGS without current (blue) and with current (red). Typical statistical error is 1 ADC channel.}
+ \label{fig:sdd3PeakPos}
+\end{figure}
+The peak position changes by about 20 ADC channels in the course of the data taking. This is a typical value similar for all 6 SDDs. As 1 ADC channel corresponds to about 9 eV in the final energy spectrum, the peak position changes by about 180 eV. In the case of the SDD for which the peak position is shown in the figure (SDD 3), the energy resolution at 6 keV would change from 151 eV for a small data set to 179 eV for the whole data taking period. As the energy resolution needs to be kept as small as possible in order to determine possible events in the energy region of the Pauli-forbidden transition as accurately as possible, the data needs to be divided into subsets for calibration. The strategy for determining the energy of each event as well as possible is as follows: 
+\begin{itemize}
+ \item Find an data taking time for which the energy resolution is as small as possible and divide the whole data into subsets with this length.
+ \item Conduct the energy calibration with these subsets and calculate the energy for each event.
+ \item Sum up the energy of all events in all subsets, instead of summing up the ADC channels.
+\end{itemize}
+This approach avoids the unwanted effect of peak broadening due to the drift of the energy spectrum with time.
+
+Finding the optimal time for the subsets of data means to minimize the energy resolution at about 8 keV, where the non-Paulian transition is expected. There are 2 effects that need to be considered: Firstly the intrinsic energy resolution of the detector together with the drift of the energy scale with time gives a large contribution to the detector resolution. This contribution can be estimated with formula \ref{eq:sigmaEnDep} and the measured resolutions from the Ti and Mn lines. This effect will contribute less when the time of the data subset is low, as the effect of the peak drift is then minimized. This can be seen from the right image in figure \ref{fig:sigmaCu}. The second contribution to the uncertainty in the determination of energy of an event around 8 keV comes from the statistical uncertainty of the peak position of the Ti K$\alpha_{1}$ and Mn $\alpha_{1}$ calibration lines given by the fit. Taking into account the relation between ADC channels and energy as well as these statistical errors, the energy uncertainty at 8 keV can be calculated with error propagation. This contribution to the uncertainty increases with decreasing data taking time, as the statistical error of the calibration lines increases in this case. It is shown in the left image of figure \ref{fig:sigmaCu}. The numbers in the figure correspond to an average over all 6 SDDs and were calculated from a dataset of 30 days from LNGS without current, which was divided into subsets of 0.1, 0.25, 0.5, 1, 2 and 4 days. The above mentioned uncertainties were calculated for every subset and averaged. The Cu K$\alpha$ line itself can not be used for calibration due to its low event rate.
+\begin{figure}[h]
+ \centering
+ \begin{subfigure}{.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/statSigmaCu.pdf}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}{.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/driftSigmaCu.pdf}
+ \end{subfigure}
+ \caption{Energy determination uncertainty at 8 keV due to statistical error of the position of the calibration lines as a function of data taking time (left). Energy resolution at 8 keV taking peak drift effects into account (right).}
+ \label{fig:sigmaCu}
+\end{figure}
+
+The variances of the 2 contributions can be added as:
+\begin{equation}
+ \sigma_{tot} = \sqrt{\sigma_{det}^{2}+\sigma_{stat}^{2}}
+\end{equation} 
+and the result is shown in figure \ref{fig:totSigCu}. The results for all 6 SDDs have been averaged for this figure.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.6\textwidth]{./Figures/root/Plots/totSigmaCu.pdf}
+ % totSigmaCu.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{The total uncertainty in the energy determination at 8 keV as a function of the data taking time.}
+ \label{fig:totSigCu}
+\end{figure}
+The minimum energy resolution was found for a data taking time of 0.25 days or 6 hours. Therefore the data taken at LNGS was divided into parts with 6 hours each. As an interrupt of continous data taking caused a mandatory stop for the current part, some parts had to be longer. For example a continous data taking period of 14 hours was divided into 1 part with 6 hours and another one with 8 hours. In this manner 198 days and 7 hours of data were divided into 618 parts. For each of them each of the 6 SDDs was calibrated seperately and the energy of each event was added to 1 final energy spectrum.
+
+\section{Scale Linearity}
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.6\textwidth]{./Figures/root/Plots/ev2Ch2.pdf}
+ % ev2Ch2.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{bla.}
+ \label{fig:scaleLin}
+\end{figure}
+
+
+
+
+

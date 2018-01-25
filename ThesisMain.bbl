@@ -263,6 +263,30 @@ T.~K. Gaisser and T.~Stanev.
 \newblock {Cosmic Rays}.
 \newblock {\em The European Physical Journal C}, 15(1-4):150--156, 2000.
 
+\bibitem{Ambrosio2003}
+M.~Ambrosio, R.~Antolini, A.~Baldini, G.~C. Barbarino, B.~C. Barish,
+  G.~Battistoni, Y.~Becherini, R.~Bellotti, C.~Bemporad, P.~Bernardini,
+  H.~Bilokon, C.~Bower, M.~Brigida, S.~Bussino, F.~Cafagna, M.~Calicchio,
+  D.~Campana, M.~Carboni, R.~Caruso, S.~Cecchini, F.~Cei, V.~Chiarella, B.~C.
+  Choudhary, S.~Coutu, M.~Cozzi, G.~de~Cataldo, H.~Dekhissi, C.~de~Marzo,
+  I.~de~Mitri, J.~Derkaoui, M.~de~Vincenzi, A.~di~Credico, O.~Erriquez,
+  C.~Favuzzi, C.~Forti, P.~Fusco, G.~Giacomelli, G.~Giannini, N.~Giglietto,
+  M.~Giorgini, M.~Grassi, A.~Grillo, F.~Guarino, C.~Gustavino, A.~Habig,
+  K.~Hanson, R.~Heinz, E.~Iarocci, E.~Katsavounidis, I.~Katsavounidis,
+  E.~Kearns, H.~Kim, S.~Kyriazopoulou, E.~Lamanna, C.~Lane, D.~S. Levin,
+  P.~Lipari, N.~P. Longley, M.~J. Longo, F.~Loparco, G.~Mancarella,
+  G.~Mandrioli, A.~Margiotta, A.~Marini, D.~Martello, A.~Marzari-Chiesa, M.~N.
+  Mazziotta, D.~G. Michael, P.~Monacelli, T.~Montaruli, M.~Monteno, S.~Mufson,
+  J.~Musser, D.~Nicol{\`{o}}, R.~Nolty, C.~Orth, G.~Osteria, O.~Palamara,
+  V.~Patera, L.~Patrizii, R.~Pazzi, C.~W. Peck, L.~Perrone, S.~Petrera,
+  P.~Pistilli, V.~Popa, A.~Rain{\`{o}}, J.~Reynoldson, F.~Ronga, C.~Satriano,
+  E.~Scapparone, K.~Scholberg, A.~Sciubba, P.~Serra, M.~Sioli, G.~Sirri,
+  M.~Sitta, P.~Spinelli, M.~Spinetti, M.~Spurio, R.~Steinberg, J.~L. Stone,
+  L.~R. Sulak, A.~Surdo, G.~Tarl{\`{e}}, M.~Vakili, C.~W. Walter, and R.~Webb.
+\newblock {Measurement of the residual energy of muons in the Gran Sasso
+  underground laboratories}.
+\newblock {\em Astroparticle Physics}, 19(3):313--328, 2003.
+
 \bibitem{Bellini2013}
 G.~Bellini, J.~Benziger, D.~Bick, G.~Bonfini, D.~Bravo, M.~Buizza Avanzini,
   B.~Caccianiga, L.~Cadonati, F.~Calaprice, C.~Carraro, P.~Cavalcante,
@@ -299,5 +323,27 @@ C.~Bucci, S.~Capelli, M.~Carrettoni, M.~Clemenza, O.~Cremonesi, L.~Gironi,
 \newblock {Background study and Monte Carlo simulations for large-mass
   bolometers}.
 \newblock {\em European Physical Journal A}, 41(2):155--168, 2009.
+
+\bibitem{Pichler2017}
+J.~Marton and A.~Pichler.
+\newblock {Pauli Exclusion Principle test with electrons at LNGS - Continuation
+  of FWF P25529-N20}.
+\newblock Technical report, 2017.
+
+\bibitem{Campbell2001}
+J.~L. Campbell, Leonard McDonald, Theodore Hopman, and Tibor Papp.
+\newblock {Simulations of Si(Li) x-ray detector response}.
+\newblock {\em X-Ray Spectrometry}, 30(4):230--241, 2001.
+
+\bibitem{Okada}
+S.~Okada.
+\newblock {E570 analysis summary}.
+\newblock Technical report.
+
+\bibitem{Krause1979}
+M.~Krause and Oliver J.
+\newblock {Natural Widths of Atomic K and L Levels, K-alpha X-Ray Lines and
+  Several KLL Auger Lines}.
+\newblock {\em Journal of Physical and Chemical Reference Data}, 8(2), 1979.
 
 \end{thebibliography}

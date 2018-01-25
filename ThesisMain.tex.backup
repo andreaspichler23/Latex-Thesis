@@ -13,14 +13,14 @@ bibliography=totoc,BCOR=10mm]{scrreprt} % Schriftgröße, Seitenformat, Zweiseit
 	pdfdisplaydoctitle = true,
 	colorlinks = false, % Für Druck auf "false" setzen!
 }
-\addbibresource{bib/example.bib}
+
 \begin{document}
 
 \AbschlussarbeitTUWienPhysikTitlePage{
 	titel={VIP2 working title},
 	institut=Stefan Meyer Institute for subatomic physics,
 	prof={\citeauthor{Johann Marton}}, % citeauthor nimmt Namen der Person aus der Bibliography in bib/example.bib
-	autor=MSc. Yoda,
+	author=Andreas Pichler,
 	adresse={Boltzmanngasse 3,\\ 1090 Vienna},
 	typ={diss},
 	% Vordefinierte Typen sind: sem (Seminararbeit), bacc (Bachelorarbeit), proj (Projektarbeit), mast (Diplomarbeit), dipl (Diplomarbeit), diss (Dissertation)
@@ -30,7 +30,7 @@ bibliography=totoc,BCOR=10mm]{scrreprt} % Schriftgröße, Seitenformat, Zweiseit
 	}
 
 \pagenumbering{gobble} % Keine Seitenzahl drucken
-\titlePageTUWienPhysik
+%\titlePageTUWienPhysik
 
 %\input{abstract.tex}
 \tableofcontents \newpage
@@ -42,12 +42,22 @@ bibliography=totoc,BCOR=10mm]{scrreprt} % Schriftgröße, Seitenformat, Zweiseit
 %\input{chapterTippsUndTricks.tex}
 %\input{chapterBeispiel.tex}
 
+\input{Introduction.tex}
+\input{Physics.tex}
+\input{Setup.tex}
+\input{Simulations.tex}
+\input{TestMeasurements.tex}
+\input{Data.tex}
+\input{Conclusion.tex}
+
 \cleardoublepage
 \pagenumbering{roman} \setcounter{page}{1}
-\printbibliography
+\bibliographystyle{unsrt}
+\bibliography{BibliographyThesis.bib}{}
+%\printbibliography
 %\input{thanks.tex}
 
-\appendix
+%\appendix
 %\input{appendix01.tex}
 
 \end{document}

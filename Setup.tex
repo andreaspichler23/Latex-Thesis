@@ -154,6 +154,7 @@ The cooling of the pulse tube refrigerator is counteracted by a heating wire con
 
 
 \section{Data acquisition and slow control systems}
+\label{sec:daqSlowControl}
 
 \subsection{Signal readout and data acquisition}
 vme readout; simplified logic without timing = trigger; 
@@ -161,7 +162,7 @@ preamp board?; shaping time and gain of SDDs?; thresholds of sipms - maybe only 
 
 After a first stage of amplification in the preamplifier board in the vacuum chamber, the signals of the 6 SDDs go into a programmable CAEN 568B spectroscopy amplifier. The fast ``FOUT'' signal goes to a discriminator for making a trigger. An OR of all 6 discriminated SDD signals is going to a CAEN V1190B TDC (Time to Digital Converter). The programmable ``OUT'' output of the amplifier is used for spectroscopic signal analysis. The spectroscopic signal is fed into a CAEN V785 peak sensing ADC (Analog to Digital Converter) for digitalizing the signal.
 
-The signal from the 2 SiPMs from each of the 32 scintillators is amplified in a preamplifier board in the vacuum chamber. The analog signal is split thereafter, with one part going to a programmable discriminator to make a timing signal and the other going to a CAEN V792 QDC (Charge to Digital Converter). Referring to figure \ref{fig:active_shielding}, the 32 scintillators can be grouped into one ``outer'' one ``inner'' layer, and more specifically into 8 sub-layers with the indication of their position relative to the target (e.g. ``top outer'' layer indicates the 8 scintillators above the target, which are closer to the setup box). A signal of one of these layers is an OR of all the discriminated SiPM signals in this layer. The signal of each of these 8 sub-layers and an AND of the outer and inner layer is sent to the TDC.
+The signal from the 2 SiPMs from each of the 32 scintillators is amplified in a preamplifier board in the vacuum chamber. The analog signal is split thereafter, with one part going to a programmable Constant Fraction Discriminator (CFD) to make a timing signal and the other going to a CAEN V792 QDC (Charge to Digital Converter). Referring to figure \ref{fig:active_shielding}, the 32 scintillators can be grouped into one ``outer'' one ``inner'' layer, and more specifically into 8 sub-layers with the indication of their position relative to the target (e.g. ``top outer'' layer indicates the 8 scintillators above the target, which are closer to the setup box). A signal of one of these layers is an OR of all the discriminated SiPM signals in this layer. The signal of each of these 8 sub-layers and an AND of the outer and inner layer is sent to the TDC.
 
 The digital signal from the discriminators is used for making a trigger for the TDC, ADC and QDC modules. The trigger logic is shown in figure \ref{fig:trigger_logic}. It consists of the OR of all 6 SDDs making an OR with the inner AND outer scintillator layer.
 \begin{figure}[h]

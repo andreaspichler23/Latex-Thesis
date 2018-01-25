@@ -39,7 +39,21 @@
 \contentsline {section}{\numberline {5.1}Test Measurements at LNF}{47}{section.5.1}
 \contentsline {section}{\numberline {5.2}Test Measurements at SMI}{48}{section.5.2}
 \contentsline {subsection}{\numberline {5.2.1}Water Cooling of Cu Target}{49}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}SDD Energy Resolution}{50}{subsection.5.2.2}
-\contentsline {chapter}{\numberline {6}Data Taking and Analysis}{53}{chapter.6}
-\contentsline {chapter}{\numberline {7}Conclusion}{55}{chapter.7}
-\contentsline {chapter}{\nonumberline Bibliography}{i}{chapter*.35}
+\contentsline {subsection}{\numberline {5.2.2}Argon Cooling of Silicon Drift Detectors}{50}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Scintillator Energy Deposition Trigger Threshold}{51}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}SDD Energy Resolution}{52}{subsection.5.2.4}
+\contentsline {subsection}{\numberline {5.2.5}SDD Time Resolution}{54}{subsection.5.2.5}
+\contentsline {subsection}{\numberline {5.2.6}Scintillator plus SiPM Time Resolution}{54}{subsection.5.2.6}
+\contentsline {subsection}{\numberline {5.2.7}Detection Efficiency of Cosmic Radiation and Active Shielding Test}{56}{subsection.5.2.7}
+\contentsline {chapter}{\numberline {6}Data Taking at LNGS and Data Analysis}{63}{chapter.6}
+\contentsline {section}{\numberline {6.1}Comparison of Data and Simulations}{65}{section.6.1}
+\contentsline {section}{\numberline {6.2}Effects of 100 A Current}{67}{section.6.2}
+\contentsline {section}{\numberline {6.3}Spectral Lines in the Energy Spectrum}{69}{section.6.3}
+\contentsline {section}{\numberline {6.4}Data Selection}{70}{section.6.4}
+\contentsline {section}{\numberline {6.5}Energy Calibration}{72}{section.6.5}
+\contentsline {section}{\numberline {6.6}Peak Stability and Data Splitting}{75}{section.6.6}
+\contentsline {section}{\numberline {6.7}Scale Linearity and 2$^{nd}$ Order Correction}{77}{section.6.7}
+\contentsline {chapter}{\numberline {7}Conclusion}{83}{chapter.7}
+\contentsline {chapter}{\nonumberline Bibliography}{i}{chapter*.71}
+\contentsline {chapter}{Appendices}{ix}{section*.72}
+\contentsline {chapter}{\numberline {A}Data Acquisition Layout}{xi}{Appendix.a.A}

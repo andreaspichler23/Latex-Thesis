@@ -38,7 +38,7 @@ The energy deposit in each scintillator summed up over all scintillators is show
  \caption{Energy deposit of 270 GeV muons in plastic scintillators.}
  \label{fig:muEnDepScin}
 \end{figure}
-Furthermore, the trigger rate of the scintillators can be estimated from the rate of 1 cm$^{-2}$ min$^{-1}$ to be $\sim$ 1.7 s$^{-1}$ per scintillator. The energy deposit in the SDDs is shown in figure \ref{fig:muEnDepSDD}.
+Furthermore, the trigger rate of the scintillators can be estimated from the rate of 1 cm$^{-2}$ min$^{-1}$ to be $\sim$ 1.67 s$^{-1}$ per scintillator. The energy deposit in the SDDs is shown in figure \ref{fig:muEnDepSDD}.
 \begin{figure}[h]
  \centering
  \includegraphics[width=0.6\textwidth]{./Figures/root/Plots/sddEnFromCos.pdf}
@@ -46,7 +46,7 @@ Furthermore, the trigger rate of the scintillators can be estimated from the rat
  \caption{Energy deposit of 270 GeV muons in Silicon Drift Detectors.}
  \label{fig:muEnDepSDD}
 \end{figure}
-The peak in deposited energy is in this case at around 300 keV. In all 6 SDDs combined there were 7896 hits, wich means 1316 hits per SDD. This equates to a rate of 0.004 Hz or 1 hit about every 4 minutes and 20 seconds. The energy range of the SDDs is divided into a range of 1 keV - 30 keV and the energy > 30 keV, as everything above this value is in the overflow bin of the ADC. Therefore it makes sense to calculate the rates for these 2 energy ranges. There are 338 hits in the lower energy range, meaning 14 hits per day in each SDD. In the higher energy range there are 7558 hits, meaning about 1 hit every 4 minutes and 40 seconds.
+The peak in deposited energy is in this case at around 300 keV. In all 6 SDDs combined there were 7896 hits in 7744 different events. This equates to a rate of 0.0224 Hz or 1 event about every 45 seconds. The energy range of the SDDs is divided into a range of 1 keV - 30 keV and the energy > 30 keV, as everything above this value is in the overflow bin of the ADC. Therefore it makes sense to calculate the rates for these 2 energy ranges. There are 338 hits in the lower energy range, meaning 14 hits per day in each SDD. In the higher energy range there are 7558 hits.
 
 From the 7896 SDD events, 7859 events had an energy deposit of more than 100 keV in the inner and the outer scintillator layer. A signal in boths layers is the condition for a rejection and the threshold of 100 keV will be justified in chapter \ref{chap:TestMeasurements}. This means, the background from cosmic rays can be rejected to $\sim$ 99.5 \%. A low energy spectrum of the SDDs with and without scintillator veto is shown in figure \ref{fig:scintVeto}.
 \begin{figure}[h]
@@ -57,10 +57,11 @@ From the 7896 SDD events, 7859 events had an energy deposit of more than 100 keV
  \label{fig:scintVeto}
 \end{figure}
 
-The underground laboratory LNGS lies at 3800 m water equivalent depth, where the cosmic muon flux is reduced to 3.41 $\times$ 10$^{-4}$ m$^{-2}$ s$^{-1}$ \cite{Bellini2013}. Compared to 1.67 $\times$ 10$^{2}$ m$^{-2}$ $s^{-1}$ given in \cite{Gaisser2000} for the surface of the earth, this is a reduction by a factor of 2 $\times$ 10$^{-6}$. The values for the event rates due to cosmic muons calculated in the previous section scale accordingly. The expected trigger rate for each scintillator is then $\sim$ 3.4 $\times$ 10$^{-6}$ Hz or $\sim$ 1 event every 3 days and $\sim$ 2 events per day for all scintillators. The expected event rate for each SDD is then $\sim$ 1 event every 4 years or $\sim$ 1 event every 230 days for all 6 SDDs.
+The underground laboratory LNGS lies at 3800 m water equivalent depth, where the cosmic muon flux is reduced to 3.41 $\times$ 10$^{-4}$ m$^{-2}$ s$^{-1}$ \cite{Bellini2013}. Compared to 1.67 $\times$ 10$^{2}$ m$^{-2}$ $s^{-1}$ given in \cite{Gaisser2000} for the surface of the earth, this is a reduction by a factor of 2 $\times$ 10$^{-6}$. The values for the event rates due to cosmic muons calculated in the previous section scale accordingly. The expected hit rate for each scintillator is then $\sim$ 3.4 $\times$ 10$^{-6}$ Hz or $\sim$ 1 event every 3 days and $\sim$ 2 events per day for all scintillators. The expected event rate for $\sim$ 1 event every 260 days for all 6 SDDs.
 
 
 \section{Gamma Ray Background}
+\label{sec:gammaSim}
 
 The background consisting of $\gamma$-rays is the dominant background in the underground laboratory LNGS, as cosmic radiation is reduced by almost 6 orders of magnitude. The origin of the $\gamma$ radiation are long-lived $\gamma$-emitting primordial iostopes. They are part of the rocks of the Gran Sasso mountains and the concrete used to stabilize the cavity. The dominant isotopes of this kind are $^{238}$U, $^{232}$Th and $^{40}$K \cite{Haffke2011} and their decay products. For the simulation 2.5 $\times$ 10$^{9}$ $\gamma$ photons were generated on a surface of 0.945 m$^{2}$, which completely enclosed the setup. The particles energy distribution follows the one reported in \cite{Haffke2011} in the dominant energy range from 40 - 500 keV, which was modeled by a Landau distribution with a mode at 120 keV and a sigma of 50 keV. The particles directions were randomized in the half sphere towards the setup. In \cite{Haffke2011} an integral flux of 0.33 $\gamma$ cm$^{-2}$ s$^{-1}$ = 2.85 $\times$ 10$^{8}$ $\gamma$ m$^{-2}$ day$^{-1}$ was reported, whereas in \cite{Bucci2009} a flux of 6.3 $\times$ 10$^{8}$ $\gamma$ m$^{-2}$ day$^{-1}$ was given. For now the data from \cite{Haffke2011} will be used and later the result of this assumption will be compared with the measured data. In this case the simulated 2.5 $\times$ 10$^{9}$ particles correspond to a data taking time of 9.28 days.
 
@@ -74,6 +75,14 @@ The interaction of the photons with the scintillators almost exclusively takes p
 \end{figure}
 In the figure the Cu K$\alpha$ and K$\beta$ lines are visible at 8 - 9 keV as well as the Zr K$\alpha$ and K$\beta$ lines at 16 - 18 keV. The Cu lines come from photons from the Cu target and the Zr lines come from photons from the Zr calibration foil. This foil is mounted in the setup for the possibility to conduct an energy calibration of the detectors with an X-ray tube. In the 9.28 days of simulated data, there were 57,617 events in all SDDs with an energy deposit > 1 keV, corresponding to a rate of 0.07 Hz or $\sim$ 1 event every 14 seconds in all SDDs. From these events, 30,581 are in the range between 1 keV - 30 keV, corresponding to a rate of $\sim$ 0.04 Hz. Comparing these rates to the ones induced by cosmic muons at LNGS, it is obvious that $\gamma$ radiation is the dominant source of background.
 
+From the 57,617 events in all SDDs with an energy deposit > 1 keV, 604 events have an energy deposit in the inner and outer scintillator layer and can therefore be rejected. The rejection ratio is therefore $\sim$ 1 \%. A plot of the full energy spectrum seen by the SDDs with the part that can be rejected is shown in figure \ref{fig:gammaRej}.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.6\textwidth]{./Figures/root/Plots/gammaRej.pdf}
+ % gammaRej.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{The full energy spectrum introduced by $\gamma$ radiation at LNGS (red), with the part that can be rejected by scintillator veto (blue).}
+ \label{fig:gammaRej}
+\end{figure}
 
 
 

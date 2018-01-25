@@ -11,45 +11,48 @@ Warning--empty institution in Lechner
 Warning--empty year in Lechner
 Warning--empty publisher in Leo1993
 Warning--empty institution in AdvanSiD2012
-You've used 41 entries,
+Warning--empty institution in Pichler2017
+Warning--empty institution in Okada
+Warning--empty year in Okada
+You've used 46 entries,
             1791 wiz_defined-function locations,
-            731 strings with 16419 characters,
-and the built_in function-call counts, 14012 in all, are:
-= -- 815
-> -- 1529
+            763 strings with 18911 characters,
+and the built_in function-call counts, 16315 in all, are:
+= -- 898
+> -- 1889
 < -- 1
-+ -- 529
-- -- 488
-* -- 1464
-:= -- 2617
-add.period$ -- 121
-call.type$ -- 41
-change.case$ -- 42
++ -- 651
+- -- 605
+* -- 1741
+:= -- 3093
+add.period$ -- 136
+call.type$ -- 46
+change.case$ -- 49
 chr.to.int$ -- 0
-cite$ -- 49
-duplicate$ -- 355
-empty$ -- 884
-format.name$ -- 488
-if$ -- 2692
+cite$ -- 57
+duplicate$ -- 393
+empty$ -- 971
+format.name$ -- 605
+if$ -- 3099
 int.to.chr$ -- 0
-int.to.str$ -- 41
-missing$ -- 37
-newline$ -- 206
-num.names$ -- 41
-pop$ -- 79
+int.to.str$ -- 46
+missing$ -- 40
+newline$ -- 231
+num.names$ -- 46
+pop$ -- 89
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 136
+skip$ -- 150
 stack$ -- 0
-substring$ -- 728
-swap$ -- 42
+substring$ -- 778
+swap$ -- 45
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 8
-while$ -- 98
-width$ -- 43
-write$ -- 436
-(There were 8 warnings)
+warning$ -- 11
+while$ -- 107
+width$ -- 48
+write$ -- 488
+(There were 11 warnings)

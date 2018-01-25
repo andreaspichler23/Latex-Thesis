@@ -6,6 +6,7 @@ scintillator + sipm detection ratio for cosmics (smi) and for 500 mev electrons 
 time resolution sipms: tr->Draw((tdc[14]-tdc[1])-(tdc[14]-tdc[7]) h(800,-400,400),tdc[1]>0 and tdc[7])
 
 \section{Test Measurements at LNF}
+\label{sec:testsLNF}
 
 First measurements with the scintillators read out by SiPM were done at the Beam Test Factory (BTF) at Laboratori Nazionali di Frascati (LNF). This facility is connected to the linear accelerator of the DA$\Phi$NE collider and provides a 500 MeV electron or positron beam. The test setup is shown in figure \ref{fig:btf_setup},
 \begin{figure}[h]
@@ -27,7 +28,9 @@ The detection efficiency was larger than 98 \% for all the beam hit position but
 
 \section{Test Measurements at SMI}
 
-After first tests at LNF, the setup box as well as the scintillators and 2 SDD arrays which originally belonged to the SIDDHARTA experiment were transported to the Stefan Meyer Institute in Vienna in summer 2014. Tests were done with the SDDs in a smaller setup, but due to problems with Wi-Fi signals, which were probably picked up due to the similarity of Wi-Fi wavelength ($\sim$ 12 cm) and setup geometry, these tests were abandoned. Further tests were conducted with an adpated readout board in the final setup box, which was larger and therefore less likely to pick up Wi-Fi signals. The scintillators were wrapped in aluminum foil and black tape and 2 SiPMs were attached to a surface with optical glue and read out in series. The functionality of each system of scintillator read out by 2 SiPms was tested by connecting it the signals to an oscilloscope and checking the signals. The slow control was set up including the current supply, the temperature controller and the Pt-100 temperature sensors with their positions described in \ref{sec:slowControl}. The PID values of the LakeShore331 temperature controller were adjusted to ensure stable operation. The data acquisition system was set up and connected to the signals from the SDDs and the scintillators. The gain and shaping time of each SDD channel was was adjusted in the CEAN 568B spectroscopy amplifier. After all these parts were tested individually, they were assembled and long term tests were conducted which will be desribed subsequently.
+smi data: 3 days and 19.5 hours
+
+After first tests at LNF, the setup box as well as the scintillators and 2 SDD arrays which originally belonged to the SIDDHARTA experiment were transported to the Stefan Meyer Institute in Vienna in summer 2014. Tests were done with the SDDs in a smaller setup, but due to problems with Wi-Fi signals, which were probably picked up due to the similarity of Wi-Fi wavelength ($\sim$ 12 cm) and setup geometry, these tests were abandoned. Further tests were conducted with an adpated readout board in the final setup box, which was larger and therefore less likely to pick up Wi-Fi signals. The scintillators were wrapped in aluminum foil and black tape and 2 SiPMs were attached to a surface with optical glue and read out in series. The functionality of each system of scintillator read out by 2 SiPMs was tested by connecting it the signals to an oscilloscope and checking the signals. The slow control was set up including the current supply, the temperature controller and the Pt-100 temperature sensors with their positions described in \ref{sec:slowControl}. The PID values of the LakeShore331 temperature controller were adjusted to ensure stable operation. The data acquisition system was set up and connected to the signals from the SDDs and the scintillators. The gain and shaping time of each SDD channel was was adjusted in the CEAN 568B spectroscopy amplifier. After all these parts were tested individually, they were assembled and long term tests were conducted which will be described subsequently.
 
 \subsection{Water Cooling of Cu Target}
 
@@ -38,22 +41,58 @@ One of the first tests done in order to ensure adequate cooling of the Cu target
  \begin{subfigure}{.49\textwidth}
  \centering
  \includegraphics[width=\linewidth]{./Figures/root/Plots/targetTempNoCooling.pdf}
- % targetTempNoCooling.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
- %\caption{The temperature of the 2 Cu target foils without water cooling for a current of 40 A (10:30) and 80 A (11:15).}
- %\label{fig:waterCooling1}
  \end{subfigure}
  \hfill
  \begin{subfigure}{.49\textwidth}
  \centering
  \includegraphics[width=\linewidth]{./Figures/root/Plots/targetTempWithCooling.pdf}
- % targetTempNoCooling.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
- %\caption{bla2}
- %\label{fig:waterCooling2}
  \end{subfigure}
  \caption{The temperature of the 2 Cu target foils with a high current without water cooling (left) and with water cooling (right).}
  \label{fig:waterCooling}
 \end{figure}
 The left figure shows the temperatures without the water cooling with a current of 40 A (starting at $\sim$ 10:30) and a current of 80 A (starting at $\sim$ 11:15). The temperature rises to $\sim$ 45 °C, well above room temperature. As a even higher current of 100 A is projected, it is not an option not to use water cooling. On the right picture the temperature of the Cu target with water cooling is shown. In this case the current was varied gradually from 80 A (starting at $\sim$ 13:00) to 180 A (starting at $\sim$ 16:00). In this case the temperature can be stabilized below room temperature even for a current as high as 180 A. Consequently similar temperatures of the target can be achieved for data taking with and without current.
+
+\subsection{Argon Cooling of Silicon Drift Detectors}
+
+\change{maybe add argon target + argon pressure correlation; tr->Draw("slow[3]:slow[15]","","text")}The argon cooling of the SDDs was tested in many the test runs at the Stefan Meyer Institute. The Pt-100 temperature sensors were mounted on the metal \change{which metal?} support structure of the SDDs, which is in thermal contact with the detectors. During these data taking periods, the temperature of the detectors could be kept constant at around -170 $^{\circ}$C, except for short periods of higher temperature, with a duration of a few minutes typically. The temperature for both SDD arrays during 1 day of data taking is shown in figure \ref{fig:sddTemp}.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.6\textwidth]{./Figures/root/Plots/sddTemp.pdf}
+ % sddTemp.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{Temperature of the 2 SDD arrays during 1 day of data taking at the Stefan Meyer Institute.}
+ \label{fig:sddTemp}
+\end{figure}
+As the scheduled operation temperature is 150 K \cite{Lechner} ($\sim$ -120 $^{\circ}$C), which is still higher than during the periods with higher temperature, the performance characteristics of the detectors are not not affected by these changes. But nevertheless this problem was solved in the measurement at the Gran Sasso National Laboratory (LNGS) by adding a bit more Argon to the cooling system, which ensured stable data taking conditions at a SDD temperature of around 100 K.
+
+\subsection{Scintillator Energy Deposition Trigger Threshold}
+
+To find out the minimum energy that needs to be deposited in the scintillators by ionizing radiation in order for the event to be detectable, we used a Caesium-137 \footnote{Cs-137 decays to a metastable Barium-137 state via $\beta$-decay with a half-life of about 30 years. This state then decays into a stable state via emission of a 662 keV photon.} source shining directly into plastic scintillators used in the VIP2 experiment parallel to their length axis. A 2 mm aluminum plate was mounted between the source and the scintillator in order to shield the $\beta$-radiation from the source. The scintillators were read out by 2 serially connected SiPMs on the opposite side of the source. The pulse-height spectrum of the SiPMs was recorded with an oscilloscope. The setup was modeled in the Geant4 framework and the energy deposited in the scintillator was recorded. The deposited energy was smeared in the simulation by 10 \% to account for the finite resolution of the detection system. The pulse-height spectrum from the oscilloscope and the MC-spectrum are shown in figure \ref{fig:scintEnDep}.
+\begin{figure}[h]
+ \centering
+ \begin{subfigure}{.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/Cs133ESpec.pdf}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}{.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/Cs133VSpec.pdf}
+ \end{subfigure}
+ \caption{The spectrum of energy from a Cs-137 source deposited in the scintillator from MC-simulations (left) and the pulse-height spectrum recorded with an oscilloscope (right).}
+ \label{fig:scintEnDep}
+\end{figure}
+The pulse-height spectrum was recorded once with and once without the source. The subtracted spectrum was calculated in order to get the isolated spectrum from the source without events from external radiation. This subtracted spectrum is shown in the plot. 
+
+In the energy region of $\sim$ 80 keV - $\sim$ 4 MeV (which includes the photons from the Cs-137 source) the dominant energy-loss mechanism for photons in a plastic scintillator is the Compton effect \cite{Leo1993}. Therefore not the whole energy of the photons is deposited in the detector. The falloff in the MC-spectrum corresponds to the Compton edge \footnote{When a photon scatters on a charged particle, the energy it transfers to the charged particle depends on the angle between incoming and outgoing photon. The maximum energy is transfered when the photon changes direction by 180$^{\circ}$. As a photon can not deposit more energy in a single process, this energy marks an ``edge'' in the detected spectrum.}. The single Compton edge of 662 keV photons is at 478 keV, higher energies in the MC-spectrum come from Multi-Compton processes and from the smeared energy resolution. 
+
+The falloff in the pulse height spectrum at $\sim$ 200 mV corresponds to this Compton edge. The part below $\sim$ 180 mV is partly cut from the spectrum due to the trigger settings of the oscilloscope and does not have any physical meaning. From this measurement a relation between deposited energy and output pulse height of:
+\begin{equation}
+ \frac{\text{Energy}}{\text{Pulse Height}} \approx \frac{500\text{ keV}}{200\text{ mV}} = 2.5 \frac{\text{keV}}{\text{mV}}
+\end{equation} 
+Furthermore the threshold settings in the experiment at LNGS were set to about 40 mV. They could not be set lower than this, as at lower thresholds the rate of dark counts rises and this needs to be avoided. With 2.5 $\frac{\text{keV}}{\text{mV}}$ a threshold of 40 mV corresponds to a deposited energy of 100 keV. This energy is used as a threshold for MC simulations, which were discussed in chapter \ref{chap:Simulation}. For the measurements at SMI the SiPM thresholds were set higher, as at this point the goal was to detect events induced by cosmic radiation, which have a typical energy deposit of a few MeV.
+
+There are a few assumptions going into this calculation, as for example the linearity of the relation between deposited energy and output pulse height. Therefore the value of 100 keV energy deposition threshold at LNGS should be viewed as an estimation rather than a fixed value.
+
 
 \subsection{SDD Energy Resolution}
 
@@ -87,7 +126,7 @@ To achieve the optimal energy resolution, the voltage values for the photon entr
 \label{tab:sddVoltages2}
 \end{table}
 
-After optimzing the voltage settings, the energy resolution was determined from the data taken in the data taking period in October 2015. The results are shown in table \ref{tab:energyResSMI}.
+After optimizing the voltage settings, the energy resolution was determined from the data taken in the data taking period in October 2015. The results are shown in table \ref{tab:energyResSMI}.
 
 \begin{table}[h]
  \centering
@@ -112,4 +151,104 @@ The typical statistical error of the Full Width Half Maximum (FWHM) energy resol
 \end{figure}
 
 The Mn K$\alpha$ and K$\beta$ lines (5.9 keV and 6.5 keV) from the Fe-55 source and the Ti K$\alpha$ and K$\beta$ lines (4.5 keV and 4.9 keV) from the Ti calibration foil are visible. The Mn and Ti K$\alpha$ lines are used to find the energy scale. Details to the calibration procedure will be given in chapter \ref{chap:DataAnalysis}. Furthermore the Silicon K$\alpha$ escape peak \footnote{An Si K$\alpha$ photon escapes the detector. Its energy is therefore not converted into electron/ hole pairs and is missing in the spectrum. } is visible 1.7 keV below its main peak at around 2.8 keV. The Cu K$\alpha$ line at 8 keV is caused by external radiation hitting the Cu parts and creating vacancies in the 1s shell which are subsequently filled by electrons from the 2s shell. As the thermal energy at room temperature ($\sim$ 25 meV) is orders of magnitude smaller than the gap between the 1s and the 2s shell ($\sim$ 8 keV), the creation of a vacancy in the 1s shell is reliant on an external energy source. All the expected peaks are therefore visible in the spectrum and the functionality of all 6 SDDs could be established.
+
+\subsection{SDD Time Resolution}
+
+For the measurement of the time resolution of the Silicon Drift Detectors, the arrival times of the digitized signals from the SDD ``OR'' and the SiPM ``OR'' at the TDC were compared. For details about the DAQ system see figure \ref{fig:logic_scheme} or section \ref{sec:daqSlowControl}. As mentioned in \ref{sec:testsLNF}, the time resolution of the scinitllators read out by SiPMs is smaller than the one of the SDDs by around 2 orders of magnitude and is neglected here. The events in which both SDDs and and scintillators give a signal are mainly caused by charged particles which first hit the scintillators and then either directly hit the SDDs or cause secondary radiation (e.g. bremsstrahlung in the scintillators), which in turn hits the SDDs. In either case the time difference of the actual hits of the radiation in scintillators and SDDs is also negligible compared to the time resolution of the SDDs. The difference in arrival times at the TDC between the 2 signals are shown in figure \ref{fig:sddTimeRes}. The plot corresponds to all events with scintillator and SDD coincidence for the data taking period of 4 days at SMI. The time resolution was found to be around 380 ns (FWHM). This is in agreement with the specification of a time resolution $\leq$ 1 $\mu$s given in \cite{Lechner}. Furthermore the mean delay of the arrival of the SDD signal is 290 ns.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.6\textwidth]{./Figures/root/Plots/SddTimeRes.pdf}
+ % SddTimeRes.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{Arrival time of the signal of Silicon Drift Detectors relative to the signal from the SiPMs corresponding to a time resolution of $\sim$ 380 ns (FWHM).}
+ \label{fig:sddTimeRes}
+\end{figure}
+
+\subsection{Scintillator plus SiPM Time Resolution}
+
+For the mentioned 4 day data taking period, the difference in arrival times of signals from the adjoining ``bottom inner'' and ``bottom outer'' layer are shown in figure \ref{fig:scintiTimeRes}.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.6\textwidth]{./Figures/root/Plots/ScintiTimeRes.pdf}
+ % ScintiTimeRes.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{Difference of arrival times of 2 different scintillator layers.}
+ \label{fig:scintiTimeRes}
+\end{figure}
+The distribution of the difference of the arrival times can approximately modeled by a gaussian distribution with a sigma of 1.38 ns or a FWHM of 3.25 ns.  Assuming the time resolution is the same for both of these layers, this results in a sigma of 0.98 ns and a FWHM 2.3 ns for each layer and therefore also for each scintillator plus SiPM readout system.
+
+\subsection{Detection Efficiency of Cosmic Radiation and Active Shielding Test}
+0.993677 0.933823 0.93452
+%sumH->Integral(2000,40000)(Double_t) 12331.0 ... summed up scinti rejection
+
+The data used for this test is again from the 4 day data taking period in October 2015 at SMI. The test was done in order to determine if particles from cosmic radiation going through the scintillators and potentially also through the SDDs were missed. The first step was to determine if any scintillator read out 2 SiPMs gave less signals than other scintillators. For this purpose the QDC spectra, which correspond to the charge deposited in the scintillator in each event, of each scintillator were investigated. One of these spectra with 2 different scales is shown in figure \ref{fig:qdc5Spec}.
+
+\begin{figure}[h]
+ \centering
+ \begin{subfigure}{.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/qdc5SpectrumLog.pdf}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}{.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/qdc5SpectrumLinear.pdf}
+ \end{subfigure}
+ \caption{Spectrum of charge collected by the QDC for 1 scinillator once in logarithmic scale (left) and once in linear scale (right).}
+ \label{fig:qdc5Spec}
+\end{figure}
+
+The left figure shows a large peak on the left side. In these events the collected charge was low so it can be deduced that no ionizing radiation hit the scintillator. Starting from the about channel 800 there is a bump in the spectrum. For these events the collected charge was high and it can be said that there was probably ionizing radiation hitting this scintillator. To approximately determine the number of events in each scintillator, a threshold channel is introduced, above which all events where counted as signal events. This channel was determined as the 3$\sigma$ deviation from the mean value of the ``No-Signal'' gaussian distribution. In this case the threshold channel is 800. It is interesting to compare the collected charge distribution to the distribution of energy deposited in the scintillators by cosmic radiation, which is shown in figure \ref{fig:muEnDepScin}. The peak in the QDC spectrum at channel 2000 corresponds to a deposited energy of around 8 MeV. 
+
+The distribution of the the counts determined in this way is shown in figure \ref{fig:qdcCounts}. The histogram is filled at positions corresponding to the positions of the scintillators in the setup, as they are shown in figure \ref{fig:active_shielding}. One thing to note is that scintillators on the edge of the setup have less counts on average. This is due to the fact that for an event to be triggered, the inner and outer scintillator layer need to have a signal. Taking into account the angular distribution of cosmic radiation which is $\propto$ cos$^{2}$($\theta$) \cite{Gaisser2000}, there is a chance of particles hitting for example the scintillator in column 1 and layer 5, but not hitting any other scintillator, not generating an event. This effect does not play a role for more central scintillators, like for example the one in column 3 and layer 4. For all these scintillators the number of hits is about 380.000 on average, which corresponds to a rate of 1.1 Hz in each scintillator. Comparing this rate to the 1.67 Hz extracted from \cite{Gaisser2000}, it is obvious that the system of scintillators does not detect a part of the cosmic ray spectrum. This might be due to the shielding of the aluminum enclosure and the multistory building above the setup. But from this plot one can say that all scintillators are working and giving signals.
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{./Figures/root/Plots/qdcSumCounts.pdf}
+ % qdcSumCounts.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{The number of signals in each scintillator for a data taking period of 4 days.}
+ \label{fig:qdcCounts}
+\end{figure}
+
+To evaluate the detection efficiency for ionizing radiation in the energy region the scintillators should be sensible to, events were investigated in which at least 3 of the 4 scintillator layers with 6 scintillators had a signal. For these events the probability was measured that also the 4$^{th}$ layer had a signal. It turned out to be $\sim$ 90 \%. A reason for this number not being higher might be that a part of the events are introduced by $\gamma$ radiation, for which the detection efficiency is very low as was mentioned in \ref{sec:gammaSim}. This radiation could introduce events in some scintillators, while in others it does not interact. Another factor might be differences in gain settings of the SiPMs and trigger threshold settings for the SiPM signals. These differences can again lead to radiation triggering signals in some scintillators, while in others it does not.
+
+To ensure that the active shielding system is working as expected, it is interesting to look at hit patterns. For this purpose all events for which one specific scintillator has a signal are selected and then all events (from the previously selected events) every other scintillator has are counted. 
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{./Figures/root/Plots/qdc22HitPattern.pdf}
+ % qdcSumCounts.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{Hit pattern for scintillator in column 2 and layer 5.}
+ \label{fig:qdcCounts2}
+\end{figure}
+In figure \ref{fig:qdcCounts2} a hit pattern for the scintillator in column 2 and layer 5 is shown. It can be seen that for most events in this scintillator, the scintillator below also has an event, meaning most particles go through the setup almost vertically. Other scintillators not being directly below the specific scintillator get hit less often. The distribution resembles the cos$^{2}$($\theta$) distribution of cosmic radiation mentioned in \cite{Gaisser2000}. As the hit patterns for all scintillators look as expected, it can be assumed that all scintillators are connected properly and working fine.
+Another test was done comparing the SDD spectrum of the events rejected by scintillator veto to the expected spectrum introduced in the SDDs by cosmic muons, which was already shown in figure \ref{fig:scintVeto}. The expectation was that these spectra should be similar as a big part of the signals introduced by cosmic muons is rejected as they also trigger a signal in the scintillators. These rejected signals should be similar to the the signals in the SDDs introduced by muons. The 2 spectra are shown in figure \ref{fig:scintRejSmi}.
+\begin{figure}[h]
+ \centering
+ \begin{subfigure}{.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/cosmicRej100eV.pdf}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}{.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/scintRejSmi.pdf}
+ \end{subfigure}
+ \caption{The energy spectrum corresponding to 4 days of data introduced by cosmic radiation above ground from simulation (left) and measured (right).}
+ \label{fig:scintRejSmi}
+\end{figure}
+The first thing to note is that the peak at around 30 - 35 keV in the measured spectrum is artificial, as it is the upper end of the energy scale of the 6 SDDs. Every event with higher energy than that is filled in overflow bins. The overflow bins of the 6 SDDs correspond to slightly different energies, which makes the peak spread out over several keV. The second thing to note is that in the energy region from about 15 - 25 keV the 2 spectra are quite similar with about 1 count per 100 eV. In the energy range where the scintillator veto is crucial, the region of the forbidden Cu K$\alpha$ transition below 15 keV, there are more SDD hits rejected than there are predicted hits from cosmic radiation (consider the logarithmic scale on the right figure). This probably means that the scintillator veto can also reject at least a small part of the $\gamma$ radiation which is present in the laboratory. Consequently the system is not only capable for what it was designed, namely detecting high energy ionizing radiation, but also detecting $\gamma$ radiation. 
+
+Finally it is interesting to look at the amount of hits in the SDDs which are in coincidence with a scintillator signal. \change{check if there is a change when a cut on the sdd multiplicity is set.} The complete spectrum together with the rejected events are shown in figure \ref{fig:rejCompSpectrumSmi}.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{./Figures/root/Plots/rejCompSpectrumSmi.pdf}
+ % rejCompSpectrumSmi.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{The full energy spectrum corresponding to 4 days of data at SMI (red) and the part of the spectrum rejected by scintillator veto (blue).}
+ \label{fig:rejCompSpectrumSmi}
+\end{figure}
+It is obvious that only a small fraction of the SDD events can be rejected by scintillator veto. For example in the region of the the Cu lines from 7 - 10 keV a fraction of $\sim$ 1 \% of events is seen in the scintillators. This rejection ratio mean that the vast majority of counts in this energy region is caused by external photons, which can only be rejected to a small part. For this kind of radiation a rejection ratio of about 1 \% was already reported as a result of simulations in section \ref{sec:gammaSim}. For the part below 7 keV the Fe-55 source inside the setup contributes most of the counts, which can not be rejected. Therefore it does not make sense to calculate a rejection ratio for this energy region. The higher the energy the higher is the contribution of charged particles, with a high detection efficiency in the scintillators, to the SDD events. In the overflow bins of the SDDs, corresponding to an energy higher than around 30 keV, the rejection ratio is 6.5 \%. The fact that  the contribution of charged particles to the background is proportional to the energy can be seen comparing figures \ref{fig:muEnDepSDD} and \ref{fig:gammaRej}. While the peak contribution of charged particles is at around 300 keV, the contribution from external $\gamma$ radiation is high from $\sim$ 0 - 70 keV or so, with a maximum on the low energy side.
+
+The test of the active shielding system has shown that the detection of charged particles works with > 90 \% efficiency. All scintillators were found to work properly and contribute to the rejection of external radiation. But as the main background at SMI apparently comes from $\gamma$ radiation, the background rejection ratio is as low as 1 \% in the energy region of the forbidden transition. As all tests mentioned above gave the expected results it can be concluded that all detectors and parts of the data acquisition are working as expected. Crucial parameters of the experimental setup like SDD scale linearity and peak position stability will be discussed in the the following chapter.
+
+
+
+
 

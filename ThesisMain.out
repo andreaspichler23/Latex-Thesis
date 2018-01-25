@@ -34,7 +34,21 @@
 \BOOKMARK [1][-]{section.5.1}{Test Measurements at LNF}{chapter.5}% 34
 \BOOKMARK [1][-]{section.5.2}{Test Measurements at SMI}{chapter.5}% 35
 \BOOKMARK [2][-]{subsection.5.2.1}{Water Cooling of Cu Target}{section.5.2}% 36
-\BOOKMARK [2][-]{subsection.5.2.2}{SDD Energy Resolution}{section.5.2}% 37
-\BOOKMARK [0][-]{chapter.6}{Data Taking and Analysis}{}% 38
-\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 39
-\BOOKMARK [0][-]{chapter*.35}{Bibliography}{}% 40
+\BOOKMARK [2][-]{subsection.5.2.2}{Argon Cooling of Silicon Drift Detectors}{section.5.2}% 37
+\BOOKMARK [2][-]{subsection.5.2.3}{Scintillator Energy Deposition Trigger Threshold}{section.5.2}% 38
+\BOOKMARK [2][-]{subsection.5.2.4}{SDD Energy Resolution}{section.5.2}% 39
+\BOOKMARK [2][-]{subsection.5.2.5}{SDD Time Resolution}{section.5.2}% 40
+\BOOKMARK [2][-]{subsection.5.2.6}{Scintillator plus SiPM Time Resolution}{section.5.2}% 41
+\BOOKMARK [2][-]{subsection.5.2.7}{Detection Efficiency of Cosmic Radiation and Active Shielding Test}{section.5.2}% 42
+\BOOKMARK [0][-]{chapter.6}{Data Taking at LNGS and Data Analysis}{}% 43
+\BOOKMARK [1][-]{section.6.1}{Comparison of Data and Simulations}{chapter.6}% 44
+\BOOKMARK [1][-]{section.6.2}{Effects of 100 A Current}{chapter.6}% 45
+\BOOKMARK [1][-]{section.6.3}{Spectral Lines in the Energy Spectrum}{chapter.6}% 46
+\BOOKMARK [1][-]{section.6.4}{Data Selection}{chapter.6}% 47
+\BOOKMARK [1][-]{section.6.5}{Energy Calibration}{chapter.6}% 48
+\BOOKMARK [1][-]{section.6.6}{Peak Stability and Data Splitting}{chapter.6}% 49
+\BOOKMARK [1][-]{section.6.7}{Scale Linearity and 2nd Order Correction}{chapter.6}% 50
+\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 51
+\BOOKMARK [0][-]{chapter*.71}{Bibliography}{}% 52
+\BOOKMARK [0][-]{section*.72}{Appendices}{}% 53
+\BOOKMARK [0][-]{Appendix.a.A}{Data Acquisition Layout}{}% 54
