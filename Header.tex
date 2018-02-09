@@ -23,6 +23,13 @@
 \newcolumntype{F}{ >{\centering\arraybackslash} m{6cm} }
 \newcolumntype{G}{ >{\centering\arraybackslash} m{7cm} }
 \newcolumntype{H}{ >{\centering\arraybackslash} m{8cm} }
+\newcolumntype{I}{ >{\centering\arraybackslash} m{1.4cm} } % for table with cu ka peak pos
+\newcolumntype{x}[1]{>{\centering\arraybackslash\hspace{0pt}}m{#1}} % adjustable width centered column
+
+\usepackage{lmodern}  % for bold teletype font
+\usepackage{xcolor}   % for \textcolor
+
+
 
 \usepackage[version=3]{mhchem} % Für Chemische Formeln
 \usepackage{braket} % Für das quantenmechanische Bra-Ket
@@ -69,3 +76,11 @@
 \newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
 \newcommandx{\improvement}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
 \newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
+
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  frame=single,
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}

@@ -14,45 +14,50 @@ Warning--empty institution in AdvanSiD2012
 Warning--empty institution in Pichler2017
 Warning--empty institution in Okada
 Warning--empty year in Okada
-You've used 46 entries,
+Warning--empty publisher in Behnke
+Warning--empty year in Behnke
+Warning--empty note in Piscicchia2010
+Warning--empty journal in Verkerke2003
+Warning--empty journal in Moneta2010
+You've used 54 entries,
             1791 wiz_defined-function locations,
-            763 strings with 18911 characters,
-and the built_in function-call counts, 16315 in all, are:
-= -- 898
-> -- 1889
+            807 strings with 21458 characters,
+and the built_in function-call counts, 18732 in all, are:
+= -- 1007
+> -- 2204
 < -- 1
-+ -- 651
-- -- 605
-* -- 1741
-:= -- 3093
-add.period$ -- 136
-call.type$ -- 46
-change.case$ -- 49
++ -- 759
+- -- 705
+* -- 1989
+:= -- 3565
+add.period$ -- 158
+call.type$ -- 54
+change.case$ -- 56
 chr.to.int$ -- 0
-cite$ -- 57
-duplicate$ -- 393
-empty$ -- 971
-format.name$ -- 605
-if$ -- 3099
+cite$ -- 70
+duplicate$ -- 455
+empty$ -- 1106
+format.name$ -- 705
+if$ -- 3553
 int.to.chr$ -- 0
-int.to.str$ -- 46
-missing$ -- 40
-newline$ -- 231
-num.names$ -- 46
-pop$ -- 89
+int.to.str$ -- 54
+missing$ -- 47
+newline$ -- 269
+num.names$ -- 54
+pop$ -- 119
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 150
+skip$ -- 173
 stack$ -- 0
-substring$ -- 778
-swap$ -- 45
+substring$ -- 822
+swap$ -- 50
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 11
-while$ -- 107
-width$ -- 48
-write$ -- 488
-(There were 11 warnings)
+warning$ -- 16
+while$ -- 120
+width$ -- 56
+write$ -- 563
+(There were 16 warnings)

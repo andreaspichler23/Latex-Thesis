@@ -7,7 +7,7 @@ bibliography=totoc,BCOR=10mm]{scrreprt} % Schriftgröße, Seitenformat, Zweiseit
 
 \hypersetup{ % Setzt einige Werte die in den Eigenschaften des PDF gespeichert sind.
 	pdfauthor = {Andreas Pichler},
-	pdftitle = {VIP2 working title},
+	pdftitle = {Test of the Pauli Exclusion Principle for electrons in the Gran Sasso underground laboratory},
 	pdfsubject = {Dissertation Physik},
 	pdfkeywords = {dissertation},
 	pdfdisplaydoctitle = true,
@@ -16,11 +16,13 @@ bibliography=totoc,BCOR=10mm]{scrreprt} % Schriftgröße, Seitenformat, Zweiseit
 
 \begin{document}
 
+
 \AbschlussarbeitTUWienPhysikTitlePage{
-	titel={VIP2 working title},
+	titel={Test of the Pauli Exclusion Principle for electrons in the Gran Sasso underground laboratory},
 	institut=Stefan Meyer Institute for subatomic physics,
-	prof={\citeauthor{Johann Marton}}, % citeauthor nimmt Namen der Person aus der Bibliography in bib/example.bib
-	author=Andreas Pichler,
+	%prof={\citeauthor{Johann Marton}}, % citeauthor nimmt Namen der Person aus der Bibliography in bib/example.bib
+	prof=Dr. Johann Marton,
+	autor=Andreas Pichler,
 	adresse={Boltzmanngasse 3,\\ 1090 Vienna},
 	typ={diss},
 	% Vordefinierte Typen sind: sem (Seminararbeit), bacc (Bachelorarbeit), proj (Projektarbeit), mast (Diplomarbeit), dipl (Diplomarbeit), diss (Dissertation)
@@ -28,11 +30,17 @@ bibliography=totoc,BCOR=10mm]{scrreprt} % Schriftgröße, Seitenformat, Zweiseit
 	% Bei allen anderen Typen werden die Texte direkt übernommen.
 	schwarzweisslogo=false % Definiert, ob das Logo der TU in Schwarz-Weiß oder Farbe ist.
 	}
+\titlePageTUWienPhysik
 
 \pagenumbering{gobble} % Keine Seitenzahl drucken
-%\titlePageTUWienPhysik
 
-%\input{abstract.tex}
+\blankpage
+\input{Kurzfassung.tex}
+\blankpage
+\input{Abstract.tex}
+\blankpage
+\input{Acknowledgment.tex}
+%\input{Zusammen}
 \tableofcontents \newpage
 \cleardoublepage % Macht, dass openright funktioniert.
 % \chapter macht das automatisch, \tableofcontents und \printbibliography machen das nicht.
@@ -48,6 +56,7 @@ bibliography=totoc,BCOR=10mm]{scrreprt} % Schriftgröße, Seitenformat, Zweiseit
 \input{Simulations.tex}
 \input{TestMeasurements.tex}
 \input{Data.tex}
+\input{DataAnalysis.tex}
 \input{Conclusion.tex}
 
 \cleardoublepage

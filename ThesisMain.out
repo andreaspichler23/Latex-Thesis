@@ -11,8 +11,8 @@
 \BOOKMARK [2][-]{subsection.2.2.2}{The Ignatiev and Kuzmin Model and Parons}{section.2.2}% 11
 \BOOKMARK [2][-]{subsection.2.2.3}{Quons}{section.2.2}% 12
 \BOOKMARK [1][-]{section.2.3}{Tests of the Pauli Exclusion Principle}{chapter.2}% 13
-\BOOKMARK [2][-]{subsection.2.3.1}{Remarks on testing the Pauli Exclusion Principle}{section.2.3}% 14
-\BOOKMARK [2][-]{subsection.2.3.2}{Experiments for testing the Pauli Exclusion Principle}{section.2.3}% 15
+\BOOKMARK [2][-]{subsection.2.3.1}{Remarks on Testing the Pauli Exclusion Principle}{section.2.3}% 14
+\BOOKMARK [2][-]{subsection.2.3.2}{Experiments for Testing the Pauli Exclusion Principle}{section.2.3}% 15
 \BOOKMARK [1][-]{section.2.4}{The VIP2 experimental method}{chapter.2}% 16
 \BOOKMARK [0][-]{chapter.3}{The Measurement Setup}{}% 17
 \BOOKMARK [1][-]{section.3.1}{Silicon Drift Detectors and copper target}{chapter.3}% 18
@@ -27,9 +27,9 @@
 \BOOKMARK [2][-]{subsection.3.4.1}{Signal readout and data acquisition}{section.3.4}% 27
 \BOOKMARK [2][-]{subsection.3.4.2}{Slow control}{section.3.4}% 28
 \BOOKMARK [0][-]{chapter.4}{Simulations}{}% 29
-\BOOKMARK [1][-]{section.4.1}{Detection Efficiency}{chapter.4}% 30
-\BOOKMARK [1][-]{section.4.2}{Cosmic Ray Background}{chapter.4}% 31
-\BOOKMARK [1][-]{section.4.3}{Gamma Ray Background}{chapter.4}% 32
+\BOOKMARK [1][-]{section.4.1}{Detection Efficiency of PEP-violating Transitions}{chapter.4}% 30
+\BOOKMARK [1][-]{section.4.2}{Background from Cosmic Radiation}{chapter.4}% 31
+\BOOKMARK [1][-]{section.4.3}{Background from Gamma Radiation}{chapter.4}% 32
 \BOOKMARK [0][-]{chapter.5}{Test Measurements}{}% 33
 \BOOKMARK [1][-]{section.5.1}{Test Measurements at LNF}{chapter.5}% 34
 \BOOKMARK [1][-]{section.5.2}{Test Measurements at SMI}{chapter.5}% 35
@@ -40,7 +40,7 @@
 \BOOKMARK [2][-]{subsection.5.2.5}{SDD Time Resolution}{section.5.2}% 40
 \BOOKMARK [2][-]{subsection.5.2.6}{Scintillator plus SiPM Time Resolution}{section.5.2}% 41
 \BOOKMARK [2][-]{subsection.5.2.7}{Detection Efficiency of Cosmic Radiation and Active Shielding Test}{section.5.2}% 42
-\BOOKMARK [0][-]{chapter.6}{Data Taking at LNGS and Data Analysis}{}% 43
+\BOOKMARK [0][-]{chapter.6}{Data Taking at LNGS and Data Preparation}{}% 43
 \BOOKMARK [1][-]{section.6.1}{Comparison of Data and Simulations}{chapter.6}% 44
 \BOOKMARK [1][-]{section.6.2}{Effects of 100 A Current}{chapter.6}% 45
 \BOOKMARK [1][-]{section.6.3}{Spectral Lines in the Energy Spectrum}{chapter.6}% 46
@@ -48,7 +48,16 @@
 \BOOKMARK [1][-]{section.6.5}{Energy Calibration}{chapter.6}% 48
 \BOOKMARK [1][-]{section.6.6}{Peak Stability and Data Splitting}{chapter.6}% 49
 \BOOKMARK [1][-]{section.6.7}{Scale Linearity and 2nd Order Correction}{chapter.6}% 50
-\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 51
-\BOOKMARK [0][-]{chapter*.71}{Bibliography}{}% 52
-\BOOKMARK [0][-]{section*.72}{Appendices}{}% 53
-\BOOKMARK [0][-]{Appendix.a.A}{Data Acquisition Layout}{}% 54
+\BOOKMARK [0][-]{chapter.7}{Data Analysis}{}% 51
+\BOOKMARK [1][-]{section.7.1}{Spectral Subtraction Analysis}{chapter.7}% 52
+\BOOKMARK [1][-]{section.7.2}{Simultaneous Fit}{chapter.7}% 53
+\BOOKMARK [1][-]{section.7.3}{Bayesian Count Based Analysis}{chapter.7}% 54
+\BOOKMARK [1][-]{section.7.4}{Bayesian Fit Based Analysis}{chapter.7}% 55
+\BOOKMARK [0][-]{chapter.8}{Summary and Outlook}{}% 56
+\BOOKMARK [0][-]{chapter*.91}{Bibliography}{}% 57
+\BOOKMARK [0][-]{section*.92}{Appendices}{}% 58
+\BOOKMARK [0][-]{Appendix.a.A}{Data Acquisition Layout}{}% 59
+\BOOKMARK [0][-]{Appendix.a.B}{Code for Simultaneous Fit}{}% 60
+\BOOKMARK [0][-]{Appendix.a.C}{Code for Bayesian Analysis}{}% 61
+\BOOKMARK [1][-]{section.a.C.1}{Count Based Analysis}{Appendix.a.C}% 62
+\BOOKMARK [1][-]{section.a.C.2}{Fit Based Analysis}{Appendix.a.C}% 63

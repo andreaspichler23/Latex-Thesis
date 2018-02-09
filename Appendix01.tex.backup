@@ -1,11 +1,145 @@
-\section{Title of Appendix A}
-
+\begin{appendices}
+\chapter{Data Acquisition Layout}
 
 
 \begin{figure}[h]
  \centering
- \includegraphics[width=0.9\textwidth]{./Figures/20160902Logic_Scheme.png}
+ \includegraphics[width=\textwidth]{./Figures/20160902Logic_Scheme.pdf}
  % 20160902Logic_Scheme.png: 1000x775 pixel, 131dpi, 19.38x15.02 cm, bb=0 0 549 426
- \caption{bla}
+ \caption{Layout of the data acquisition system for the VIP2 experiment}
  \label{fig:logic_scheme}
 \end{figure}
+
+\chapter{Code for Bayesian Analysis}
+\label{chap:bayesCode}
+
+\section{Count Based Analysis}
+
+\begin{lstlisting}[language=Mathematica]
+ RndList = {};
+ zs = 4119;
+ zbk = 4056;
+ lbkList = {};
+ expect = zs - zbk;
+ xValList = Range[0, 700];
+ For[i = 1, i < 100000, i++,
+   lbk = RandomVariate[GammaDistribution[zbk + 1, 1]];
+   probDist = ProbabilityDistribution[(lsg + lbk)^zs*Exp[-lsg]/
+   (Exp[lbk]* Gamma[1 + zs, lbk]), {lsg, 0, Infinity}];
+   yValList = {};
+   yValList = N[PDF[probDist, xValList]];
+   empDistTemp = EmpiricalDistribution[yValList -> xValList];
+   r = N[RandomVariate[empDistTemp]];
+   AppendTo[RndList, r];
+  AppendTo[lbkList, lbk];
+ ]
+ 
+\end{lstlisting}
+
+\section{Fit Based Analysis}
+
+\begin{lstlisting}[language=C++]
+  RooRealVar backC("backC","number of bg events without current",31838.4,10000.,50000.);
+  backC.setConstant(kTRUE);
+ 
+  RooRealVar backSl("backSl","slope of the bg without current",-0.05176,-1.,1.);
+  backSl.setConstant(kTRUE);
+  // set the background parameters to the values from the fit without current
+  // set them also constant for the fit
+  
+   //CuKa1
+  
+  RooRealVar meanCuKa1("meanCuKa1","mean of Cu Ka1 gaussian",8047.78,8040.,8080.);
+  RooRealVar sigmaCuKa("sigmaCuKa","width of Cu Ka1 gaussian",75.,70.,90.);
+  RooGaussian gaussCuKa1("gaussCuKa1","Cu Ka1 PDF",energy,meanCuKa1,sigmaCuKa);
+ 
+  RooRealVar cuKa1N("cuKa1N","cu Ka1 Events",15000,0,100000);
+
+  //Cuka2
+
+  RooRealVar CuKa2Diff("CuKa2Diff","diff Ka1 - Ka2",19.95,19.,20.);
+  RooRealVar CuKa2Ratio("CuKa2Ratio","ratio Ka1 / Ka2",0.51,0.,1.);
+
+  RooGenericPdf meanCuKa2("meanCuKa2","diff Cu Ka1 - Ka2  PDF","meanCuKa1 - CuKa2Diff",RooArgSet(meanCuKa1,CuKa2Diff));
+  RooGaussian gaussCuKa2("gaussCuKa2","Cu Ka2 PDF",energy,meanCuKa2,sigmaCuKa); 
+
+  RooGenericPdf cuKa2N("CuPdfRatio","ratio Cu Ka1 / Ka2  PDF","cuKa1N*CuKa2Ratio",RooArgSet(cuKa1N,CuKa2Ratio));
+
+  //NiKa1
+
+  RooRealVar meanNiKa1("meanNiKa1","mean of Ni Ka1 gaussian",7478.15,7470.,7500.);
+  RooRealVar sigmaNiKa("sigmaNiKa","width of Ni Ka1 gaussian",70.,50.,90.);
+  RooGaussian gaussNiKa1("gaussNiKa1","Ni Ka1 PDF",energy,meanNiKa1,sigmaNiKa); 
+ 
+  RooRealVar niKa1N("niKa1N","Nickel Ka1 Events",200,0,1000);
+
+  //Nika2
+
+  RooRealVar NiKa2Diff("NiKa2Diff","diff Ka1 - Ka2",17.26,17.,18.);
+  RooRealVar NiKa2Ratio("NiKa2Ratio","ratio Ka1 / Ka2",0.51,0.,1.);
+
+  RooGenericPdf meanNiKa2("meanNiKa2","diff Ni Ka1 - Ka2  PDF","meanNiKa1 - NiKa2Diff",RooArgSet(meanNiKa1,NiKa2Diff));
+  RooGaussian gaussNiKa2("gaussNiKa2","Cu Ka2 PDF",energy,meanNiKa2,sigmaNiKa);
+
+  RooGenericPdf niKa2N("NiPdfRatio","ratio Ni Ka1 / Ka2  PDF","niKa1N*NiKa2Ratio",RooArgSet(niKa1N,NiKa2Ratio)); 
+
+  //Background
+  
+
+  //the variables for the background function are defined earlier
+  
+  RooChebychev backgF("backgF","Background",energy,RooArgSet(backSl));
+  
+  // PEP violating tranistion
+
+  RooRealVar meanForbidden("meanForbidden","mean of the forbidden tranistion", 7729, 7728.,7730.);
+  RooGaussian gaussForbidden("gaussForbidden","Forbidden pdf",energy,meanForbidden,sigmaCuKa);
+
+  RooRealVar Nsig("Nsig","signal Events",10.,0.,500.);
+  
+  RooAddPdf PDFtot_nuis("PDFtot_nuis","PDFtot_nuis",RooArgList(gaussCuKa1,gaussCuKa2,gaussNiKa1,gaussNiKa2,backgF,gaussForbidden),RooArgList(cuKa1N,cuKa2N,niKa1N,niKa2N,backC,Nsig));
+  
+  CuKa2Diff.setConstant(kTRUE);
+  CuKa2Ratio.setConstant(kTRUE);
+  NiKa2Diff.setConstant(kTRUE);
+  NiKa2Ratio.setConstant(kTRUE);
+  meanForbidden.setConstant(kTRUE); 
+  meanCuKa1.setConstant(kTRUE);
+  meanNiKa1.setConstant(kTRUE);
+  
+  PDFtot_nuis.fitTo(*withAD); // fit to data with current
+
+  backC.setConstant(kFALSE); 
+  // set Background to parameters without current
+  backC.setError(252.7);
+  backSl.setConstant(kFALSE);
+  backSl.setError(0.010902);
+  
+  nuisW->import(PDFtot_nuis);
+  ModelConfig sbModel;
+  sbModel.SetWorkspace(*nuisW);
+  sbModel.SetPdf("PDFtot_nuis"); 
+  sbModel.SetName("S+B Model");
+  RooRealVar* poi = nuisW->var("Nsig");
+  poi->setRange(0.,500.); 
+  sbModel.SetParametersOfInterest(*poi);
+  sbModel.SetNuisanceParameters(RooArgSet(backC,backSl));
+
+  
+  nuisW->factory("Uniform::prior(Nsig)"); 
+  sbModel.SetPriorPdf(*nuisW->pdf("prior"));
+
+  //Construct the bayesian calculator
+  BayesianCalculator bc(*(wConst->data("withDH")), sbModel);
+  bc.SetConfidenceLevel(0.997);
+  bc.SetLeftSideTailFraction(0.); 
+  bc.SetIntegrationType("plain");  
+  bc.SetNumIters(10000); 
+  // set number of iterations (i.e. number of toys for MC integrations)
+  bc.SetScanOfPosterior(100);
+  SimpleInterval* bcInt = bc.GetInterval();
+  RooPlot *bcPlot = bc.GetPosteriorPlot(true);
+  
+\end{lstlisting}
+  
+\end{appendices}

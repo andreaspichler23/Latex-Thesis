@@ -10,5 +10,396 @@
  \label{fig:logic_scheme}
 \end{figure}
 
+\chapter{Code for Simultaneous Fit}
+\label{chap:simCode}
 
+\begin{lstlisting}
+ 
+Double_t funcBg(Double_t *x, Double_t *par){
+    
+    // fit of the region of roi, nickel, and cu ka kb
+    // this is for fitting an already scaled histogram
+    
+    
+    Double_t xx = x[0];
+    
+    //par[0] = background constant
+    //par[10] = background slope
+    
+    Double_t back = par[0] + (xx - 7000) * par[10];
+    
+    //par[1] = cu ka1 gain
+    //par[2] = cu ka1 mean
+    //par[3] = cu ka1 sigma
+    
+    Double_t cuKa1 = par[1]/(sqrt(2*TMath::Pi())*par[3])*TMath::Exp(-((xx-par[2])*(xx-par[2]))/(2*par[3]*par[3]));
+    
+    Double_t cuKa2Gain = par[1] * 0.51;
+    Double_t cuKa2Mean = par[2] - 19.95;
+    
+    Double_t cuKa2 = cuKa2Gain/(sqrt(2*TMath::Pi())*par[3])*TMath::Exp(-((xx-cuKa2Mean)*(xx-cuKa2Mean))/(2*par[3]*par[3]));
+    
+    //par[4] = cu kb gain
+    //par[5] = cu kb mean
+    //par[6] = cu kb sigma
+    
+    Double_t cuKb = par[4]/(sqrt(2*TMath::Pi())*par[6])*TMath::Exp(-((xx-par[5])*(xx-par[5]))/(2*par[6]*par[6]));
+    
+    //par[7] = ni ka1 gain
+    //par[8] = ni ka1 mean
+    //par[9] = ni ka1 sigma
+  
+    
+    Double_t niKa1 = par[7]/(sqrt(2*TMath::Pi())*par[9])*TMath::Exp(-((xx-par[8])*(xx-par[8]))/(2*par[9]*par[9]));
+    
+    Double_t niKa2Gain = par[7] * 0.51;
+    Double_t niKa2Mean = par[8] - 17.3;
+    
+    Double_t niKa2 = niKa2Gain/(sqrt(2*TMath::Pi())*par[9])*TMath::Exp(-((xx-niKa2Mean)*(xx-niKa2Mean))/(2*par[9]*par[9]));
+
+    
+    Double_t roiCuFunc = back + cuKa1 + cuKa2 + cuKb + niKa1 + niKa2;
+    
+   
+    return roiCuFunc;    
+}
+
+Double_t funcSigBg(Double_t *x, Double_t *par){
+    
+    // fit of the region of roi, nickel, and cu ka kb
+    // this is for fitting an already scaled histogram
+    
+    
+    Double_t xx = x[0];
+    
+    //par[0] = background constant
+    //par[10] = background slope
+    
+    Double_t back = par[0] + (xx - 7000) * par[10];
+    
+    //par[1] = cu ka1 gain
+    //par[2] = cu ka1 mean
+    //par[3] = cu ka1 sigma
+    
+    Double_t cuKa1 = par[1]/(sqrt(2*TMath::Pi())*par[3])*TMath::Exp(-((xx-par[2])*(xx-par[2]))/(2*par[3]*par[3]));
+    
+    Double_t cuKa2Gain = par[1] * 0.51;
+    Double_t cuKa2Mean = par[2] - 19.95;
+    
+    Double_t cuKa2 = cuKa2Gain/(sqrt(2*TMath::Pi())*par[3])*TMath::Exp(-((xx-cuKa2Mean)*(xx-cuKa2Mean))/(2*par[3]*par[3]));
+    
+    //par[4] = cu kb gain
+    //par[5] = cu kb mean
+    //par[6] = cu kb sigma
+    
+    Double_t cuKb = par[4]/(sqrt(2*TMath::Pi())*par[6])*TMath::Exp(-((xx-par[5])*(xx-par[5]))/(2*par[6]*par[6]));
+    
+    //par[7] = ni ka1 gain
+    //par[8] = ni ka1 mean
+    //par[9] = ni ka1 sigma
+  
+    
+    Double_t niKa1 = par[7]/(sqrt(2*TMath::Pi())*par[9])*TMath::Exp(-((xx-par[8])*(xx-par[8]))/(2*par[9]*par[9]));
+    
+    Double_t niKa2Gain = par[7] * 0.51;
+    Double_t niKa2Mean = par[8] - 17.3;
+    
+    Double_t niKa2 = niKa2Gain/(sqrt(2*TMath::Pi())*par[9])*TMath::Exp(-((xx-niKa2Mean)*(xx-niKa2Mean))/(2*par[9]*par[9]));
+
+    //par[11] = forbidden gauss gain
+    // mean of forbidden transition fixed at 7729 eV
+    
+    Double_t forbGauss = par[11]/(sqrt(2*TMath::Pi())*par[3])*TMath::Exp(-((xx-7729)*(xx-7729))/(2*par[3]*par[3]));
+ 
+    Double_t roiCuFunc = back + cuKa1 + cuKa2 + cuKb + niKa1 + niKa2 + forbGauss;
+    
+   
+    return roiCuFunc;    
+}
+
+struct GlobalChi2 { 
+   GlobalChi2(  ROOT::Math::IMultiGenFunction & f1,  ROOT::Math::IMultiGenFunction & f2) : 
+      fChi2_1(&f1), fChi2_2(&f2) {}
+
+   // parameter vector is first background (in common 1 and 2) and then is signal (only in 2)
+   double operator() (const double *par) const {
+      double p1[11]; // p1 is for background = without current histogram
+      p1[0] = par[0]; // bg constant ..common parameter
+      p1[1] = par[1]; // cu ka1 gain ... free 
+      p1[2] = par[2]; // cu ka1 mean ... fixed 
+      p1[3] = par[3]; // cu ka1 sigma ... free 
+      p1[4] = par[4]; // cu kb gain ... free
+      p1[5] = par[5]; // cu kb mean ... fixed
+      p1[6] = par[6]; // cu kb sigma ... free
+      p1[7] = par[7]; // ni ka1 gain ... free
+      p1[8] = par[8]; // ni ka1 mean ... fixed
+      p1[9] = par[9]; // ni ka1 sigma ... free
+      p1[10] = par[10]; // background slope ... common
+
+      double p2[12]; // parameters for the fit with signal with current 
+      p2[0] = par[0]; // bg constant ..common parameter
+      p2[1] = par[11]; // cu ka1 gain ... free 
+      p2[2] = par[12]; // cu ka1 mean ... fixed 
+      p2[3] = par[13]; // cu ka1 sigma ... free 
+      p2[4] = par[14]; // cu kb gain ... free
+      p2[5] = par[15]; // cu kb mean ... fixed
+      p2[6] = par[16]; // cu kb sigma ... free
+      p2[7] = par[17]; // ni ka1 gain ... free
+      p2[8] = par[18]; // ni ka1 mean ... fixed
+      p2[9] = par[19]; // ni ka1 sigma ... free
+      p2[10] = par[10]; // background slope ... common
+      p2[11] = par[20]; // forbidden gauss gain ... free
+      return (*fChi2_1)(p1) + (*fChi2_2)(p2);
+   } 
+
+   const  ROOT::Math::IMultiGenFunction * fChi2_1;
+   const  ROOT::Math::IMultiGenFunction * fChi2_2;
+};
+
+Double_t combinedFit(Int_t reBin) { 
+
+  TFile *fIN = new TFile("energyHistograms.root");
+  Int_t nPar = 21;
+  Int_t lowerL = 7000;
+  Int_t upperL = 9500;
+  
+  TH1F *hSB = (TH1F*)fIN->Get("withCurrentSum");
+  TH1F *hB   = (TH1F*)fIN->Get("noCurrentSmallSum"); 
+  
+  // setting the initial parameters for the fit
+  Double_t parInit[21] = { 510. * reBin/25 , 310000. * reBin/25 , 8047.78 , 75. , 79000. * reBin/25 , 8905.29 , 80. , 14900. * reBin/25 , 7478.15 , 72. , -0.02 , 312000. * reBin/25 , 8047.78 , 80. , 78500. * reBin/25 , 8905.29 , 78. , 12000. * reBin/25 , 7478.15 , 71. , 0. }; 
+
+  hSB->Rebin(reBin);
+  hB->Rebin(reBin);
+  
+
+  TF1 *fB = new TF1("fB", funcBg, lowerL, upperL, 11 );
+  TF1 *fSB = new TF1("fSB", funcSigBg, lowerL, upperL, 12 );
+  
+
+  // perform global fit 
+
+
+  ROOT::Math::WrappedMultiTF1 wfB(*fB,1);
+  ROOT::Math::WrappedMultiTF1 wfSB(*fSB,1);
+
+  ROOT::Fit::DataOptions opt; 
+  ROOT::Fit::DataRange rangeB; 
+  rangeB.SetRange(lowerL,upperL); 
+  ROOT::Fit::BinData dataB(opt,rangeB); 
+  ROOT::Fit::FillData(dataB, hB); 
+
+  ROOT::Fit::DataRange rangeSB; 
+  rangeSB.SetRange(lowerL,upperL);
+  ROOT::Fit::BinData dataSB(opt,rangeSB); 
+  ROOT::Fit::FillData(dataSB, hSB);
+
+  ROOT::Fit::Chi2Function chi2_B(dataB, wfB); 
+  ROOT::Fit::Chi2Function chi2_SB(dataSB, wfSB);
+
+  GlobalChi2 globalChi2(chi2_B, chi2_SB);
+
+  ROOT::Fit::Fitter fitter;
+
+  
+
+  // create before the parameter settings in order to fix or set range on them
+  fitter.Config().SetParamsSettings(21,parInit); 
+  // fix some parameters 
+  fitter.Config().ParSettings(2).Fix();
+  fitter.Config().ParSettings(5).Fix();
+  fitter.Config().ParSettings(8).Fix();
+  fitter.Config().ParSettings(12).Fix();
+  fitter.Config().ParSettings(15).Fix();
+  fitter.Config().ParSettings(18).Fix();
+  
+  
+  fitter.Config().ParSettings(0).SetName("Common Background Constant");
+  fitter.Config().ParSettings(1).SetName("Cu Ka1 Gain BG");
+  fitter.Config().ParSettings(2).SetName("Cu Ka1 Mean");
+  fitter.Config().ParSettings(3).SetName("Cu Ka1 Sigma BG");
+  fitter.Config().ParSettings(4).SetName("Cu Kb Gain BG");
+  fitter.Config().ParSettings(5).SetName("Cu Kb Mean");
+  fitter.Config().ParSettings(6).SetName("Cu Kb Sigma BG");
+  fitter.Config().ParSettings(7).SetName("Ni Ka1 Gain BG");
+  fitter.Config().ParSettings(8).SetName("Ni Ka1 Mean");
+  fitter.Config().ParSettings(9).SetName("Ni Ka1 Sigma BG");
+  fitter.Config().ParSettings(10).SetName("Common Background Slope");
+  fitter.Config().ParSettings(11).SetName("Cu Ka1 Gain SIG");
+  fitter.Config().ParSettings(12).SetName("Cu Ka1 Mean");
+  fitter.Config().ParSettings(13).SetName("Cu Ka1 Sigma SIG");
+  fitter.Config().ParSettings(14).SetName("Cu Kb Gain SIG");
+  fitter.Config().ParSettings(15).SetName("Cu Kb Mean");
+  fitter.Config().ParSettings(16).SetName("Cu Kb Sigma SIG");
+  fitter.Config().ParSettings(17).SetName("Ni Ka1 Gain SIG");
+  fitter.Config().ParSettings(18).SetName("Ni Ka1 Mean");
+  fitter.Config().ParSettings(19).SetName("Ni Ka1 Sigma SIG");
+  fitter.Config().ParSettings(20).SetName("Forbidden Gauss Gain"); 
+ 
+  
+  // set limits 
+  fitter.Config().ParSettings(0).SetLimits(400. * reBin/25,600. * reBin/25);
+  fitter.Config().ParSettings(1).SetLimits(200000. * reBin/25,400000. * reBin/25);
+
+  fitter.Config().ParSettings(3).SetLimits(72.,80.);
+  fitter.Config().ParSettings(4).SetLimits(70000. * reBin/25,90000. * reBin/25);
+
+  fitter.Config().ParSettings(6).SetLimits(75.,85.);
+  fitter.Config().ParSettings(7).SetLimits(10000. * reBin/25,20000. * reBin/25);
+
+  fitter.Config().ParSettings(9).SetLimits(60. ,85. );
+  fitter.Config().ParSettings(10).SetLimits(-0.05,0.05);
+  fitter.Config().ParSettings(11).SetLimits(200000. * reBin/25,400000. * reBin/25);
+  
+  fitter.Config().ParSettings(13).SetLimits(75.,85.);
+  fitter.Config().ParSettings(14).SetLimits(70000. * reBin/25,90000. * reBin/25);
+
+  fitter.Config().ParSettings(16).SetLimits(75.,85.);
+  fitter.Config().ParSettings(17).SetLimits(10000. * reBin/25,15000. * reBin/25);
+
+  fitter.Config().ParSettings(19).SetLimits(65.,75.);
+  //fitter.Config().ParSettings(20).SetLimits(0.,5000.); // no limits on forbidden gauss gain
+  
+  fitter.Config().SetMinosErrors();
+  fitter.Config().MinosErrors();
+  fitter.FitFCN(nPar,globalChi2,parInit,dataB.Size()+dataSB.Size());
+  
+  ROOT::Fit::FitResult result = fitter.Result();
+  result.Print(std::cout);
+
+
+\end{lstlisting}
+
+
+\chapter{Code for Bayesian Analysis}
+\label{chap:bayesCode}
+
+\section{Count Based Analysis}
+
+\begin{lstlisting}[language=Mathematica]
+ RndList = {};
+ zs = 4119;
+ zbk = 4056;
+ lbkList = {};
+ expect = zs - zbk;
+ xValList = Range[0, 700];
+ For[i = 1, i < 100000, i++,
+   lbk = RandomVariate[GammaDistribution[zbk + 1, 1]];
+   probDist = ProbabilityDistribution[(lsg + lbk)^zs*Exp[-lsg]/
+   (Exp[lbk]* Gamma[1 + zs, lbk]), {lsg, 0, Infinity}];
+   yValList = {};
+   yValList = N[PDF[probDist, xValList]];
+   empDistTemp = EmpiricalDistribution[yValList -> xValList];
+   r = N[RandomVariate[empDistTemp]];
+   AppendTo[RndList, r];
+  AppendTo[lbkList, lbk];
+ ]
+ 
+\end{lstlisting}
+
+\section{Fit Based Analysis}
+
+\begin{lstlisting}[language=C++]
+  RooRealVar backC("backC","number of bg events without current",31838.4,10000.,50000.);
+  backC.setConstant(kTRUE);
+ 
+  RooRealVar backSl("backSl","slope of the bg without current",-0.05176,-1.,1.);
+  backSl.setConstant(kTRUE);
+  // set the background parameters to the values from the fit without current
+  // set them also constant for the fit
+  
+   //CuKa1
+  
+  RooRealVar meanCuKa1("meanCuKa1","mean of Cu Ka1 gaussian",8047.78,8040.,8080.);
+  RooRealVar sigmaCuKa("sigmaCuKa","width of Cu Ka1 gaussian",75.,70.,90.);
+  RooGaussian gaussCuKa1("gaussCuKa1","Cu Ka1 PDF",energy,meanCuKa1,sigmaCuKa);
+ 
+  RooRealVar cuKa1N("cuKa1N","cu Ka1 Events",15000,0,100000);
+
+  //Cuka2
+
+  RooRealVar CuKa2Diff("CuKa2Diff","diff Ka1 - Ka2",19.95,19.,20.);
+  RooRealVar CuKa2Ratio("CuKa2Ratio","ratio Ka1 / Ka2",0.51,0.,1.);
+
+  RooGenericPdf meanCuKa2("meanCuKa2","diff Cu Ka1 - Ka2  PDF","meanCuKa1 - CuKa2Diff",RooArgSet(meanCuKa1,CuKa2Diff));
+  RooGaussian gaussCuKa2("gaussCuKa2","Cu Ka2 PDF",energy,meanCuKa2,sigmaCuKa); 
+
+  RooGenericPdf cuKa2N("CuPdfRatio","ratio Cu Ka1 / Ka2  PDF","cuKa1N*CuKa2Ratio",RooArgSet(cuKa1N,CuKa2Ratio));
+
+  //NiKa1
+
+  RooRealVar meanNiKa1("meanNiKa1","mean of Ni Ka1 gaussian",7478.15,7470.,7500.);
+  RooRealVar sigmaNiKa("sigmaNiKa","width of Ni Ka1 gaussian",70.,50.,90.);
+  RooGaussian gaussNiKa1("gaussNiKa1","Ni Ka1 PDF",energy,meanNiKa1,sigmaNiKa); 
+ 
+  RooRealVar niKa1N("niKa1N","Nickel Ka1 Events",200,0,1000);
+
+  //Nika2
+
+  RooRealVar NiKa2Diff("NiKa2Diff","diff Ka1 - Ka2",17.26,17.,18.);
+  RooRealVar NiKa2Ratio("NiKa2Ratio","ratio Ka1 / Ka2",0.51,0.,1.);
+
+  RooGenericPdf meanNiKa2("meanNiKa2","diff Ni Ka1 - Ka2  PDF","meanNiKa1 - NiKa2Diff",RooArgSet(meanNiKa1,NiKa2Diff));
+  RooGaussian gaussNiKa2("gaussNiKa2","Cu Ka2 PDF",energy,meanNiKa2,sigmaNiKa);
+
+  RooGenericPdf niKa2N("NiPdfRatio","ratio Ni Ka1 / Ka2  PDF","niKa1N*NiKa2Ratio",RooArgSet(niKa1N,NiKa2Ratio)); 
+
+  //Background
+  
+
+  //the variables for the background function are defined earlier
+  
+  RooChebychev backgF("backgF","Background",energy,RooArgSet(backSl));
+  
+  // PEP violating tranistion
+
+  RooRealVar meanForbidden("meanForbidden","mean of the forbidden tranistion", 7729, 7728.,7730.);
+  RooGaussian gaussForbidden("gaussForbidden","Forbidden pdf",energy,meanForbidden,sigmaCuKa);
+
+  RooRealVar Nsig("Nsig","signal Events",10.,0.,500.);
+  
+  RooAddPdf PDFtot_nuis("PDFtot_nuis","PDFtot_nuis",RooArgList(gaussCuKa1,gaussCuKa2,gaussNiKa1,gaussNiKa2,backgF,gaussForbidden),RooArgList(cuKa1N,cuKa2N,niKa1N,niKa2N,backC,Nsig));
+  
+  CuKa2Diff.setConstant(kTRUE);
+  CuKa2Ratio.setConstant(kTRUE);
+  NiKa2Diff.setConstant(kTRUE);
+  NiKa2Ratio.setConstant(kTRUE);
+  meanForbidden.setConstant(kTRUE); 
+  meanCuKa1.setConstant(kTRUE);
+  meanNiKa1.setConstant(kTRUE);
+  
+  PDFtot_nuis.fitTo(*withAD); // fit to data with current
+
+  backC.setConstant(kFALSE); 
+  // set Background to parameters without current
+  backC.setError(252.7);
+  backSl.setConstant(kFALSE);
+  backSl.setError(0.010902);
+  
+  nuisW->import(PDFtot_nuis);
+  ModelConfig sbModel;
+  sbModel.SetWorkspace(*nuisW);
+  sbModel.SetPdf("PDFtot_nuis"); 
+  sbModel.SetName("S+B Model");
+  RooRealVar* poi = nuisW->var("Nsig");
+  poi->setRange(0.,500.); 
+  sbModel.SetParametersOfInterest(*poi);
+  sbModel.SetNuisanceParameters(RooArgSet(backC,backSl));
+
+  nuisW->factory("Uniform::prior(Nsig)"); 
+  sbModel.SetPriorPdf(*nuisW->pdf("prior"));
+
+  //Construct the bayesian calculator
+  BayesianCalculator bc(*(wConst->data("withDH")), sbModel); // initialize with data taken with current
+  bc.SetConfidenceLevel(0.997);
+  bc.SetLeftSideTailFraction(0.); 
+  bc.SetIntegrationType("plain");  
+  bc.SetNumIters(10000); 
+  // set number of iterations (i.e. number of toys for MC integrations)
+  bc.SetScanOfPosterior(100);
+  SimpleInterval* bcInt = bc.GetInterval();
+  RooPlot *bcPlot = bc.GetPosteriorPlot(true);
+  
+\end{lstlisting}
+  
 \end{appendices}

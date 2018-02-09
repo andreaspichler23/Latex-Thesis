@@ -1,0 +1,186 @@
+\chapter{Data Analysis}
+\label{DataAnalysis2}
+
+The data acquired with the procedures described in chapter \ref{chap:DataAnalysis1} were analyzed using several techniques. The final spectra in the energy region of the PEP-violating transition with and without current are shown together with fit and residuals in figures \ref{fig:withCuwithFit} and \ref{fig:noCuwithFit}. The Cu and Ni lines were fit like it was described in chapter \ref{sec:eneCal}. 
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{./Figures/root/Plots/altered/withCurrCuEneWithFit_alt.pdf}
+ % withCurrCuEneWithFit.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{Data taken with current on together with the fit. In the lower pad the fit residuals divided by the square root of the fit function are shown. The position of the PEP violating transition is marked in black.}
+ \label{fig:withCuwithFit}
+\end{figure}
+%
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{./Figures/root/Plots/altered/noCurrCuEneWithFit_alt.pdf}
+ % withCurrCuEneWithFit.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{Data taken without current together with the fit. In the lower pad the fit residuals divided by the square root of the fit function are shown. The position of the PEP violating transition is marked in black.}
+ \label{fig:noCuwithFit}
+\end{figure}
+
+
+
+\section{Spectral Subtraction Analysis}
+\label{sec:rsanalysis}
+
+One approach to calculate the upper limit for the probability of the violation of the PEP from two energy spectra recorded with and without current was described by E. Ramberg and G. A. Snow in \cite{RAMBERG1990}. The basic principle is to look for an excess of events in the energy region of the Pauli-forbidden transition in the spectrum taken with current compared to the spectrum without current (see also chapter \ref{sec:VIP2expMethod}). If the PEP can be violated, photons from this transition are expected to occur and introduce this difference between the two spectra. From the difference or the lack thereof, and experimental parameters, the probability for the violation of the PEP or an upper limit for it can be calculated. This analysis has been presented for a subset of the data in \cite{Curceanu2017a}.
+
+Using the same notation as in the publications about the VIP2 experiment, the number of possible detected events from PEP-violating transitions $\Delta N_{x}$ is related to the probability that the PEP is violated in an atom \betatwo (see also chapter \ref{sec:thVioPEP}) as shown in equation \ref{eq:rsUpperLimit}.
+\begin{equation}
+ \Delta N_{x} \geq \frac{\beta^{2}}{2} N_{new} \frac{N_{int}}{10} \textrm{(detection efficiency)}
+ \label{eq:rsUpperLimit}
+\end{equation} 
+Here N$_{new}$ is the number of new electrons introduced by the current. It can be calculated from the magnitude of the current (\textit{I}), the data taking time ($\Delta$\textit{t}) and the electronic charge (\textit{e}) as follows:
+\begin{equation}
+ N_{new} = \frac{1}{e} \sum{(I \Delta t)}
+\end{equation} 
+N$_{int}$ is the number of scattering reaction a single electron undergoes during the passage of the Cu target. It is of the order of $\frac{D}{\mu}$, where \textit{D} is the length of the target and $\mu$ is the mean free path length of electrons in Cu. The probability for absorption of the electron in the case of a scattering is assumed to be larger than 10 \% \cite{RAMBERG1990}, which introduces the factor $\frac{1}{10}$ and the greater or equal sign in the equation. The detection efficiency is the probability for a 7.7 keV photon produced in the target to be detected. This probability includes photon absorption in the target and the finite solid angle covered by the SDDs. The equation can then be rewritten as:
+\begin{equation}
+ \Delta N_{x} \geq \frac{\beta^{2}}{2} \frac{1}{10} \frac{D \sum{(I \Delta t)}}{\mu e} \textrm{(detection efficiency)}
+\end{equation}
+or 
+\begin{equation}
+ \frac{\beta^{2}}{2} \leq \frac{10 \mu e}{D \sum{(I \Delta t})} \frac{\Delta N_{x}}{\textrm{(detection efficiency)}}
+ \label{eq:beta2_1}
+\end{equation} 
+The values for these parameters used in the analysis are summed up in table \ref{tab:expPara}.
+%
+\begin{table}[h]
+ \centering
+\begin{tabular}{ |c|c|c|c|c| } 
+ \hline
+  $\mu$ & D & I & $\Delta$t & detection efficiency\\ 
+ \hline
+  3.91 $\times$ 10$^{-6}$ cm\cite{Elliott2012} & 7.1 cm & 100 A & 81 days 10 hours & 1.82 \% \ref{chap:Simulation} \\
+  \hline
+\end{tabular}
+\caption{Values for the experimental parameters for the analysis of the VIP2 data.}
+\label{tab:expPara}
+\end{table}
+Inserting these values into equation \ref{eq:beta2_1}, the relation between amount of counts from non-Paulian transitions and the probability for the violation of the PEP can be obtained:
+\begin{equation}
+  \frac{\beta^{2}}{2} \leq \frac{\Delta N_{x}}{1.46 \times 10^{31}}
+  \label{eq:beta2calc}
+\end{equation} 
+The number of detected counts $\Delta N_{x}$ needs to be determined from the energy spectra with and without current. To avoid problems with normalization, a dataset from the data without current was selected with the same data taking time as the data with current (81 days 10 hours). $\Delta N_{x}$ was calculated as the difference in counts in the region of interest (ROI) around the non-Paulian Cu K$\alpha$ transition. As the center of this region the energy of the forbidden Cu K$\alpha_{2}$ transition of 7729 eV (see chapter \ref{sec:VIP2expMethod}) is usually taken. As its width the FWHM of the Cu K$\alpha$ line of the spectrum with current is assumed. The energy resolutions at 8 keV for the spectra of the sum of all 6 SDDs with and without current were determined by fitting the Cu lines in the same way as it was done for the calibration lines of Ti and Mn (see chapter \ref{sec:eneCal}):
+\begin{equation}
+ \textrm{FWHM (8 keV)} = 188.5 \pm 1.86 \textrm{ eV} \hspace{2cm} \textrm{with current}
+\end{equation} 
+\begin{equation}
+ \textrm{FWHM (8 keV)} = 177.7 \pm 1.73 \textrm{ eV} \hspace{1.4cm} \textrm{without current}
+\end{equation} 
+\change{maybe redo fit with RIE}To account for a theoretical uncertainty of 10 eV of the energy of the PEP-violating transition \cite{Bartalucci2006}, the width of the ROI was chosen as 200 eV instead of 188.5 eV. It spans the energy range from 7629 eV - 7829 eV. The energy region around the Pauli-forbidden transition of the two spectra consisting of the sum of all six SDDs for the spectra with and without current are shown in figure \ref{fig:withWithoutRoi}.
+\begin{figure}[h]
+ \centering
+ \begin{subfigure}{.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/altered/withWoCurrentRoi_alt.pdf}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}{.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/altered/subtrHistRoi_alt.pdf}
+ \end{subfigure}
+ \caption{Spectrum with current (red) and without current (blue) around the region of interest (green) on the left. The subtracted spectrum is shown on the right.}
+ \label{fig:withWithoutRoi}
+\end{figure}
+On the right side of the figure the spectrum without current was subtracted from the spectrum with current. No significant peak structure can be made out in this figure around the 7729 eV of the forbidden transition. From these spectra $\Delta N_{x}$ can be calculated as the difference between the counts in the ROI in the spectrum with current and the spectrum without current:
+\begin{itemize}
+ \item with I = 100 A: $N_{X}$ = 4119 $\pm$ 64
+ \item with I = 0 A: $N_{X}$ = 4056 $\pm$ 64
+ \item for the subtracted spectrum: $\Delta N_{X}$ = 63 $\pm$ $\sqrt{\textrm{64}^{2} + \textrm{64}^{2}}$ = 63 $\pm$ 91
+\end{itemize}
+The statistical error on the counts in the ROI in the spectra with and without current are calculated as $\sqrt{N}$ when $N$ are the counts, as the number of events are distributed according to a Poisson distribution with mean $N$. \change{more information?} The statistical error of $\Delta N_{X}$ is the square root of the sum of variances of $N_{X}$. The number of events from PEP-violating transitions is compatible with zero within 1$\sigma$. An upper limit on the probability for a violation of the PEP can be set using 3$\sigma$ as the upper limit of $\Delta N_{X}$ resulting in a 99.7 \% C.L.:
+\begin{equation}
+ \frac{\beta^{2}}{2} \leq \frac{3 \times 91}{1.46 \times 10^{31}} = 1.87 \times 10^{-29}
+\end{equation} 
+This value is an improvement by a factor of 2.5 compared to the results of the VIP experiment of 4.7 $\times$ 10$^{-29}$ given in \cite{Curceanu2011}.
+
+\section{Simultaneous Fit}
+
+\change{add plot with difference between fit function and with current hist}Another approach to determining the upper limit on the probability for the violation of the PEP is the simultaneous fit of the signal (with current) and the background (without current) spectrum. This method was applied in the analysis of kaonic atomic precision spectroscopy data in \cite{Bazzi2016}. A global $\chi^{2}$ function was defined for the fits of the two histograms of the energy spectra which was minimized for both spectra at the same time. A Gaussian distribution was added to the fit function of the signal histogram at 7729 eV, which represents the contribution from non-Paulian transitions. Its position was fixed, its width was the same as the one of the Cu K$\alpha$ line of the signal histogram and its gain was a free parameter.
+
+For the background function, a 1$^{st}$ order polynomial was chosen. The two parameters for this function were free and common for the fits of both histograms. The position of the Cu K$\alpha$, Cu K$\beta$ and Ni K$\alpha$ lines were kept fixed to their physical values. All other parameters like the widths and the gain of these lines were free parameters and independent for both histograms. With this method, the estimated number of candidate events and its error can directly be obtained from the converged minimum $\chi^{2}$ fit. In this case the MINUIT package of the CERN ROOT software framework with MINOS error estimation was used. Special care was taken that the crucial error assessment was not perturbed by boundaries of fit parameter ranges. The results of this fit are shown in figure \ref{fig:simFit}. The fit corresponds to a reduced $\chi^{2}$ of 1.27.
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{./Figures/root/Plots/simFit.pdf}
+ % simFit.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{The fits obtained by a simultaneous fit of the signal histogram with current (above) and the background histogram (below) with a few common parameters.}
+ \label{fig:simFit}
+\end{figure}
+
+This method has a few advantages compared to the subtraction method described in chapter \ref{sec:rsanalysis}. On the one hand the definition of a region of interest is not necessary. In the simultaneous fit function this is not needed, as the fit makes use of a wide energy range for the determination of the parameters of the global fit function, from which the number of candidate PEP-violating events is calculated. On the other hand the error of the gain of the Gaussian representing the forbidden transition takes into account uncertainties of the other fit parameters. These uncertainties are usually not evaluated using the subtraction method. 
+
+The fit result for the number of detected photons from PEP-violating transitions was 102 $\pm$ 79. This is more than 1$\sigma$ away from but not enough to claim a discovery. This is why more data is needed to prove or disprove this excess. In the meantime the error of the gain of the Gaussian can, in analogy to the subtraction method, be used to set a 3$\sigma$ upper limit of detected photons from PEP-violating transitions of 3 $\times$ 79. With formula \ref{eq:beta2calc} the upper limit for the violation of the PEP can be calculated:
+\begin{equation}
+ \frac{\beta^{2}}{2} \leq \frac{3 \times 79}{1.46 \times 10^{31}} = 1.63 \times 10^{-29}
+\end{equation} 
+
+\section{Bayesian Count Based Analysis}
+\label{sec:bayes1}
+
+The Bayes' theorem links the estimate of a parameter (\textit{a-priori distribution, $f_{0}$}) with the probability to find the measured data given a certain value for this parameter (\textit{likelihood function, L}) to calculate the probability distribution for this parameter given the measured data (\textit{a-posteriori distribution, f}). For a measured quantity \textit{X} and a parameter $\lambda$ that shall be estimated from these data it can be written as:
+\begin{equation}
+ f(\lambda|X) = \frac{L(X|\lambda)f_{0}(\lambda)}{\int L(X|\lambda)f_{0}(\lambda)d\lambda}
+\end{equation} 
+For a detailed discussion of the uses of this theorem in particle physics see for example \cite{Behnke}. 
+
+The following model was described in \cite{Piscicchia2010}. In the case of the VIP2 data the measured data can be interpreted as the number of counts \textit{X} in a certain energy region which is distributed according to a Poisson distribution characterized by the parameter $\lambda$.
+\begin{equation}
+ L(X|\lambda) = \frac{\lambda^{X}e^{-\lambda}}{X!}
+\end{equation} 
+This is the likelihood function of the number of counts \textit{X} given a parameter $\lambda$. The width of the energy region is arbitrary, as any two energy regions can be combined and the sum of their counts will again be distributed according to a Poisson distribution. As non-informative prior for $\lambda$ a flat uniform distribution larger than zero was chosen. This encodes the fact, that there can not be a negative amount of events from PEP-violating transitions. The posterior for $\lambda$ can be written with the Bayes theorem as:
+\begin{equation}
+ f(\lambda|X) = \frac{\frac{\lambda^{X}e^{-\lambda}}{X!} f_{0}(\lambda)}{\int_{0}^{\infty} \frac{\lambda^{X}e^{-\lambda}}{X!} f_{0}(\lambda)d\lambda}
+\end{equation} 
+As the integral over a Poisson distribution is one, the normalization integral equals one and the posterior for $\lambda$ is:
+\begin{equation}
+ f(\lambda|X) = \frac{\lambda^{X}e^{-\lambda}}{X!}
+ \label{eq:gammaDist}
+\end{equation} 
+This is a Gamma distribution characterized by the parameters $a$ (\textit{shape parameter}) = $X$ + 1 and $b$ (\textit{scale parameter}) = 1. The mean of $\lambda$ is equal to $ab$ = $X$ + 1, the variance is $ab^{2}$ = $X$ + 1 and the mode is $(a-1)b$ = $X$. In the case of data without current and therefore with no signal, the only contribution to the number of events in the region of interest are background events, which we now call $X_{bg}$ with a distribution parameter $\lambda_{bg}$. For the histogram with current there are two contributions to the number events in the ROI $X_{s}$, namely from background events and from signal events from the PEP-violating transition $X_{sg}$. The counts coming from background is seen as drawn from a Poisson distribution with the same parameter as the one from the histogram without current $\lambda_{bg}$, and the amount of signal counts is drawn from a distribution parametrized by $\lambda_{sg}$. The likelihood function for the signal histogram is then:
+\begin{equation}
+ L(X_{s}|\lambda_{sg},\lambda_{bg}) = \frac{(\lambda_{sg}+\lambda_{bg})^{X_{s}}e^{-(\lambda_{sg}+\lambda_{bg})}}{X_{s}!}
+\end{equation} 
+Appyling Bayes' theorem with a constant positive prior for $\lambda_{sg}$, the distribution of this parameters as a function of $X_{s}$ and $\lambda_{bg}$ can be obtained:
+\begin{equation}
+ f(\lambda_{sg}|X_{s},\lambda_{bg}) = \frac{(\lambda_{sg}+\lambda_{bg})^{X_{s}}e^{-\lambda_{sg}}}{\int_{0}^{\infty} (\lambda_{sg}+\lambda_{bg})^{X_{s}}e^{-\lambda_{sg}} d\lambda_{sg}}
+\end{equation} 
+The normalization integral does not reduce to one but equals $e^{\lambda_{bg}}\Gamma(1+X_{s},\lambda_{bg})$, as the integration variable is $\lambda_{sg}$ and not ($\lambda_{bg}$ + $\lambda_{sg}$). The distribution of $\lambda_{sg}$ was calculated numerically by sampling $\lambda_{bg}$ according to its distribution obtained from $X_{bg}$ (see equation \ref{eq:gammaDist}). The Mathematica software framework was used \cite{Research2016}. The code is listed in \ref{chap:bayesCode}. Counts in the ROI with current $X_{s}$ were equal to 4119 and counts in the ROI without current $X_{bg}$ were equal to 4056 (see also chapter \ref{sec:rsanalysis}). 
+
+The confidence interval corresponding to a 99.7 \% C.L. spans 0 < $\lambda_{sg}$ < 310. With equation \ref{eq:beta2calc}, the upper limit on the probability for a violation of the PEP can be calculated:
+\begin{equation}
+ \frac{\beta^{2}}{2} \leq \frac{310}{1.46 \times 10^{31}} = 2.13 \times 10^{-29}
+\end{equation} 
+The posterior probability density (P.P.D.) and the cumulative distribution function (C.D.F.) of the posterior probability of the parameter $\lambda_{sg}$ are shown in figure \ref{fig:bayesPdf}.
+\begin{figure}[h]
+ \centering
+ \begin{subfigure}{.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/bayesPDF.pdf}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}{.49\textwidth}
+ \centering
+ \includegraphics[width=\linewidth]{./Figures/root/Plots/bayesCDF.pdf}
+ \end{subfigure}
+ \caption{The posterior probability density (left) and cumulative distribution function (right) of $\lambda_{sg}$ for a flat positive prior.}
+ \label{fig:bayesPdf}
+\end{figure}
+From the C.D.F. an upper limit for $\lambda_{sg}$ at 99.7 \% confidence level of about 310 can be estimated.
+
+\section{Bayesian Fit Based Analysis}
+
+The RooFit \cite{Verkerke2003} and RooStats \cite{Moneta2010} frameworks were used to calculate an estimation for the number of events from PEP-violating transitions using not only the number of counts in the ROI, but the information from the complete histogram. In a first step the histogram without current was fit. The background level was extracted as a first order polynomial including its errors. Then the histogram with current was fit with the parameters for the background taken from the previous fit and kept constant. The fit of the histogram with current included a Gaussian function with a fixed mean of 7729 eV and the same width as the main Cu K$\alpha$ peak. The outcome of this fit was used as an input for a RooStats::BayesianCalculator. The number of signal events at 7729 eV was the parameter of interest. A uniform distribution for values larger than zero was used as its a-priori distribution. The two parameters of the first order polynomial of the background were treated as the nuisance parameters and were marginalized using a MC integration method. Parts of the code are shown in \ref{chap:bayesCode}. The posterior density for the amount of signal events is shown in figure \ref{fig:bayesNuis}\change{normalization?}. The upper limit of the parameter of interest corresponding to a 99.7 \% confidence level is at 365 signal events. With formula \ref{eq:beta2calc}, the upper limit for the probability for a violation of the PEP can be calculated:
+\begin{equation}
+ \frac{\beta^{2}}{2} \leq \frac{365}{1.46 \times 10^{31}} = 2.51 \times 10^{-29}
+\end{equation} 
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.6\textwidth]{./Figures/root/Plots/bayesianAnalysis_Nuisance.pdf}
+ % bayesianAnalysis_Nuisance.pdf: 842x595 pixel, 72dpi, 29.70x20.99 cm, bb=0 0 842 595
+ \caption{The posterior probability density for the number of events from PEP-violating transitions for a flat positive prior.}
+ \label{fig:bayesNuis}
+\end{figure}
+
+

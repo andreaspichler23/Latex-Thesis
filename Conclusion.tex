@@ -1,4 +1,60 @@
-\chapter{Conclusion}
+\chapter{Summary and Outlook}
 \label{chap:Conclusion}
 
-sum up and conclude
+The goal of this work was to conduct the most stringent test of Spin-Statistics and specifically the Pauli Exclusion Principle for electrons in an experiment circumventing the Messiah-Greenberg superselection rule. For this purpose the VIP2 (Violation of the Pauli Principle) experimental setup was built and tested at Stefan Meyer Institute and was later brought to the underground laboratory LNGS in Italy for data taking. The predecessor experiment VIP set an upper limit for the probability for the violation of the PEP of 4.7 $\times 10^{-29}$ \cite{Curceanu2011}. A violation of the PEP can be detected in the VIP2 experiment by searching for photons from a Cu conductor, which are coming from Pauli-forbidden 2p to 1s transitions. These transitions have a slightly lower transitions energy than normal transitions, because they can have 2 electrons in the ground state already before the transition happens. The second electron increases the shielding of the potential of the nucleus and thereby reduces the transition energy by around 300 eV. These transitions are expected when a current is flowing through the Cu conductor. The limit on the PEP is calculated from an excess of photons in this energy region in the histogram recorded with a current compared to the histogram without current.
+
+The core part of the setup are Silicon Drift Detectors (SDDs) recording the photon spectrum from the Cu conductor. An active shielding system consisting of plastic scintillators read out by Silicon Photomultipliers was installed around these detectors to veto events caused by external ionizing radiation. These systems were exhaustively tested first at LNF in Italy and at SMI together with the cooling system of the SDDs and the slow control and data acquisition systems. The results are summed up in table \ref{tab:testMeas}.
+\begin{table}[h!]
+ \centering
+\begin{tabular}{ |B|B|B|B||B|B| }
+ \hline
+ \multicolumn{4}{|c|}{Active Shielding} & \multicolumn{2}{|c|}{SDDs}\\
+ \hline
+ \hline
+ \multicolumn{3}{|c|}{Detection Efficiency} & Time Resolution & Energy Resolution & Time Resolution \\
+ \hline
+ 500 MeV e$^{-}$ & Cosmic Radiation & $\gamma$ Radiation & FWHM & FWHM @ 6 keV & FWHM \\
+ \hline
+ \hline
+ 98 \% & > 90 \% & < 1 \% & 2.3 ns & 150 eV & 380 ns  \\
+ \hline
+\end{tabular}
+\caption{Results of the test measurements at LNF and at SMI for the active shielding and the SDDs.}
+\label{tab:testMeas}
+\end{table}
+The argon cooling kept the temperature of the SDDs at about 100 K. The functionality of the slow control and the data acquisition systems was verified. A current through the Cu conductor of up to 180 A was tested and a stable target temperature of about 20 $^{\circ}$C was verified under these conditions. The data taken at SMI and LNGS corresponds to the results predicted by Geant4 simulations in several aspects:
+\begin{itemize}
+ \item The simulated SDD hit rate of cosmic radiation corresponds to the measured rate of events rejected by scintillator veto at SMI.
+ \item The scintillator hit rate of cosmic radiation estimated from simulations corresponds to the measured rate of events with high QDC values at LNGS.
+ \item The constant part of the background spectrum measured at LNGS is equivalent to the one obtained by simulations of high energy photon radiation. 
+\end{itemize}
+
+The final analyzed data corresponds to 81 days and 10 hours with a 100 A current and the same amount of data without current for all six SDDs. The upper limit for the probability for a violation of the PEP was calculated from the difference in the energy region of the PEP-forbidden transition at 7729 eV of these two spectra. Several techniques were used to calculate the 99.7 \% C.L. upper limit, which give slightly different values:
+\begin{enumerate}
+ \item Difference of counts in the region of interest of the two histograms. The upper limit is calculated from the statistical error of this difference, assuming a Poisson distribution for the number of counts in each energy bin.
+ \item Simultaneous fit of the two spectra, with an additional signal Gaussian function in the histogram with current. The upper limit is calculated from the statistical error of the gain of this Gaussian.
+ \item Difference of counts in the region of interest of the two histograms using Bayesian statistics. The upper limit is calculated from the posterior distribution, which uses a flat positive prior distribution and a Poisson distribution as likelihood function.
+ \item A fit of the histogram with current including a Gaussian function at the energy of the PEP-forbidden transition is done, using the background function obtained from the histogram without current. From the result of this fit and the data a posterior distribution for the amount of signal counts is calculated using a flat positive prior. 
+\end{enumerate}
+The results of these different methods are summed up in table \ref{tab:results}.
+\begin{table}[h!]
+ \centering
+\begin{tabular}{ |x{2.3cm}|x{2.5cm}|x{3cm}|x{2.5cm}|x{2.3cm}| }
+\hline
+ & 1. Spectrum Subtraction & 2. Simultaneous Fit & 3. Bayesian Subtraction & 4. Bayesian Fit \\
+ \hline
+ Upper Limit \newline \betatwo & 1.87 $\times$ 10$^{-29}$ & 1.63 $\times$ 10$^{-29}$ & 2.13 $\times$ 10$^{-29}$ & 2.51 $\times$ 10$^{-29}$\\
+ \hline
+\end{tabular}
+\caption{Results for the upper limit for the violation of the PEP using different analysis techniques.}
+\label{tab:results}
+\end{table}
+For comparison with other publications about this and related experiments, the limit from the spectrum subtraction of:
+\begin{equation}
+ \frac{\beta^{2}}{2} \leq 1.87 \times 10^{-29}
+\end{equation} 
+can be used. This result represents an improvement on the limit set by the VIP experiment by a factor of 2.5. 
+
+The VIP2 setup is currently (February 2018) at the Stefan Meyer Institute for testing and mounting new SDDs with a larger active area (23 cm$^{2}$) and a larger operating temperature of around 230 K, which enables the use of Peltier cooling \cite{Pichler2017}. After the work at SMI is finished, the setup will be transported to LNGS, where further data will be taken with an additional passive shielding consisting of Pb and Cu blocks of 5 cm thickness. After around 3 more years of data taking, the anticipated new upper limit for the probability of the violation of the Pauli Exclusion Principle will be on the order of 10$^{-30}$- 10$^{-31}$. Or else, a violation of the Pauli Exclusion Principle will be discovered.
+
+

@@ -346,4 +346,61 @@ M.~Krause and Oliver J.
   Several KLL Auger Lines}.
 \newblock {\em Journal of Physical and Chemical Reference Data}, 8(2), 1979.
 
+\bibitem{Curceanu2017a}
+Catalina Curceanu, Hexi Shi, Sergio Bartalucci, Sergio Bertolucci, Massimiliano
+  Bazzi, Carolina Berucci, Mario Bragadireanu, Michael Cargnelli, Alberto
+  Clozza, Luca~De Paolis, Sergio~Di Matteo, Jean-Pierre Egger, Carlo Guaraldo,
+  Mihail Iliescu, Johann Marton, Matthias Laubenstein, Edoardo Milotti, Marco
+  Miliucci, Andreas Pichler, Dorel Pietreanu, Kristian Piscicchia, Alessandro
+  Scordo, Diana Sirghi, Florin Sirghi, Laura Sperandio, Oton~Vazquez Doce,
+  Eberhard Widmann, and Johann Zmeskal.
+\newblock {Test of the Pauli Exclusion Principle in the VIP-2 Underground
+  Experiment}.
+\newblock {\em Entropy}, 19(7):300, 2017.
+
+\bibitem{Bartalucci2006}
+S.~Bartalucci, S.~Bertolucci, M.~Bragadireanu, M.~Cargnelli, M.~Catitti,
+  C~Curceanu (Petrascu), S~Di Matteo, J-P~P. Egger, C.~Guaraldo, M.~Iliescu,
+  T.~Ishiwatari, M.~Laubenstein, J.~Marton, E.~Milotti, D.~Pietreanu, T.~Ponta,
+  D.~L. Sirghi, F.~Sirghi, L.~Sperandio, O~Vazquez Doce, E.~Widmann, and
+  J.~Zmeskal.
+\newblock {New experimental limit on the Pauli exclusion principle violation by
+  electrons}.
+\newblock {\em Physics Letters B}, 641(1):18--22, 2006.
+
+\bibitem{Bazzi2016}
+M.~Bazzi, G.~Beer, G.~Bellotti, C.~Berucci, A.M. Bragadireanu, D.~Bosnar,
+  M.~Cargnelli, C.~Curceanu, A.D. Butt, A.~D'Uffizi, C.~Fiorini, F.~Ghio,
+  C.~Guaraldo, R.S. Hayano, M.~Iliescu, T.~Ishiwatari, M.~Iwasaki, P.~{Levi
+  Sandri}, J.~Marton, S.~Okada, D.~Pietreanu, K.~Piscicchia, A.~{Romero Vidal},
+  E.~Sbardella, A.~Scordo, H.~Shi, D.L. Sirghi, F.~Sirghi, H.~Tatsuno,
+  O.~{Vazquez Doce}, E.~Widmann, and J.~Zmeskal.
+\newblock {K-series X-ray yield measurement of kaonic hydrogen atoms in a
+  gaseous target}.
+\newblock {\em Nuclear Physics A}, 954:7--16, oct 2016.
+
+\bibitem{Behnke}
+Olaf Behnke, Kevin Kr{\"{o}}ninger, and Thomas Sch{\"{o}}rner-Sadenius.
+\newblock {\em {Data Anlysis in High Energy Physics}}.
+
+\bibitem{Piscicchia2010}
+K~Piscicchia, C~Curceanu, and E~Milotti.
+\newblock {Bayesian model for the analysis of the VIP data}.
+\newblock 2010.
+
+\bibitem{Research2016}
+Wolfram Research.
+\newblock {Mathematica 10.4}, 2016.
+
+\bibitem{Verkerke2003}
+Wouter Verkerke and David Kirkby.
+\newblock {The RooFit toolkit for data modeling}.
+\newblock 2003.
+
+\bibitem{Moneta2010}
+Lorenzo Moneta, Kevin Belasco, Kyle Cranmer, Sven Kreiss, Alfio Lazzaro, Danilo
+  Piparo, Gregory Schott, Wouter Verkerke, and Matthias Wolf.
+\newblock {The RooStats Project}.
+\newblock 2010.
+
 \end{thebibliography}
